@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <complex>
 #include <ctime>
 
@@ -22,14 +23,21 @@ void printTransposedComplexMatrix(complex<double> **matrix, int rowsCount, int c
     for (i = 0; i < columnsCount; i++) {
         for (j = 0; j < rowsCount; j++) {
             if (i == j || matrix[i][j].imag() == 0.000000) {
-                printf("%5.0f\t ", matrix[i][j].real());
+                cout << setw(8) << real(matrix[i][j]);
             }
             else {
-                printf("%3.0f%+.0fi\t ", matrix[i][j].real(), matrix[i][j].imag());
+                if (imag(matrix[i][j]) > 0) {
+                    cout << setw(5) << real(matrix[i][j]) << "+" << imag(matrix[i][j]) << "i";
+                }
+                else {
+                    cout << setw(5) << real(matrix[i][j]) << imag(matrix[i][j]) << "i";
+                }
             }
         }
-        printf("%s", "\n");
+        cout << endl;
     }
+
+    cout << endl;
 }
 
 void printComplexMatrix(complex<double> **matrix, int rowsCount, int columnsCount) {
@@ -38,14 +46,21 @@ void printComplexMatrix(complex<double> **matrix, int rowsCount, int columnsCoun
     for (i = 0; i < rowsCount; i++) {
         for (j = 0; j < columnsCount; j++) {
             if (i == j || matrix[i][j].imag() == 0.000000) {
-                printf("%5.0f\t ", matrix[i][j].real());
+                cout << setw(8) << real(matrix[i][j]);
             }
             else {
-                printf("%3.0f%+.0fi\t ", matrix[i][j].real(), matrix[i][j].imag());
+                if (imag(matrix[i][j]) > 0) {
+                    cout << setw(5) << real(matrix[i][j]) << "+" << imag(matrix[i][j]) << "i";
+                }
+                else {
+                    cout << setw(5) << real(matrix[i][j]) << imag(matrix[i][j]) << "i";
+                }
             }
         }
-        printf("%s", "\n");
+        cout << endl;
     }
+
+    cout << endl;
 }
 
 complex<double> **transposeComplexMatrix(complex<double> **inputMatrix, int rowsCount, int columnsCount) {
@@ -101,10 +116,12 @@ void printTransposedMatrix(int **matrix, int rowsCount, int columnsCount) {
 
     for (i = 0; i < columnsCount; i++) {
         for (j = 0; j < rowsCount; j++) {
-            printf("%d", matrix[i][j]);
+            cout << matrix[i][j];
         }
-        printf("%s", "\n");
+        cout << endl;
     }
+
+    cout << endl;
 }
 
 void printMatrix(int **matrix, int rowsCount, int columnsCount) {
@@ -112,10 +129,12 @@ void printMatrix(int **matrix, int rowsCount, int columnsCount) {
 
     for (i = 0; i < rowsCount; i++) {
         for (j = 0; j < columnsCount; j++) {
-            printf("%d", matrix[i][j]);
+            cout << matrix[i][j];
         }
-        printf("%s", "\n");
+        cout << endl;
     }
+
+    cout << endl;
 }
 
 int **transposeMatrix(int **matrix, int rowsCount, int columnsCount) {
@@ -159,24 +178,14 @@ int main() {
     int rowsCount;
     int columnsCount;
     rowsCount = columnsCount = rand() % 4 + 2;
-
-    printf("%s", "Rows: ");
-    printf("%d", rowsCount);
-    printf("%s", " ");
-    printf("%s", "Columns: ");
-    printf("%d", columnsCount);
-    printf("%s", "\n");
+    cout << "Rows: " << rowsCount << " " << "Columns: " << columnsCount << endl;
 
     int **original01Matrix = generateRandomMatrix(rowsCount, columnsCount);
-    printf("%s", "Original 01 matrix: ");
-    printf("%s", "\n");
+    cout << "Original 01 matrix: " << endl;
     printMatrix(original01Matrix, rowsCount, columnsCount);
 
-    printf("%s", "\n");
-
     int **transposed01Matrix = transposeMatrix(original01Matrix, rowsCount, columnsCount);
-    printf("%s", "Transposed 01 matrix: ");
-    printf("%s", "\n");
+    cout << "Transposed 01 matrix: " << endl;
     printTransposedMatrix(transposed01Matrix, rowsCount, columnsCount);
 
     delete (original01Matrix);
@@ -184,26 +193,16 @@ int main() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    printf("%s", "\n");
     complex<double> **originalComplexMatrix = generateRandomComplexMatrix(rowsCount, columnsCount);
-
-    printf("%s", "Original complex matrix: ");
-    printf("%s", "\n");
+    cout << "Original complex matrix: " << endl;
     printComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
 
-    printf("%s", "\n");
     complex<double> **transposedComplexMatrix = transposeComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
-
-    printf("%s", "Transposed complex matrix: ");
-    printf("%s", "\n");
+    cout << "Transposed complex matrix: " << endl;
     printTransposedComplexMatrix(transposedComplexMatrix, rowsCount, columnsCount);
 
-    printf("%s", "\n");
-
-    complex<double> **conjugatedComplexMatrix = conjugateComplexMatrix(transposedComplexMatrix, rowsCount,
-                                                                       columnsCount);
-    printf("%s", "Conjugated complex matrix: ");
-    printf("%s", "\n");
+    complex<double> **conjugatedComplexMatrix = conjugateComplexMatrix(transposedComplexMatrix, rowsCount, columnsCount);
+    cout << "Conjugated complex matrix: " << endl;
     printTransposedComplexMatrix(conjugatedComplexMatrix, rowsCount, columnsCount);
 
     delete (originalComplexMatrix);
