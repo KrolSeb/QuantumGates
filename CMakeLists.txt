@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
-project(TransposeConjugateMatrix C)
+project(TransposeConjugateMatrix)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
-add_executable(TransposeConjugateMatrix main.c)
-target_link_libraries(TransposeConjugateMatrix m)
+add_executable(TransposeConjugateMatrix main.cpp)

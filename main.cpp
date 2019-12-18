@@ -1,14 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <complex.h>
-#include <math.h>
+#include <iostream>
+#include <complex>
+#include <ctime>
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wimplicit-function-declaration"
+using namespace std;
 
-float complex **conjugateComplexMatrix(float complex **matrix, int rowsCount, int columnsCount) {
+complex<double> **conjugateComplexMatrix(complex<double> **matrix, int rowsCount, int columnsCount) {
     int i, j;
+
     for (i = 0; i < rowsCount; i++) {
         for (j = 0; j < columnsCount; j++) {
             matrix[i][j] = conj(matrix[i][j]);
@@ -18,49 +16,45 @@ float complex **conjugateComplexMatrix(float complex **matrix, int rowsCount, in
     return matrix;
 }
 
-void printTransposedComplexMatrix(float complex **matrix, int rowsCount, int columnsCount) {
+void printTransposedComplexMatrix(complex<double> **matrix, int rowsCount, int columnsCount) {
     int i, j;
+
     for (i = 0; i < columnsCount; i++) {
         for (j = 0; j < rowsCount; j++) {
-            if (i == j) {
-                printf("%5.0f\t ", creal(matrix[i][j]));
-            }
-            else if (cimag(matrix[i][j]) == 0.000000) {
-                printf("%5.0f\t ", creal(matrix[i][j]));
+            if (i == j || matrix[i][j].imag() == 0.000000) {
+                printf("%5.0f\t ", matrix[i][j].real());
             }
             else {
-                printf("%3.0f%+.0fi\t ", creal(matrix[i][j]), cimag(matrix[i][j]));
+                printf("%3.0f%+.0fi\t ", matrix[i][j].real(), matrix[i][j].imag());
             }
         }
         printf("%s", "\n");
     }
 }
 
-void printComplexMatrix(float complex **matrix, int rowsCount, int columnsCount) {
+void printComplexMatrix(complex<double> **matrix, int rowsCount, int columnsCount) {
     int i, j;
+
     for (i = 0; i < rowsCount; i++) {
         for (j = 0; j < columnsCount; j++) {
-            if (i == j) {
-                printf("%5.0f\t ", creal(matrix[i][j]));
-            }
-            else if (cimag(matrix[i][j]) == 0.000000) {
-                printf("%5.0f\t ", creal(matrix[i][j]));
+            if (i == j || matrix[i][j].imag() == 0.000000) {
+                printf("%5.0f\t ", matrix[i][j].real());
             }
             else {
-                printf("%3.0f%+.0fi\t ", creal(matrix[i][j]), cimag(matrix[i][j]));
+                printf("%3.0f%+.0fi\t ", matrix[i][j].real(), matrix[i][j].imag());
             }
         }
         printf("%s", "\n");
     }
 }
 
-float complex **transposeComplexMatrix(float complex **inputMatrix, int rowsCount, int columnsCount) {
+complex<double> **transposeComplexMatrix(complex<double> **inputMatrix, int rowsCount, int columnsCount) {
     int i, j;
 
     //Allocating array for transposed matrix - columns changed with rows
-    float complex **transposedMatrix = malloc(columnsCount * sizeof(float complex *));
+    auto **transposedMatrix = new complex<double> *[columnsCount];
     for (i = 0; i < columnsCount; i++) {
-        transposedMatrix[i] = malloc(rowsCount * sizeof(float complex));
+        transposedMatrix[i] = new complex<double>[rowsCount];
     }
 
     for (i = 0; i < rowsCount; i++) {
@@ -72,21 +66,21 @@ float complex **transposeComplexMatrix(float complex **inputMatrix, int rowsCoun
     return transposedMatrix;
 }
 
-float complex **generateRandomComplexMatrix(int rowsCount, int columnsCount) {
+complex<double> **generateRandomComplexMatrix(int rowsCount, int columnsCount) {
     int i, j;
 
-    float complex **matrix = malloc(rowsCount * sizeof(float complex *));
+    auto **matrix = new complex<double> *[rowsCount];
     for (i = 0; i < rowsCount; i++) {
-        matrix[i] = malloc(columnsCount * sizeof(float complex));
+        matrix[i] = new complex<double>[columnsCount];
     }
 
     for (i = 0; i < rowsCount; i++) {
         for (j = 0; j < columnsCount; j++) {
-            if (random() % 2 == 0){
-                matrix[i][j] = CMPLXF(random() % 20 - 10, (random() % 20 - 10));
+            if (rand() % 2 == 0) {
+                matrix[i][j] = complex<double>(static_cast<double> (rand() % 20 - 10), static_cast<double> (rand() % 20 - 10));
             }
             else {
-                matrix[i][j] = creal(CMPLXF(random() % 20 - 10, 0));
+                matrix[i][j] = real(complex<double>(static_cast<double> (rand() % 20 - 10), static_cast<double> (rand() % 20 - 10)));
             }
         }
     }
@@ -94,7 +88,7 @@ float complex **generateRandomComplexMatrix(int rowsCount, int columnsCount) {
     for (i = 0; i < rowsCount; i++) {
         for (j = 0; j < columnsCount; j++) {
             if (i == j) {
-                matrix[i][j] = creal(matrix[i][j]); // diagonal elements must be real
+                matrix[i][j] = matrix[i][j].real(); // diagonal elements must be real
             }
         }
     }
@@ -104,6 +98,7 @@ float complex **generateRandomComplexMatrix(int rowsCount, int columnsCount) {
 
 void printTransposedMatrix(int **matrix, int rowsCount, int columnsCount) {
     int i, j;
+
     for (i = 0; i < columnsCount; i++) {
         for (j = 0; j < rowsCount; j++) {
             printf("%d", matrix[i][j]);
@@ -114,6 +109,7 @@ void printTransposedMatrix(int **matrix, int rowsCount, int columnsCount) {
 
 void printMatrix(int **matrix, int rowsCount, int columnsCount) {
     int i, j;
+
     for (i = 0; i < rowsCount; i++) {
         for (j = 0; j < columnsCount; j++) {
             printf("%d", matrix[i][j]);
@@ -122,18 +118,17 @@ void printMatrix(int **matrix, int rowsCount, int columnsCount) {
     }
 }
 
-int **transposeMatrix(int **inputMatrix, int rowsCount, int columnsCount) {
+int **transposeMatrix(int **matrix, int rowsCount, int columnsCount) {
     int i, j;
 
     //Allocating array for transposed matrix - columns changed with rows
-    int **transposedMatrix = malloc(columnsCount * sizeof(int *));
-    for (i = 0; i < columnsCount; i++) {
-        transposedMatrix[i] = malloc(rowsCount * sizeof(int));
-    }
+    int **transposedMatrix = new int *[columnsCount];
+    for (i = 0; i < columnsCount; i++)
+        transposedMatrix[i] = new int[rowsCount];
 
     for (i = 0; i < rowsCount; i++) {
         for (j = 0; j < columnsCount; j++) {
-            transposedMatrix[j][i] = inputMatrix[i][j];
+            transposedMatrix[j][i] = matrix[i][j];
         }
     }
 
@@ -143,25 +138,27 @@ int **transposeMatrix(int **inputMatrix, int rowsCount, int columnsCount) {
 int **generateRandomMatrix(int rowsCount, int columnsCount) {
     int i, j;
 
-    int **matrix = malloc(rowsCount * sizeof(int *));
-    for (i = 0; i < rowsCount; i++) {
-        matrix[i] = malloc(columnsCount * sizeof(int));
-    }
+    int **matrix = new int *[rowsCount];
+    for (i = 0; i < rowsCount; i++)
+        matrix[i] = new int[columnsCount];
 
     for (i = 0; i < rowsCount; i++) {
         for (j = 0; j < columnsCount; j++) {
-            matrix[i][j] = random() % 2;
+            matrix[i][j] = rand() % 2;
         }
     }
 
     return matrix;
 }
 
+
 int main() {
-    srand(time(NULL));
+    //TODO: another implementation for generate random values
+    srand(static_cast<unsigned int>(time(nullptr)));
+
     int rowsCount;
     int columnsCount;
-    rowsCount = columnsCount = random() % 4 + 2;
+    rowsCount = columnsCount = rand() % 4 + 2;
 
     printf("%s", "Rows: ");
     printf("%d", rowsCount);
@@ -182,35 +179,35 @@ int main() {
     printf("%s", "\n");
     printTransposedMatrix(transposed01Matrix, rowsCount, columnsCount);
 
-    free(original01Matrix);
-    free(transposed01Matrix);
+    delete (original01Matrix);
+    delete (transposed01Matrix);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     printf("%s", "\n");
-    float complex **originalComplexMatrix = generateRandomComplexMatrix(rowsCount, columnsCount);
+    complex<double> **originalComplexMatrix = generateRandomComplexMatrix(rowsCount, columnsCount);
+
     printf("%s", "Original complex matrix: ");
     printf("%s", "\n");
     printComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
 
     printf("%s", "\n");
+    complex<double> **transposedComplexMatrix = transposeComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
 
-    float complex **transposedComplexMatrix = transposeComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
     printf("%s", "Transposed complex matrix: ");
     printf("%s", "\n");
     printTransposedComplexMatrix(transposedComplexMatrix, rowsCount, columnsCount);
 
     printf("%s", "\n");
 
-    float complex **conjugatedComplexMatrix = conjugateComplexMatrix(transposedComplexMatrix, rowsCount, columnsCount);
+    complex<double> **conjugatedComplexMatrix = conjugateComplexMatrix(transposedComplexMatrix, rowsCount,
+                                                                       columnsCount);
     printf("%s", "Conjugated complex matrix: ");
     printf("%s", "\n");
     printTransposedComplexMatrix(conjugatedComplexMatrix, rowsCount, columnsCount);
 
-    free(originalComplexMatrix);
-    free(conjugatedComplexMatrix);
+    delete (originalComplexMatrix);
+    delete (conjugatedComplexMatrix);
 
     return 0;
 }
-
-#pragma clang diagnostic pop
