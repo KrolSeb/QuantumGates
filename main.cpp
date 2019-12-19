@@ -17,9 +17,9 @@ T **allocateMatrix(int rows, int columns) {
     return matrix;
 }
 
-int **generateRandom01Matrix(int **matrix, int rows, int columns) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
+int **generateRandom01Matrix(int **matrix) {
+    for (int i = 0; i < rowsCount; i++) {
+        for (int j = 0; j < columnsCount; j++) {
             matrix[i][j] = rand() % 2;
         }
     }
@@ -27,9 +27,9 @@ int **generateRandom01Matrix(int **matrix, int rows, int columns) {
     return matrix;
 }
 
-complex<double> **generateRandomComplexMatrix(complex<double> **matrix, int rows, int columns) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
+complex<double> **generateRandomComplexMatrix(complex<double> **matrix) {
+    for (int i = 0; i < rowsCount; i++) {
+        for (int j = 0; j < columnsCount; j++) {
             if (rand() % 2 == 0) {
                 matrix[i][j] = complex<double>(static_cast<double> (rand() % 20 - 10), static_cast<double> (rand() % 20 - 10));
             }
@@ -109,7 +109,7 @@ int main() {
     cout << "Rows: " << rowsCount << " " << "Columns: " << columnsCount << endl;
 
     int **original01Matrix = allocateMatrix<int>(rowsCount, columnsCount);
-    generateRandom01Matrix(original01Matrix, rowsCount, columnsCount);
+    generateRandom01Matrix(original01Matrix);
     cout << "Original 01 matrix: " << endl;
     printMatrix(original01Matrix, rowsCount, columnsCount);
 
@@ -128,7 +128,7 @@ int main() {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     complex<double> **originalComplexMatrix = allocateMatrix<complex<double>>(rowsCount, columnsCount);
-    generateRandomComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
+    generateRandomComplexMatrix(originalComplexMatrix);
     cout << "Original complex matrix: " << endl;
     printComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
 
