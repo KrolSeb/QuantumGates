@@ -5,7 +5,10 @@
 
 using namespace std;
 
-complex<double> **conjugateComplexMatrix(complex<double> **matrix, int rowsCount, int columnsCount) {
+static int rowsCount;
+static int columnsCount;
+
+complex<double> **conjugateComplexMatrix(complex<double> **matrix) {
     int i, j;
 
     for (i = 0; i < rowsCount; i++) {
@@ -17,7 +20,7 @@ complex<double> **conjugateComplexMatrix(complex<double> **matrix, int rowsCount
     return matrix;
 }
 
-void printTransposedComplexMatrix(complex<double> **matrix, int rowsCount, int columnsCount) {
+void printTransposedComplexMatrix(complex<double> **matrix) {
     int i, j;
 
     for (i = 0; i < columnsCount; i++) {
@@ -40,7 +43,7 @@ void printTransposedComplexMatrix(complex<double> **matrix, int rowsCount, int c
     cout << endl;
 }
 
-void printComplexMatrix(complex<double> **matrix, int rowsCount, int columnsCount) {
+void printComplexMatrix(complex<double> **matrix) {
     int i, j;
 
     for (i = 0; i < rowsCount; i++) {
@@ -63,7 +66,7 @@ void printComplexMatrix(complex<double> **matrix, int rowsCount, int columnsCoun
     cout << endl;
 }
 
-complex<double> **transposeComplexMatrix(complex<double> **inputMatrix, int rowsCount, int columnsCount) {
+complex<double> **transposeComplexMatrix(complex<double> **inputMatrix) {
     int i, j;
 
     //Allocating array for transposed matrix - columns changed with rows
@@ -81,16 +84,16 @@ complex<double> **transposeComplexMatrix(complex<double> **inputMatrix, int rows
     return transposedMatrix;
 }
 
-complex<double> **generateRandomComplexMatrix(int rowsCount, int columnsCount) {
+complex<double> **generateRandomComplexMatrix(int rows, int columns) {
     int i, j;
 
-    auto **matrix = new complex<double> *[rowsCount];
-    for (i = 0; i < rowsCount; i++) {
-        matrix[i] = new complex<double>[columnsCount];
+    auto **matrix = new complex<double> *[rows];
+    for (i = 0; i < rows; i++) {
+        matrix[i] = new complex<double>[columns];
     }
 
-    for (i = 0; i < rowsCount; i++) {
-        for (j = 0; j < columnsCount; j++) {
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < columns; j++) {
             if (rand() % 2 == 0) {
                 matrix[i][j] = complex<double>(static_cast<double> (rand() % 20 - 10), static_cast<double> (rand() % 20 - 10));
             }
@@ -111,7 +114,7 @@ complex<double> **generateRandomComplexMatrix(int rowsCount, int columnsCount) {
     return matrix;
 }
 
-void printTransposedMatrix(int **matrix, int rowsCount, int columnsCount) {
+void printTransposedMatrix(int **matrix) {
     int i, j;
 
     for (i = 0; i < columnsCount; i++) {
@@ -124,7 +127,7 @@ void printTransposedMatrix(int **matrix, int rowsCount, int columnsCount) {
     cout << endl;
 }
 
-void printMatrix(int **matrix, int rowsCount, int columnsCount) {
+void printMatrix(int **matrix) {
     int i, j;
 
     for (i = 0; i < rowsCount; i++) {
@@ -137,7 +140,7 @@ void printMatrix(int **matrix, int rowsCount, int columnsCount) {
     cout << endl;
 }
 
-int **transposeMatrix(int **matrix, int rowsCount, int columnsCount) {
+int **transposeMatrix(int **matrix) {
     int i, j;
 
     //Allocating array for transposed matrix - columns changed with rows
@@ -154,15 +157,15 @@ int **transposeMatrix(int **matrix, int rowsCount, int columnsCount) {
     return transposedMatrix;
 }
 
-int **generateRandomMatrix(int rowsCount, int columnsCount) {
+int **generateRandomMatrix(int rows, int columns) {
     int i, j;
 
-    int **matrix = new int *[rowsCount];
-    for (i = 0; i < rowsCount; i++)
-        matrix[i] = new int[columnsCount];
+    int **matrix = new int *[rows];
+    for (i = 0; i < rows; i++)
+        matrix[i] = new int[columns];
 
-    for (i = 0; i < rowsCount; i++) {
-        for (j = 0; j < columnsCount; j++) {
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < columns; j++) {
             matrix[i][j] = rand() % 2;
         }
     }
@@ -175,18 +178,16 @@ int main() {
     //TODO: another implementation for generate random values
     srand(static_cast<unsigned int>(time(nullptr)));
 
-    int rowsCount;
-    int columnsCount;
     rowsCount = columnsCount = rand() % 4 + 2;
     cout << "Rows: " << rowsCount << " " << "Columns: " << columnsCount << endl;
-
+    
     int **original01Matrix = generateRandomMatrix(rowsCount, columnsCount);
     cout << "Original 01 matrix: " << endl;
-    printMatrix(original01Matrix, rowsCount, columnsCount);
+    printMatrix(original01Matrix);
 
-    int **transposed01Matrix = transposeMatrix(original01Matrix, rowsCount, columnsCount);
+    int **transposed01Matrix = transposeMatrix(original01Matrix);
     cout << "Transposed 01 matrix: " << endl;
-    printTransposedMatrix(transposed01Matrix, rowsCount, columnsCount);
+    printTransposedMatrix(transposed01Matrix);
 
     delete (original01Matrix);
     delete (transposed01Matrix);
@@ -195,15 +196,15 @@ int main() {
 
     complex<double> **originalComplexMatrix = generateRandomComplexMatrix(rowsCount, columnsCount);
     cout << "Original complex matrix: " << endl;
-    printComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
+    printComplexMatrix(originalComplexMatrix);
 
-    complex<double> **transposedComplexMatrix = transposeComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
+    complex<double> **transposedComplexMatrix = transposeComplexMatrix(originalComplexMatrix);
     cout << "Transposed complex matrix: " << endl;
-    printTransposedComplexMatrix(transposedComplexMatrix, rowsCount, columnsCount);
+    printTransposedComplexMatrix(transposedComplexMatrix);
 
-    complex<double> **conjugatedComplexMatrix = conjugateComplexMatrix(transposedComplexMatrix, rowsCount, columnsCount);
+    complex<double> **conjugatedComplexMatrix = conjugateComplexMatrix(transposedComplexMatrix);
     cout << "Conjugated complex matrix: " << endl;
-    printTransposedComplexMatrix(conjugatedComplexMatrix, rowsCount, columnsCount);
+    printTransposedComplexMatrix(conjugatedComplexMatrix);
 
     delete (originalComplexMatrix);
     delete (conjugatedComplexMatrix);
