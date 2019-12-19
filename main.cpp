@@ -4,8 +4,13 @@
 #include <ctime>
 
 using namespace std;
+
+/// @param - global variable used to store matrix size
 int matrixDimension;
 
+/// Function used to allocate different type of matrices
+/// @param @ dimension - array size
+/// @returns - allocated matrix
 template <typename T>
 T **allocateMatrix(int dimension) {
     T **matrix = new T*[dimension];
@@ -16,6 +21,9 @@ T **allocateMatrix(int dimension) {
     return matrix;
 }
 
+/// Function used to fill allocated matrix with 0 and 1 values - int type
+/// @param matrix - allocated matrix
+/// @returns - filled matrix
 int **generateRandom01Matrix(int **matrix) {
     for (int i = 0; i < matrixDimension; i++) {
         for (int j = 0; j < matrixDimension; j++) {
@@ -26,9 +34,16 @@ int **generateRandom01Matrix(int **matrix) {
     return matrix;
 }
 
+/// Function used to fill allocated matrix with complex numbers - complex double type
+/// @param matrix - allocated matrix
+/// @returns - filled matrix
 complex<double> **generateRandomComplexMatrix(complex<double> **matrix) {
     for (int i = 0; i < matrixDimension; i++) {
         for (int j = 0; j < matrixDimension; j++) {
+
+            /// Generation of random matrix values
+            /// @if random number equals zero, then save complex number to matrix
+            /// @else take only real part of complex number and save to matrix
             if (rand() % 2 == 0) {
                 matrix[i][j] = complex<double>(static_cast<double> (rand() % 20 - 10), static_cast<double> (rand() % 20 - 10));
             }
@@ -36,6 +51,7 @@ complex<double> **generateRandomComplexMatrix(complex<double> **matrix) {
                 matrix[i][j] = real(complex<double>(static_cast<double> (rand() % 20 - 10), static_cast<double> (rand() % 20 - 10)));
             }
 
+            /// @if matrix element on diagonal, take only real part of complex number
             if (i == j) {
                 matrix[i][j] = real(matrix[i][j]);
             }
@@ -45,9 +61,11 @@ complex<double> **generateRandomComplexMatrix(complex<double> **matrix) {
     return matrix;
 }
 
+/// Function used to transpose different type of matrices
+/// @param matrix
+/// @returns - transposed matrix
 template <typename T>
 T **transposeMatrix(T **matrix) {
-    //Allocating array for transposed matrix - columns changed with rows
     T **transposedMatrix = allocateMatrix<T>(matrixDimension);
 
     for (int i = 0; i < matrixDimension; i++) {
@@ -59,6 +77,9 @@ T **transposeMatrix(T **matrix) {
     return transposedMatrix;
 }
 
+/// Function used to conjugate complex matrices
+/// @param matrix
+/// @returns - conjugated matrix
 complex<double> **conjugateComplexMatrix(complex<double> **matrix) {
     for (int i = 0; i < matrixDimension; i++) {
         for (int j = 0; j < matrixDimension; j++) {
@@ -68,6 +89,7 @@ complex<double> **conjugateComplexMatrix(complex<double> **matrix) {
     return matrix;
 }
 
+/// Function used to show matrix on output - int type
 void printMatrix(int **matrix, int dimension) {
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {
@@ -78,10 +100,12 @@ void printMatrix(int **matrix, int dimension) {
     cout << endl;
 }
 
+/// Function used to show matrix on output - complex double type
 void printComplexMatrix(complex<double> **matrix, int dimension) {
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {
-            if (i == j || matrix[i][j].imag() == 0.000000) {
+            /// Formatting output of complex matrix
+            if (i == j || imag(matrix[i][j]) == 0.000000) {
                 cout << setw(8) << real(matrix[i][j]);
             }
             else {
@@ -95,7 +119,6 @@ void printComplexMatrix(complex<double> **matrix, int dimension) {
         }
         cout << endl;
     }
-
     cout << endl;
 }
 
@@ -114,8 +137,8 @@ int main() {
 
     int **transposed01Matrix = transposeMatrix<int>(original01Matrix);
     cout << "Transposed 01 matrix: " << endl;
-
-    /* Transposed matrix, that we revert columns and rows parameters in function call.
+    /*
+     * Transposed matrix, that we revert columns and rows parameters in function call.
      * In this case it doesn't matter - columns and rows have the same value
      * It's important when matrix have different dimensions.
      */
