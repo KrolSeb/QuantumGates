@@ -180,7 +180,7 @@ int main() {
 
     rowsCount = columnsCount = rand() % 4 + 2;
     cout << "Rows: " << rowsCount << " " << "Columns: " << columnsCount << endl;
-    
+
     int **original01Matrix = generateRandomMatrix(rowsCount, columnsCount);
     cout << "Original 01 matrix: " << endl;
     printMatrix(original01Matrix);
