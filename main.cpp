@@ -4,22 +4,21 @@
 #include <ctime>
 
 using namespace std;
-int rowsCount;
-int columnsCount;
+int matrixDimension;
 
 template <typename T>
-T **allocateMatrix(int rows, int columns) {
-    T **matrix = new T*[rows];
-    for (int i = 0; i < rows; i++) {
-        matrix[i] = new T[columns];
+T **allocateMatrix(int dimension) {
+    T **matrix = new T*[dimension];
+    for (int i = 0; i < dimension; i++) {
+        matrix[i] = new T[dimension];
     }
 
     return matrix;
 }
 
 int **generateRandom01Matrix(int **matrix) {
-    for (int i = 0; i < rowsCount; i++) {
-        for (int j = 0; j < columnsCount; j++) {
+    for (int i = 0; i < matrixDimension; i++) {
+        for (int j = 0; j < matrixDimension; j++) {
             matrix[i][j] = rand() % 2;
         }
     }
@@ -28,8 +27,8 @@ int **generateRandom01Matrix(int **matrix) {
 }
 
 complex<double> **generateRandomComplexMatrix(complex<double> **matrix) {
-    for (int i = 0; i < rowsCount; i++) {
-        for (int j = 0; j < columnsCount; j++) {
+    for (int i = 0; i < matrixDimension; i++) {
+        for (int j = 0; j < matrixDimension; j++) {
             if (rand() % 2 == 0) {
                 matrix[i][j] = complex<double>(static_cast<double> (rand() % 20 - 10), static_cast<double> (rand() % 20 - 10));
             }
@@ -49,10 +48,10 @@ complex<double> **generateRandomComplexMatrix(complex<double> **matrix) {
 template <typename T>
 T **transposeMatrix(T **matrix) {
     //Allocating array for transposed matrix - columns changed with rows
-    T **transposedMatrix = allocateMatrix<T>(rowsCount, columnsCount);
+    T **transposedMatrix = allocateMatrix<T>(matrixDimension);
 
-    for (int i = 0; i < rowsCount; i++) {
-        for (int j = 0; j < columnsCount; j++) {
+    for (int i = 0; i < matrixDimension; i++) {
+        for (int j = 0; j < matrixDimension; j++) {
             transposedMatrix[j][i] = matrix[i][j];
         }
     }
@@ -61,17 +60,17 @@ T **transposeMatrix(T **matrix) {
 }
 
 complex<double> **conjugateComplexMatrix(complex<double> **matrix) {
-    for (int i = 0; i < rowsCount; i++) {
-        for (int j = 0; j < columnsCount; j++) {
+    for (int i = 0; i < matrixDimension; i++) {
+        for (int j = 0; j < matrixDimension; j++) {
             matrix[i][j] = conj(matrix[i][j]);
         }
     }
     return matrix;
 }
 
-void printMatrix(int **matrix, int rows, int columns) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
+void printMatrix(int **matrix, int dimension) {
+    for (int i = 0; i < dimension; i++) {
+        for (int j = 0; j < dimension; j++) {
             cout << matrix[i][j];
         }
         cout << endl;
@@ -79,9 +78,9 @@ void printMatrix(int **matrix, int rows, int columns) {
     cout << endl;
 }
 
-void printComplexMatrix(complex<double> **matrix, int rows, int columns) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
+void printComplexMatrix(complex<double> **matrix, int dimension) {
+    for (int i = 0; i < dimension; i++) {
+        for (int j = 0; j < dimension; j++) {
             if (i == j || matrix[i][j].imag() == 0.000000) {
                 cout << setw(8) << real(matrix[i][j]);
             }
@@ -105,13 +104,13 @@ int main() {
     //TODO: another implementation for generate random values
     srand(static_cast<unsigned int>(time(nullptr)));
 
-    rowsCount = columnsCount = rand() % 4 + 2;
-    cout << "Rows: " << rowsCount << " " << "Columns: " << columnsCount << endl;
+    matrixDimension = rand() % 4 + 2;
+    cout << "Rows: " << matrixDimension << " " << "Columns: " << matrixDimension << endl;
 
-    int **original01Matrix = allocateMatrix<int>(rowsCount, columnsCount);
+    int **original01Matrix = allocateMatrix<int>(matrixDimension);
     generateRandom01Matrix(original01Matrix);
     cout << "Original 01 matrix: " << endl;
-    printMatrix(original01Matrix, rowsCount, columnsCount);
+    printMatrix(original01Matrix, matrixDimension);
 
     int **transposed01Matrix = transposeMatrix<int>(original01Matrix);
     cout << "Transposed 01 matrix: " << endl;
@@ -120,25 +119,25 @@ int main() {
      * In this case it doesn't matter - columns and rows have the same value
      * It's important when matrix have different dimensions.
      */
-    printMatrix(transposed01Matrix, columnsCount, rowsCount);
+    printMatrix(transposed01Matrix, matrixDimension);
 
     delete (original01Matrix);
     delete (transposed01Matrix);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    complex<double> **originalComplexMatrix = allocateMatrix<complex<double>>(rowsCount, columnsCount);
+    complex<double> **originalComplexMatrix = allocateMatrix<complex<double>>(matrixDimension);
     generateRandomComplexMatrix(originalComplexMatrix);
     cout << "Original complex matrix: " << endl;
-    printComplexMatrix(originalComplexMatrix, rowsCount, columnsCount);
+    printComplexMatrix(originalComplexMatrix, matrixDimension);
 
     complex<double> **transposedComplexMatrix = transposeMatrix<complex<double>>(originalComplexMatrix);
     cout << "Transposed complex matrix: " << endl;
-    printComplexMatrix(transposedComplexMatrix, columnsCount, rowsCount);
+    printComplexMatrix(transposedComplexMatrix, matrixDimension);
 
     complex<double> **conjugatedComplexMatrix = conjugateComplexMatrix(transposedComplexMatrix);
     cout << "Conjugated complex matrix: " << endl;
-    printComplexMatrix(conjugatedComplexMatrix, columnsCount, rowsCount);
+    printComplexMatrix(conjugatedComplexMatrix, matrixDimension);
 
     delete (originalComplexMatrix);
     delete (conjugatedComplexMatrix);
