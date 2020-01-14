@@ -8,12 +8,27 @@ using namespace std;
 /// @param - global variable used to store matrix size
 int matrixDimension;
 
+/// @params - matrix representations of quantum logic gates
+const int CNOT_LOGIC_GATE[][2] = {{0, 1},
+                                  {1, 0}};
+
+/// Function used to show matrix on output - int type
+void printLogicGateRepresentation(const int matrix[][2], int dimension) {
+    for (int i = 0; i < dimension; i++) {
+        for (int j = 0; j < dimension; j++) {
+            cout << matrix[i][j];
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
 /// Function used to allocate different type of matrices
 /// @param @ dimension - array size
 /// @returns - allocated matrix
-template <typename T>
+template<typename T>
 T **allocateMatrix(int dimension) {
-    T **matrix = new T*[dimension];
+    T **matrix = new T *[dimension];
     for (int i = 0; i < dimension; i++) {
         matrix[i] = new T[dimension];
     }
@@ -40,15 +55,16 @@ int **generateRandom01Matrix(int **matrix) {
 complex<double> **generateRandomComplexMatrix(complex<double> **matrix) {
     for (int i = 0; i < matrixDimension; i++) {
         for (int j = 0; j < matrixDimension; j++) {
-
             /// Generation of random matrix values
             /// @if random number equals zero, then save complex number to matrix
             /// @else take only real part of complex number and save to matrix
             if (rand() % 2 == 0) {
-                matrix[i][j] = complex<double>(static_cast<double> (rand() % 20 - 10), static_cast<double> (rand() % 20 - 10));
+                matrix[i][j] = complex<double>(static_cast<double> (rand() % 20 - 10),
+                                               static_cast<double> (rand() % 20 - 10));
             }
             else {
-                matrix[i][j] = real(complex<double>(static_cast<double> (rand() % 20 - 10), static_cast<double> (rand() % 20 - 10)));
+                matrix[i][j] = real(complex<double>(static_cast<double> (rand() % 20 - 10),
+                                                    static_cast<double> (rand() % 20 - 10)));
             }
 
             /// @if matrix element on diagonal, take only real part of complex number
@@ -64,10 +80,9 @@ complex<double> **generateRandomComplexMatrix(complex<double> **matrix) {
 /// Function used to transpose different type of matrices
 /// @param matrix
 /// @returns - transposed matrix
-template <typename T>
+template<typename T>
 T **transposeMatrix(T **matrix) {
     T **transposedMatrix = allocateMatrix<T>(matrixDimension);
-
     for (int i = 0; i < matrixDimension; i++) {
         for (int j = 0; j < matrixDimension; j++) {
             transposedMatrix[j][i] = matrix[i][j];
@@ -122,8 +137,7 @@ void printComplexMatrix(complex<double> **matrix, int dimension) {
     cout << endl;
 }
 
-
-int main() {
+void executeCommands() {
     //TODO: another implementation for generate random values
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -165,5 +179,14 @@ int main() {
     delete (originalComplexMatrix);
     delete (conjugatedComplexMatrix);
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+    cout << "CNOT representation:" << endl;
+    printLogicGateRepresentation(CNOT_LOGIC_GATE, 2);
+
+    //TODO: matrix multiplication feature - quantum gate * qubit
+}
+
+int main() {
+    executeCommands();
     return 0;
 }
