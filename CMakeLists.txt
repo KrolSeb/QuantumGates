@@ -9,5 +9,5 @@ add_library(
         lib/matrixOperations.h
 )
 
-add_executable(QuantumGates main.cpp)
+add_executable(QuantumGates main1.cpp)
 target_link_libraries(QuantumGates qg)
