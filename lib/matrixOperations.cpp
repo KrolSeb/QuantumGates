@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include "matrixOperations.h"
+#include "headers/matrixOperations.h"
 using namespace std;
 
 /// @param - global variable used to store matrix size

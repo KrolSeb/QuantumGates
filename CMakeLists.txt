@@ -5,9 +5,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_library(
         qg STATIC
+        lib/headers/matrixOperations.h
+        lib/headers/quantum.h
+        lib/quantum.cpp
         lib/matrixOperations.cpp
-        lib/matrixOperations.h
 )
 
-add_executable(QuantumGates main1.cpp)
+add_executable(QuantumGates main.cpp)
 target_link_libraries(QuantumGates qg)
