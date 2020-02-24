@@ -1,4 +1,4 @@
-#include "headers/quantum.h"
+#include "headers/quantumComputer.h"
 #include <cmath>
 #include <iostream>
 #include <vector>
