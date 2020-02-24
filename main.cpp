@@ -1,9 +1,10 @@
 #include <iostream>
-#include <iomanip>
 #include <complex>
 #include <ctime>
-#include "lib/matrixOperations.cpp"
-#include "lib/headers/quantum.h"
+#include "lib/headers/quantumComputer.h"
+#include "lib/headers/numericMatrix.h"
+#include "lib/headers/complexMatrix.h"
+#include "lib/headers/quantumGate.h"
 
 using namespace std;
 using namespace quantum;
@@ -13,34 +14,35 @@ void runMatrixOperations() {
     srand(static_cast<unsigned int>(time(nullptr)));
 
     int dimension = rand() % 4 + 2;
-    setMatrixDimension(dimension);
+    setNumericMatrixDimension(dimension);
+    setComplexMatrixDimension(dimension);
     cout << "Rows: " << dimension << " " << "Columns: " << dimension << endl;
 
-    int **original01Matrix = allocateMatrix<int>(dimension);
-    generateRandom01Matrix(original01Matrix);
+    int **original01Matrix = allocateNumericMatrix(dimension);
+    generateRandomNumericMatrix(original01Matrix);
     cout << "Original 01 matrix: " << endl;
-    printMatrix(original01Matrix, dimension);
+    printNumericMatrix(original01Matrix, dimension);
 
-    int **transposed01Matrix = transposeMatrix<int>(original01Matrix);
+    int **transposed01Matrix = transposeNumericMatrix(original01Matrix);
     cout << "Transposed 01 matrix: " << endl;
     /*
      * Transposed matrix, that we revert columns and rows parameters in function call.
      * In this case it doesn't matter - columns and rows have the same value
      * It's important when matrix have different dimensions.
      */
-    printMatrix(transposed01Matrix, dimension);
+    printNumericMatrix(transposed01Matrix, dimension);
 
     delete (original01Matrix);
     delete (transposed01Matrix);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    complex<double> **originalComplexMatrix = allocateMatrix<complex<double>>(dimension);
+    complex<double> **originalComplexMatrix = allocateComplexMatrix(dimension);
     generateRandomComplexMatrix(originalComplexMatrix);
     cout << "Original complex matrix: " << endl;
     printComplexMatrix(originalComplexMatrix, dimension);
 
-    complex<double> **transposedComplexMatrix = transposeMatrix<complex<double>>(originalComplexMatrix);
+    complex<double> **transposedComplexMatrix = transposeComplexMatrix(originalComplexMatrix);
     cout << "Transposed complex matrix: " << endl;
     printComplexMatrix(transposedComplexMatrix, dimension);
 
