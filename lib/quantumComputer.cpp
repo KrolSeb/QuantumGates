@@ -73,7 +73,7 @@ void quantum::QuantumComputer::viewQubitsInMathExpression() {
                         for (int j = 0; j < this->registerSize; j++) {
                             tmp += "0";
                         }
-                        std::cout << "|" << tmp << ">";
+                        std::cout << "|" << tmp << ">" << std::endl;
                     }
                     else {
                         printf("|%d> ", binary);
@@ -85,7 +85,7 @@ void quantum::QuantumComputer::viewQubitsInMathExpression() {
                         for (int j = 0; j < this->registerSize; j++) {
                             tmp += "0";
                         }
-                        std::cout << "|" << tmp << ">";
+                        std::cout << "|" << tmp << ">" << std::endl;
                     }
                     else {
                         printf("%.4f |%d> ", x, binary);
@@ -104,7 +104,7 @@ void quantum::QuantumComputer::validateArraySize(int arrSize, int regSize) {
         exit(1);
     }
 
-    if (arrSize != pow(regSize, 2)) {
+    if (arrSize != pow(2, regSize)) {
         printf("[ERROR] Invalid Register arr with []Probability");
         exit(1);
     }
