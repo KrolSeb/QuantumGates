@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstddef>
-#include "temporaryQubit.h"
+#include "headers/temporaryQubit.h"
 
 using namespace std;
 const int FIRST_MATRIX_DIMENSION = 2;

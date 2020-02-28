@@ -5,6 +5,7 @@
 #include "lib/headers/numericMatrix.h"
 #include "lib/headers/complexMatrix.h"
 #include "lib/headers/quantumGate.h"
+#include "lib/headers/temporaryQubit.h"
 
 using namespace std;
 using namespace quantum;
@@ -60,18 +61,33 @@ void runMatrixOperations() {
     //TODO: matrix multiplication feature - quantum gate * qubit
 }
 
-void runQubitOperations() {
-    int numberOfQubits = 2;
-    double probability[] = {4.0, 0.0, 3.0, 0.0};
+/*
+void generateSingleQubit() {
+    int numberOfQubits = 1;
+    double probability[] = {1.0, 0.0};
 
     auto arrSize = std::size(probability);
     struct QuantumComputer qc = QuantumComputer(numberOfQubits, probability, arrSize);
 
-    qc.normalizeRegister();
-    qc.viewProbability();
-    qc.resetState();
     qc.viewProbability();
     qc.viewQubitsInMathExpression();
+}
+
+void generateTwoQubits() {
+    int numberOfQubits = 2;
+    double probability[] = {0.00, 0.50, 0.50, 0.00};
+
+    auto arrSize = std::size(probability);
+    struct QuantumComputer qc = QuantumComputer(numberOfQubits, probability, arrSize);
+
+    qc.viewProbability();
+    qc.viewQubitsInMathExpression();
+}
+*/
+
+void runQubitOperations() {
+    getQubit0();
+    getQubit1();
 }
 
 int main() {
