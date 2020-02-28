@@ -51,10 +51,11 @@ void quantum::QuantumComputer::viewProbability() {
     for (auto x: this->baseVector) {
         printf("[%.4f]", x);
     }
-    std::cout << "}\n";
+    std::cout << "}";
 }
 
 void quantum::QuantumComputer::viewQubitsInMathExpression() {
+    // TODO: Return array or vector with qubit values(0,1) - based on input propabilities
     if (!this->isNormalize) {
         std::cout
                 << "Base Vector is not in normalize state. To view qubit you should normalize it before.  Use .normalize() function for that"
@@ -117,6 +118,7 @@ void quantum::QuantumComputer::validateProbability() {
         result += pow(sqrt(fabs(x)), 2);
     }
 
+    // TODO: Test propabilities where it should sum to 1 eg. {0.00, 0.50, 0.50, 0.00} or {0.75, 0.25} - it gives errors
     if (result != 1.0) {
         printf("[ERROR] Probability should be equal 1, u can normalize vector use .normalize() function for that");
         this->isNormalize = false;
