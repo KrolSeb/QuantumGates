@@ -1,0 +1,7 @@
+#ifndef QUANTUMGATES_TEMPORARYQUBIT_H
+#define QUANTUMGATES_TEMPORARYQUBIT_H
+
+int **getQubit0();
+int **getQubit1();
+
+#endif //QUANTUMGATES_TEMPORARYQUBIT_H
