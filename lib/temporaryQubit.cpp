@@ -3,8 +3,6 @@
 #include "headers/temporaryQubit.h"
 
 using namespace std;
-const int FIRST_MATRIX_DIMENSION = 2;
-const int SINGLE_QUBIT_SIZE = 1;
 
 const int QUBIT_0[FIRST_MATRIX_DIMENSION][SINGLE_QUBIT_SIZE] = {{1},
                                                                 {0}};
@@ -21,9 +19,12 @@ void printSingleQubit(int **singleQubit) {
     cout << endl;
 }
 
-void setQubitValues(int **qubitRepresentation, const int definedQubit[][SINGLE_QUBIT_SIZE]) {
-    qubitRepresentation[0][0] = definedQubit[0][0];
-    qubitRepresentation[1][0] = definedQubit[1][0];
+void setQubitValues(int **qubitRepresentation, const int definedQubit[FIRST_MATRIX_DIMENSION][SINGLE_QUBIT_SIZE]) {
+    for (int i = 0; i < FIRST_MATRIX_DIMENSION; i++) {
+        for (int j = 0; j < SINGLE_QUBIT_SIZE; j++) {
+            qubitRepresentation[i][j] = definedQubit[i][j];
+        }
+    }
 }
 
 int **getQubit0() {
