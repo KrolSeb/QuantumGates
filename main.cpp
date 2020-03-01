@@ -1,11 +1,11 @@
 #include <iostream>
 #include <complex>
 #include <ctime>
-#include "lib/headers/quantumComputer.h"
 #include "lib/headers/numericMatrix.h"
 #include "lib/headers/complexMatrix.h"
-#include "lib/headers/quantumGate.h"
+#include "lib/headers/quantumComputer.h"
 #include "lib/headers/temporaryQubit.h"
+#include "lib/headers/quantumGate.h"
 
 using namespace std;
 using namespace quantum;
@@ -53,15 +53,9 @@ void runMatrixOperations() {
 
     delete (originalComplexMatrix);
     delete (conjugatedComplexMatrix);
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////
-    cout << "CNOT representation:" << endl;
-    printLogicGateRepresentation();
-
-    //TODO: matrix multiplication feature - quantum gate * qubit
 }
 
-/*
+
 void generateSingleQubit() {
     int numberOfQubits = 1;
     double probability[] = {1.0, 0.0};
@@ -83,11 +77,18 @@ void generateTwoQubits() {
     qc.viewProbability();
     qc.viewQubitsInMathExpression();
 }
-*/
+
 
 void runQubitOperations() {
-    getQubit0();
-    getQubit1();
+    cout << "Qubit before negation:" << endl;
+    int **qubit0 = getQubit0();
+    cout << "Qubit after negation:" << endl;
+    makeNotOnQubit(qubit0, SINGLE_QUBIT_SIZE);
+
+    cout << "Qubit before negation:" << endl;
+    int **qubit1 = getQubit1();
+    cout << "Qubit after negation:" << endl;
+    makeNotOnQubit(qubit1, SINGLE_QUBIT_SIZE);
 }
 
 int main() {
