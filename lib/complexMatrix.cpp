@@ -75,8 +75,8 @@ complex<double> **conjugateComplexMatrix(complex<double> **matrix) {
     return matrix;
 }
 
-/// Function used to show matrix on output - complex double type
-void printComplexMatrix(complex<double> **matrix, int dimension) {
+/// Function used to show  matrix on output - complex double type
+void printHermitianComplexMatrix(complex<double> **matrix, int dimension) {
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {
             /// Formatting output of complex matrix
@@ -90,6 +90,22 @@ void printComplexMatrix(complex<double> **matrix, int dimension) {
                 else {
                     cout << setw(5) << real(matrix[i][j]) << imag(matrix[i][j]) << "i";
                 }
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+void printComplexMatrix(complex<double> **matrix, int dimension) {
+    for (int i = 0; i < dimension; i++) {
+        for (int j = 0; j < dimension; j++) {
+            /// Formatting output of complex matrix
+            if (imag(matrix[i][j]) > 0) {
+                cout << setw(5) << real(matrix[i][j]) << "+" << imag(matrix[i][j]) << "i";
+            }
+            else {
+                cout << setw(5) << real(matrix[i][j]) << imag(matrix[i][j]) << "i";
             }
         }
         cout << endl;
