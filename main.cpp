@@ -41,20 +41,19 @@ void runMatrixOperations() {
     complex<double> **originalComplexMatrix = allocateComplexMatrix(dimension);
     generateRandomComplexMatrix(originalComplexMatrix);
     cout << "Original complex matrix: " << endl;
-    printComplexMatrix(originalComplexMatrix, dimension);
+    printHermitianComplexMatrix(originalComplexMatrix, dimension);
 
     complex<double> **transposedComplexMatrix = transposeComplexMatrix(originalComplexMatrix);
     cout << "Transposed complex matrix: " << endl;
-    printComplexMatrix(transposedComplexMatrix, dimension);
+    printHermitianComplexMatrix(transposedComplexMatrix, dimension);
 
     complex<double> **conjugatedComplexMatrix = conjugateComplexMatrix(transposedComplexMatrix);
     cout << "Conjugated complex matrix: " << endl;
-    printComplexMatrix(conjugatedComplexMatrix, dimension);
+    printHermitianComplexMatrix(conjugatedComplexMatrix, dimension);
 
     delete (originalComplexMatrix);
     delete (conjugatedComplexMatrix);
 }
-
 
 void generateSingleQubit() {
     int numberOfQubits = 1;
@@ -78,7 +77,6 @@ void generateTwoQubits() {
     qc.viewQubitsInMathExpression();
 }
 
-
 void runQubitOperations() {
     cout << "Qubit before negation:" << endl;
     int **qubit0 = getQubit0();
@@ -89,6 +87,9 @@ void runQubitOperations() {
     int **qubit1 = getQubit1();
     cout << "Qubit after negation:" << endl;
     makeNotOnQubit(qubit1, SINGLE_QUBIT_SIZE);
+
+    multiplySqrtNotScalarByMatrix();
+    multiplyHadamardScalarByMatrix();
 }
 
 int main() {

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstddef>
 #include "headers/temporaryQubit.h"
 
 using namespace std;
@@ -46,6 +45,3 @@ int **getQubit1() {
     printSingleQubit(qubitRepresentation);
     return qubitRepresentation;
 }
-
-
-
