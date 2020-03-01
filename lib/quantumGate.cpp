@@ -1,12 +1,22 @@
 #include <iostream>
 #include "headers/quantumGate.h"
 #include "headers/temporaryQubit.h"
+#include "headers/complexMatrix.h"
 
 using namespace std;
 
 /// @params - matrix representations of quantum logic gates
 const int NOT_QUANTUM_GATE[][NOT_GATE_COLUMNS] = {{0, 1},
                                                   {1, 0}};
+/// @params - constans before sqrt not and Hadamard quartum gates, 1+i and 1-i values
+const double FACTOR_SQRT_NOT_GATE = 0.5;
+const complex<double> positiveComplex(1,1);
+const complex<double> negativeComplex(1,-1);
+const complex<double> SQRT_NOT_QUANTUM_GATE[][NOT_GATE_COLUMNS] = {{positiveComplex, negativeComplex},
+                                                                   {negativeComplex, positiveComplex}};
+const double FACTOR_HADAMARD_GATE = 1/sqrt(2);
+const complex<double> HADAMARD_QUANTUM_GATE[][NOT_GATE_COLUMNS] = {{1, 1},
+                                                                   {1, -1}};
 
 //TODO: Implementation of all quantum gates
 //TODO: Reverse and combining/folding of quantum gates
@@ -39,6 +49,61 @@ int **getNotGate() {
     printNotGateRepresentation();
     return notGateRepresentation;
 }
+
+complex<double> **multiplySqrtNotScalarByMatrix() {
+    auto **matrix = new complex<double>*[NOT_GATE_ROWS];
+    for (int i = 0; i < NOT_GATE_ROWS; i++) {
+        matrix[i] = new complex<double>[NOT_GATE_COLUMNS];
+    }
+
+    for (int i = 0; i < NOT_GATE_ROWS; i++) {
+        for (int j = 0; j < NOT_GATE_COLUMNS; j++) {
+            matrix[i][j] = SQRT_NOT_QUANTUM_GATE[i][j];
+        }
+    }
+
+    cout << "Defined matrix: " << endl;
+    printComplexMatrix(matrix, NOT_GATE_ROWS);
+
+    for (int i = 0; i < NOT_GATE_ROWS; i++) {
+        for (int j = 0; j < NOT_GATE_COLUMNS; j++) {
+            matrix[i][j] = SQRT_NOT_QUANTUM_GATE[i][j] * FACTOR_SQRT_NOT_GATE;
+        }
+    }
+
+    cout << "Matrix after multiplication by scalar (1/2): " << endl;
+    printComplexMatrix(matrix, NOT_GATE_ROWS);
+
+    return matrix;
+}
+
+complex<double> **multiplyHadamardScalarByMatrix() {
+    auto **matrix = new complex<double>*[NOT_GATE_ROWS];
+    for (int i = 0; i < NOT_GATE_ROWS; i++) {
+        matrix[i] = new complex<double>[NOT_GATE_COLUMNS];
+    }
+
+    for (int i = 0; i < NOT_GATE_ROWS; i++) {
+        for (int j = 0; j < NOT_GATE_COLUMNS; j++) {
+            matrix[i][j] = HADAMARD_QUANTUM_GATE[i][j];
+        }
+    }
+
+    cout << "Defined matrix: " << endl;
+    printComplexMatrix(matrix, NOT_GATE_ROWS);
+
+    for (int i = 0; i < NOT_GATE_ROWS; i++) {
+        for (int j = 0; j < NOT_GATE_COLUMNS; j++) {
+            matrix[i][j] = HADAMARD_QUANTUM_GATE[i][j] * FACTOR_HADAMARD_GATE;
+        }
+    }
+
+    cout << "Matrix after multiplication by scalar (1/sqrt(2)): " << endl;
+    printComplexMatrix(matrix, NOT_GATE_ROWS);
+
+    return matrix;
+}
+
 
 //Function used to make NOT(negation) on qubit
 int **makeNotOnQubit(int **qubit, const int QUBIT_COLUMNS) {
