@@ -28,6 +28,8 @@ namespace quantum {
         void normalizeRegister();
 
         void measure();
+
+        std::vector<double> getBaseVector();
     };
 }
 

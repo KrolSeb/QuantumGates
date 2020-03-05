@@ -14,7 +14,7 @@ quantum::QuantumComputer::QuantumComputer(int regSize, double probability[], int
 
     for (int i = 0; i < arrSize; i++) {
         baseVector.push_back(probability[i]);
-    };
+    }
 
     validateProbability();
     countNonZeroBaseVector();
@@ -55,14 +55,13 @@ void quantum::QuantumComputer::viewProbability() {
 }
 
 void quantum::QuantumComputer::viewQubitsInMathExpression() {
-    // TODO: Return array or vector with qubit values(0,1) - based on input propabilities
     if (!this->isNormalize) {
         std::cout
                 << "Base Vector is not in normalize state. To view qubit you should normalize it before.  Use .normalize() function for that"
                 << std::endl;
     }
     else {
-        printf("\nQubit in expression: ");
+        printf("\nQubit in expression: \n");
         int i = 0;
         for (auto x: this->baseVector) {
             if (x != 0) {
@@ -74,7 +73,7 @@ void quantum::QuantumComputer::viewQubitsInMathExpression() {
                         for (int j = 0; j < this->registerSize; j++) {
                             tmp += "0";
                         }
-                        std::cout << "|" << tmp << ">" << std::endl;
+                        std::cout << "|" << tmp << ">";
                     }
                     else {
                         printf("|%d> ", binary);
@@ -86,7 +85,7 @@ void quantum::QuantumComputer::viewQubitsInMathExpression() {
                         for (int j = 0; j < this->registerSize; j++) {
                             tmp += "0";
                         }
-                        std::cout << "|" << tmp << ">" << std::endl;
+                        std::cout << "|" << tmp << ">";
                     }
                     else {
                         printf("%.4f |%d> ", x, binary);
@@ -96,17 +95,18 @@ void quantum::QuantumComputer::viewQubitsInMathExpression() {
 
             i++;
         }
+        std::cout << std::endl;
     }
 }
 
 void quantum::QuantumComputer::validateArraySize(int arrSize, int regSize) {
     if (regSize < 1) {
-        printf("[ERROR] Register size cannot be less than 1");
+        printf("\n[ERROR] Register size cannot be less than 1");
         exit(1);
     }
 
     if (arrSize != pow(2, regSize)) {
-        printf("[ERROR] Invalid Register arr with []Probability");
+        printf("\n[ERROR] Invalid Register arr with []Probability");
         exit(1);
     }
 }
@@ -118,9 +118,8 @@ void quantum::QuantumComputer::validateProbability() {
         result += pow(sqrt(fabs(x)), 2);
     }
 
-    // TODO: Test propabilities where it should sum to 1 eg. {0.00, 0.50, 0.50, 0.00} or {0.75, 0.25} - it gives errors
     if (result != 1.0) {
-        printf("[ERROR] Probability should be equal 1, u can normalize vector use .normalize() function for that");
+        printf("\n[ERROR] Probability should be equal 1, u can normalize vector use .normalize() function for that");
         this->isNormalize = false;
     }
     else {
@@ -130,17 +129,28 @@ void quantum::QuantumComputer::validateProbability() {
 }
 
 void quantum::QuantumComputer::normalizeRegister() {
+    /* Dopytać Łukasza, jak to działa na przykładzie
+     * i czy na czymś się wzorował, jak to implementował, czy to po prostu jego koncepcja.
+     * Kiedy normalizacja musi być robiona, tzn. czy tylko
+     * przy sumie prawdopodobieństw != 1, czy też gdy jest wszystko ok.
+    */
     double vectorLength = 0.0;
+    //std::cout << std::endl;
 
     for (auto x: this->baseVector) {
+        //std::cout << x << " ";
         vectorLength += pow(x, 2);
+        //std::cout << vectorLength << " ";
     }
 
     vectorLength = sqrt(vectorLength);
+    //std::cout << vectorLength << std::endl;
     std::vector<double>::iterator it;
 
     for (it = this->baseVector.begin(); it < this->baseVector.end(); it++) {
+        //std::cout <<*it << " ";
         *it = *it / vectorLength;
+        //std::cout <<*it << " ";
     }
 
     this->isNormalize = true;
@@ -156,4 +166,8 @@ void quantum::QuantumComputer::QuantumComputer::measure() {
     std::cout << "[Here will be function to measure register!]" << std::endl;
 
     this->isMeasured = true;
+}
+
+std::vector<double> quantum::QuantumComputer::QuantumComputer::getBaseVector() {
+    return baseVector;
 }
