@@ -4,7 +4,7 @@
 #include "lib/headers/numericMatrix.h"
 #include "lib/headers/complexMatrix.h"
 #include "lib/headers/quantumComputer.h"
-#include "lib/headers/temporaryQubit.h"
+#include "lib/headers/qubitOperation.h"
 #include "lib/headers/quantumGate.h"
 
 using namespace std;
@@ -55,45 +55,97 @@ void runMatrixOperations() {
     delete (conjugatedComplexMatrix);
 }
 
-void generateSingleQubit() {
-    int numberOfQubits = 1;
-    double probability[] = {1.0, 0.0};
+double *generateAndNormalizeQubit(int numberOfQubits, double probabilities[]) {
+    int arrSize = pow(2, numberOfQubits);
+    struct QuantumComputer qc = QuantumComputer(numberOfQubits, probabilities, arrSize);
 
-    auto arrSize = std::size(probability);
-    struct QuantumComputer qc = QuantumComputer(numberOfQubits, probability, arrSize);
+    qc.viewProbability();
+    qc.normalizeRegister();
+    qc.viewProbability();
+    qc.viewQubitsInMathExpression();
+
+    return getBaseVectorAsArray(qc.getBaseVector());
+}
+
+double *generateQubit(int numberOfQubits, double probabilities[]) {
+    int arrSize = pow(2, numberOfQubits);
+    struct QuantumComputer qc = QuantumComputer(numberOfQubits, probabilities, arrSize);
 
     qc.viewProbability();
     qc.viewQubitsInMathExpression();
+
+    return getBaseVectorAsArray(qc.getBaseVector());
 }
 
-void generateTwoQubits() {
-    int numberOfQubits = 2;
-    double probability[] = {0.00, 0.50, 0.50, 0.00};
+void testNotQuantumGate() {
+    double probabilitiesOfQubit0[] = {1, 0};
+    double probabilitiesOfQubit1[] = {0, 1};
 
-    auto arrSize = std::size(probability);
-    struct QuantumComputer qc = QuantumComputer(numberOfQubits, probability, arrSize);
+    double *qubit0 = generateQubit(1, probabilitiesOfQubit0);
+    cout << "Qubit 0 (1 0) before negation:" << endl;
+    printSingleQubit(qubit0);
+    cout << "Qubit 0 (1 0) after negation:" << endl;
+    printSingleQubit(makeNotOnQubit(qubit0, QUBIT_COLUMNS));
 
-    qc.viewProbability();
-    qc.viewQubitsInMathExpression();
+    double *qubit1 = generateQubit(1, probabilitiesOfQubit1);
+    cout << "Qubit 1 (0 1) before negation:" << endl;
+    printSingleQubit(qubit1);
+    cout << "Qubit 1 (0 1) after negation:" << endl;
+    printSingleQubit(makeNotOnQubit(qubit1, QUBIT_COLUMNS));
 }
 
-void runQubitOperations() {
-    cout << "Qubit before negation:" << endl;
-    int **qubit0 = getQubit0();
-    cout << "Qubit after negation:" << endl;
-    makeNotOnQubit(qubit0, SINGLE_QUBIT_SIZE);
+void testCnotQuantumGate() {
+    double probabilitiesOfTwoQubits[] = {0.0, 0.0, 0.0, 1.0};
+    double *twoQubits = generateQubit(2, probabilitiesOfTwoQubits);
 
-    cout << "Qubit before negation:" << endl;
-    int **qubit1 = getQubit1();
-    cout << "Qubit after negation:" << endl;
-    makeNotOnQubit(qubit1, SINGLE_QUBIT_SIZE);
+    cout << "Qubit before CNOT:" << endl;
+    printTwoQubits(twoQubits);
+    cout << "Qubit after CNOT:" << endl;
+    printTwoQubits(makeCnotOnQubit(twoQubits, QUBIT_COLUMNS));
+}
 
-    multiplySqrtNotScalarByMatrix();
-    multiplyHadamardScalarByMatrix();
+void testSwapQuantumGate() {
+    double probabilitiesOfTwoQubits[] = {0.0, 1.0, 0.0, 0.0};
+    double *twoQubits = generateQubit(2, probabilitiesOfTwoQubits);
+
+    cout << "Qubit before SWAP:" << endl;
+    printTwoQubits(twoQubits);
+    cout << "Qubit after SWAP:" << endl;
+    printTwoQubits(makeSwapOnQubit(twoQubits, QUBIT_COLUMNS));
+}
+
+void testFredkinQuantumGate() {
+    double probabilitiesOfThreeQubits[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0};
+    double *threeQubits = generateQubit(3, probabilitiesOfThreeQubits);
+
+    cout << "Qubit before FREDKIN:" << endl;
+    printThreeQubits(threeQubits);
+    cout << "Qubit after FREDKIN:" << endl;
+    printThreeQubits(makeFredkinOnQubit(threeQubits, QUBIT_COLUMNS));
+}
+
+void testToffoliQuantumGate() {
+    double probabilitiesOfThreeQubits[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0};
+    double *threeQubits = generateQubit(3, probabilitiesOfThreeQubits);
+
+    cout << "Qubit before TOFFOLI:" << endl;
+    printThreeQubits(threeQubits);
+    cout << "Qubit after TOFFOLI:" << endl;
+    printThreeQubits(makeToffoliOnQubit(threeQubits, QUBIT_COLUMNS));
+}
+
+void testQubitWithNonCorrectProbabilities() {
+    double probabilitiesOfThreeQubits[] = {4.0, 0.0, 3.0, 0.0, 4.0, 0.0, 3.0, 0.0};
+    double *threeQubits = generateAndNormalizeQubit(3, probabilitiesOfThreeQubits);
 }
 
 int main() {
-    runQubitOperations();
-    runMatrixOperations();
+    testNotQuantumGate();
+    testCnotQuantumGate();
+    testSwapQuantumGate();
+    testFredkinQuantumGate();
+    testToffoliQuantumGate();
+
+    //runMatrixOperations();
     return 0;
 }
