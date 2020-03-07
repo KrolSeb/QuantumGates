@@ -1,6 +1,5 @@
 #include <iostream>
 #include "headers/quantumGate.h"
-#include "headers/complexMatrix.h"
 
 using namespace std;
 
@@ -43,12 +42,12 @@ const double TOFFOLI_QUANTUM_GATE[][THREE_ARGUMENTS_GATE_SIZE] = {{1, 0, 0, 0, 0
 const double FACTOR_SQRT_NOT_GATE = 0.5;
 const complex<double> positiveComplex(1, 1);
 const complex<double> negativeComplex(1, -1);
-const complex<double> SQRT_NOT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{positiveComplex, negativeComplex},
-                                                                         {negativeComplex, positiveComplex}};
+const complex<double> SQRT_NOT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR_SQRT_NOT_GATE * positiveComplex, FACTOR_SQRT_NOT_GATE * negativeComplex},
+                                                                         {FACTOR_SQRT_NOT_GATE * negativeComplex, FACTOR_SQRT_NOT_GATE * positiveComplex}};
 /// @params - Hadamard quantum gate matrix representation
 const double FACTOR_HADAMARD_GATE = 1 / sqrt(2);
-const complex<double> HADAMARD_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 1},
-                                                                         {1, -1}};
+const complex<double> HADAMARD_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * 1},
+                                                                         {FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * -1}};
 
 //TODO: Implementation of all quantum gates
 //TODO: Reverse and combining/folding of quantum gates
@@ -64,7 +63,7 @@ void printNotGateRepresentation() {
     cout << endl;
 }
 
-/// Function used to make NOT(negation) on qubit
+/// Function used to make NOT on qubit
 double *makeNotOnQubit(double *qubit, const int QUBIT_COLUMNS) {
     double sum;
     double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
@@ -74,6 +73,24 @@ double *makeNotOnQubit(double *qubit, const int QUBIT_COLUMNS) {
             sum = 0.0;
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += NOT_QUANTUM_GATE[i][k] * qubit[k];
+            }
+            outputQubit[i] = sum;
+        }
+    }
+
+    return outputQubit;
+}
+
+/// Function used to make SQRT(NOT) on qubit
+complex<double> *makeSqrtNotOnQubit(double *qubit, const int QUBIT_COLUMNS) {
+    complex<double> sum;
+    complex<double> *outputQubit = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < QUBIT_COLUMNS; j++) {
+            sum = complex<double> (0, 0);
+            for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
+                sum += SQRT_NOT_QUANTUM_GATE[i][k] * qubit[k];
             }
             outputQubit[i] = sum;
         }
@@ -154,58 +171,3 @@ double *makeToffoliOnQubit(double *qubit, const int QUBIT_COLUMNS) {
     return outputQubit;
 }
 
-//////////////////////////////////////////////////////////////////////////
-// Helper functions - multiply matrix elements and scalar eg. 1/2, 1/sqrt(2)
-complex<double> **multiplySqrtNotScalarByMatrix() {
-    auto **matrix = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
-    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        matrix[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
-    }
-
-    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
-            matrix[i][j] = SQRT_NOT_QUANTUM_GATE[i][j];
-        }
-    }
-
-    cout << "Defined matrix: " << endl;
-    printComplexMatrix(matrix, ONE_ARGUMENT_GATE_SIZE);
-
-    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
-            matrix[i][j] = SQRT_NOT_QUANTUM_GATE[i][j] * FACTOR_SQRT_NOT_GATE;
-        }
-    }
-
-    cout << "Matrix after multiplication by scalar (1/2): " << endl;
-    printComplexMatrix(matrix, ONE_ARGUMENT_GATE_SIZE);
-
-    return matrix;
-}
-
-complex<double> **multiplyHadamardScalarByMatrix() {
-    auto **matrix = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
-    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        matrix[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
-    }
-
-    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
-            matrix[i][j] = HADAMARD_QUANTUM_GATE[i][j];
-        }
-    }
-
-    cout << "Defined matrix: " << endl;
-    printComplexMatrix(matrix, ONE_ARGUMENT_GATE_SIZE);
-
-    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
-            matrix[i][j] = HADAMARD_QUANTUM_GATE[i][j] * FACTOR_HADAMARD_GATE;
-        }
-    }
-
-    cout << "Matrix after multiplication by scalar (1/sqrt(2)): " << endl;
-    printComplexMatrix(matrix, ONE_ARGUMENT_GATE_SIZE);
-
-    return matrix;
-}
