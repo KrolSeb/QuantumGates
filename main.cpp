@@ -144,6 +144,16 @@ void testToffoliQuantumGate() {
     printThreeQubits(makeToffoliOnQubit(threeQubits, QUBIT_COLUMNS));
 }
 
+void testHadamardQuantumGate() {
+    double probabilitiesOfTwoQubits[] = {1.0, 0.0};
+    double *singleQubit = generateQubit(1, probabilitiesOfTwoQubits);
+
+    cout << "Qubit before HADAMARD:" << endl;
+    printSingleQubit(singleQubit);
+    cout << "Qubit after HADAMARD:" << endl;
+    printSingleQubit(makeHadamardOnQubit(singleQubit, QUBIT_COLUMNS));
+}
+
 void testQubitWithNonCorrectProbabilities() {
     double probabilitiesOfThreeQubits[] = {4.0, 0.0, 3.0, 0.0, 4.0, 0.0, 3.0, 0.0};
     double *threeQubits = generateAndNormalizeQubit(3, probabilitiesOfThreeQubits);
@@ -156,6 +166,7 @@ int main() {
     testSwapQuantumGate();
     testFredkinQuantumGate();
     testToffoliQuantumGate();
+    testHadamardQuantumGate();
 
     //runMatrixOperations();
     return 0;
