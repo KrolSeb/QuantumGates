@@ -94,6 +94,16 @@ void testNotQuantumGate() {
     printSingleQubit(makeNotOnQubit(qubit1, QUBIT_COLUMNS));
 }
 
+void testSqrtNotQuantumGate() {
+    double probabilitiesOfTwoQubits[] = {1.0, 0.0};
+    double *singleQubit = generateQubit(1, probabilitiesOfTwoQubits);
+
+    cout << "Qubit before SQRT(NOT):" << endl;
+    printSingleQubit(singleQubit);
+    cout << "Qubit after SQRT(NOT):" << endl;
+    printSingleComplexQubit(makeSqrtNotOnQubit(singleQubit, QUBIT_COLUMNS));
+}
+
 void testCnotQuantumGate() {
     double probabilitiesOfTwoQubits[] = {0.0, 0.0, 0.0, 1.0};
     double *twoQubits = generateQubit(2, probabilitiesOfTwoQubits);
@@ -141,6 +151,7 @@ void testQubitWithNonCorrectProbabilities() {
 
 int main() {
     testNotQuantumGate();
+    testSqrtNotQuantumGate();
     testCnotQuantumGate();
     testSwapQuantumGate();
     testFredkinQuantumGate();
