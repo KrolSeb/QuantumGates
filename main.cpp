@@ -85,13 +85,13 @@ void testNotQuantumGate() {
     cout << "Qubit 0 (1 0) before negation:" << endl;
     printSingleQubit(qubit0);
     cout << "Qubit 0 (1 0) after negation:" << endl;
-    printSingleQubit(makeNotOnQubit(qubit0, QUBIT_COLUMNS));
+    printSingleQubit(makeNotOnQubit(qubit0));
 
     double *qubit1 = generateQubit(1, probabilitiesOfQubit1);
     cout << "Qubit 1 (0 1) before negation:" << endl;
     printSingleQubit(qubit1);
     cout << "Qubit 1 (0 1) after negation:" << endl;
-    printSingleQubit(makeNotOnQubit(qubit1, QUBIT_COLUMNS));
+    printSingleQubit(makeNotOnQubit(qubit1));
 }
 
 void testSqrtNotQuantumGate() {
@@ -101,7 +101,7 @@ void testSqrtNotQuantumGate() {
     cout << "Qubit before SQRT(NOT):" << endl;
     printSingleQubit(singleQubit);
     cout << "Qubit after SQRT(NOT):" << endl;
-    printSingleComplexQubit(makeSqrtNotOnQubit(singleQubit, QUBIT_COLUMNS));
+    printSingleComplexQubit(makeSqrtNotOnQubit(singleQubit));
 }
 
 void testCnotQuantumGate() {
@@ -111,7 +111,7 @@ void testCnotQuantumGate() {
     cout << "Qubit before CNOT:" << endl;
     printTwoQubits(twoQubits);
     cout << "Qubit after CNOT:" << endl;
-    printTwoQubits(makeCnotOnQubit(twoQubits, QUBIT_COLUMNS));
+    printTwoQubits(makeCnotOnQubit(twoQubits));
 }
 
 void testSwapQuantumGate() {
@@ -121,7 +121,7 @@ void testSwapQuantumGate() {
     cout << "Qubit before SWAP:" << endl;
     printTwoQubits(twoQubits);
     cout << "Qubit after SWAP:" << endl;
-    printTwoQubits(makeSwapOnQubit(twoQubits, QUBIT_COLUMNS));
+    printTwoQubits(makeSwapOnQubit(twoQubits));
 }
 
 void testFredkinQuantumGate() {
@@ -131,7 +131,7 @@ void testFredkinQuantumGate() {
     cout << "Qubit before FREDKIN:" << endl;
     printThreeQubits(threeQubits);
     cout << "Qubit after FREDKIN:" << endl;
-    printThreeQubits(makeFredkinOnQubit(threeQubits, QUBIT_COLUMNS));
+    printThreeQubits(makeFredkinOnQubit(threeQubits));
 }
 
 void testToffoliQuantumGate() {
@@ -141,7 +141,7 @@ void testToffoliQuantumGate() {
     cout << "Qubit before TOFFOLI:" << endl;
     printThreeQubits(threeQubits);
     cout << "Qubit after TOFFOLI:" << endl;
-    printThreeQubits(makeToffoliOnQubit(threeQubits, QUBIT_COLUMNS));
+    printThreeQubits(makeToffoliOnQubit(threeQubits));
 }
 
 void testHadamardQuantumGate() {
@@ -151,7 +151,18 @@ void testHadamardQuantumGate() {
     cout << "Qubit before HADAMARD:" << endl;
     printSingleQubit(singleQubit);
     cout << "Qubit after HADAMARD:" << endl;
-    printSingleQubit(makeHadamardOnQubit(singleQubit, QUBIT_COLUMNS));
+    printSingleQubit(makeHadamardOnQubit(singleQubit));
+}
+
+void testPhaseShiftQuantumGate() {
+    double probabilitiesOfTwoQubits[] = {0.0, 1.0};
+    double *singleQubit = generateQubit(1, probabilitiesOfTwoQubits);
+    double angle = M_PI;
+
+    cout << "Qubit before PHASE SHIFT:" << endl;
+    printSingleQubit(singleQubit);
+    cout << "Qubit after PHASE SHIFT:" << endl;
+    printSingleQubit(makePhaseShiftOnQubit(angle, singleQubit));
 }
 
 void testQubitWithNonCorrectProbabilities() {
@@ -167,6 +178,7 @@ int main() {
     testFredkinQuantumGate();
     testToffoliQuantumGate();
     testHadamardQuantumGate();
+    testPhaseShiftQuantumGate();
 
     //runMatrixOperations();
     return 0;
