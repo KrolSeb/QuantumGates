@@ -13,6 +13,7 @@ double *makeCnotOnQubit(double *qubit, const int QUBIT_COLUMNS);
 double *makeSwapOnQubit(double *qubit, const int QUBIT_COLUMNS);
 double *makeFredkinOnQubit(double *qubit, const int QUBIT_COLUMNS);
 double *makeToffoliOnQubit(double *qubit, const int QUBIT_COLUMNS);
+double *makeHadamardOnQubit(double *qubit, const int QUBIT_COLUMNS);
 
 double **getNotGate();
 

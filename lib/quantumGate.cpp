@@ -46,8 +46,8 @@ const complex<double> SQRT_NOT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR
                                                                          {FACTOR_SQRT_NOT_GATE * negativeComplex, FACTOR_SQRT_NOT_GATE * positiveComplex}};
 /// @params - Hadamard quantum gate matrix representation
 const double FACTOR_HADAMARD_GATE = 1 / sqrt(2);
-const complex<double> HADAMARD_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * 1},
-                                                                         {FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * -1}};
+const double HADAMARD_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * 1},
+                                                                {FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * -1}};
 
 //TODO: Implementation of all quantum gates
 //TODO: Reverse and combining/folding of quantum gates
@@ -171,3 +171,20 @@ double *makeToffoliOnQubit(double *qubit, const int QUBIT_COLUMNS) {
     return outputQubit;
 }
 
+/// Function used to make HADAMARD(WALSH) on qubit
+double *makeHadamardOnQubit(double *qubit, const int QUBIT_COLUMNS) {
+    double sum;
+    double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < QUBIT_COLUMNS; j++) {
+            sum = 0.0;
+            for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
+                sum += HADAMARD_QUANTUM_GATE[i][k] * qubit[k];
+            }
+            outputQubit[i] = sum;
+        }
+    }
+
+    return outputQubit;
+}
