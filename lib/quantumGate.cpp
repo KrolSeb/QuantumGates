@@ -49,6 +49,11 @@ const double FACTOR_HADAMARD_GATE = 1 / sqrt(2);
 const double HADAMARD_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * 1},
                                                                 {FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * -1}};
 
+/// @params - Phase shift quantum gate matrix representation
+const complex<double> I_VALUE(0, 1);
+const double EULER = exp(1.0);
+const double PHASE_SHIFT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
+                                                                   {0, EULER}};
 //TODO: Implementation of all quantum gates
 //TODO: Reverse and combining/folding of quantum gates
 
@@ -64,12 +69,12 @@ void printNotGateRepresentation() {
 }
 
 /// Function used to make NOT on qubit
-double *makeNotOnQubit(double *qubit, const int QUBIT_COLUMNS) {
+double *makeNotOnQubit(double *qubit) {
     double sum;
     double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        for (int j = 0; j < QUBIT_COLUMNS; j++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += NOT_QUANTUM_GATE[i][k] * qubit[k];
@@ -82,13 +87,13 @@ double *makeNotOnQubit(double *qubit, const int QUBIT_COLUMNS) {
 }
 
 /// Function used to make SQRT(NOT) on qubit
-complex<double> *makeSqrtNotOnQubit(double *qubit, const int QUBIT_COLUMNS) {
+complex<double> *makeSqrtNotOnQubit(double *qubit) {
     complex<double> sum;
     complex<double> *outputQubit = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        for (int j = 0; j < QUBIT_COLUMNS; j++) {
-            sum = complex<double> (0, 0);
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
+            sum = complex<double>(0, 0);
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += SQRT_NOT_QUANTUM_GATE[i][k] * qubit[k];
             }
@@ -100,12 +105,12 @@ complex<double> *makeSqrtNotOnQubit(double *qubit, const int QUBIT_COLUMNS) {
 }
 
 /// Function used to make CNOT on qubit
-double *makeCnotOnQubit(double *qubit, const int QUBIT_COLUMNS) {
+double *makeCnotOnQubit(double *qubit) {
     double sum;
     double *outputQubit = new double[TWO_ARGUMENTS_GATE_SIZE];
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
-        for (int j = 0; j < QUBIT_COLUMNS; j++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < TWO_ARGUMENTS_GATE_SIZE; k++) {
                 sum += CNOT_QUANTUM_GATE[i][k] * qubit[k];
@@ -118,12 +123,12 @@ double *makeCnotOnQubit(double *qubit, const int QUBIT_COLUMNS) {
 }
 
 /// Function used to make SWAP on qubit
-double *makeSwapOnQubit(double *qubit, const int QUBIT_COLUMNS) {
+double *makeSwapOnQubit(double *qubit) {
     double sum;
     double *outputQubit = new double[TWO_ARGUMENTS_GATE_SIZE];
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
-        for (int j = 0; j < QUBIT_COLUMNS; j++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < TWO_ARGUMENTS_GATE_SIZE; k++) {
                 sum += SWAP_QUANTUM_GATE[i][k] * qubit[k];
@@ -136,12 +141,12 @@ double *makeSwapOnQubit(double *qubit, const int QUBIT_COLUMNS) {
 }
 
 /// Function used to make FREDKIN(CSWAP) on qubit
-double *makeFredkinOnQubit(double *qubit, const int QUBIT_COLUMNS) {
+double *makeFredkinOnQubit(double *qubit) {
     double sum;
     double *outputQubit = new double[THREE_ARGUMENTS_GATE_SIZE];
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
-        for (int j = 0; j < QUBIT_COLUMNS; j++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < THREE_ARGUMENTS_GATE_SIZE; k++) {
                 sum += FREDKIN_QUANTUM_GATE[i][k] * qubit[k];
@@ -154,12 +159,12 @@ double *makeFredkinOnQubit(double *qubit, const int QUBIT_COLUMNS) {
 }
 
 /// Function used to make TOFFOLI(CCNOT) on qubit
-double *makeToffoliOnQubit(double *qubit, const int QUBIT_COLUMNS) {
+double *makeToffoliOnQubit(double *qubit) {
     double sum;
     double *outputQubit = new double[THREE_ARGUMENTS_GATE_SIZE];
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
-        for (int j = 0; j < QUBIT_COLUMNS; j++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < THREE_ARGUMENTS_GATE_SIZE; k++) {
                 sum += TOFFOLI_QUANTUM_GATE[i][k] * qubit[k];
@@ -172,15 +177,57 @@ double *makeToffoliOnQubit(double *qubit, const int QUBIT_COLUMNS) {
 }
 
 /// Function used to make HADAMARD(WALSH) on qubit
-double *makeHadamardOnQubit(double *qubit, const int QUBIT_COLUMNS) {
+double *makeHadamardOnQubit(double *qubit) {
     double sum;
     double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        for (int j = 0; j < QUBIT_COLUMNS; j++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += HADAMARD_QUANTUM_GATE[i][k] * qubit[k];
+            }
+            outputQubit[i] = sum;
+        }
+    }
+    return outputQubit;
+}
+
+/// Helper function used to set correct form of PHASE SHIFT quantum gate
+void setPhaseShiftAngle(double **phaseShiftQuantumGate, double angle) {
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
+            phaseShiftQuantumGate[i][j] = PHASE_SHIFT_QUANTUM_GATE[i][j];
+            if (phaseShiftQuantumGate[i][j] == EULER) {
+                //Euler's formula - e^ix = cos(x) + i * sin(x)
+                phaseShiftQuantumGate[i][j] = cos(angle) + (imag(I_VALUE) * sin(angle));
+            }
+        }
+    }
+}
+
+/// Helper function used to return updated PHASE SHIFT quantum gate
+double **getUpdatedPhaseShiftQuantumGate(double angle) {
+    double **phaseShiftQuantumGate = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        phaseShiftQuantumGate[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+    }
+
+    setPhaseShiftAngle(phaseShiftQuantumGate, angle);
+    return phaseShiftQuantumGate;
+}
+
+/// Function used to make PHASE SHIFT on qubit
+double *makePhaseShiftOnQubit(double angle, double *qubit) {
+    double sum;
+    double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
+    double **phaseShiftQuantumGate = getUpdatedPhaseShiftQuantumGate(angle);
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
+            sum = 0.0;
+            for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
+                sum += phaseShiftQuantumGate[i][k] * qubit[k];
             }
             outputQubit[i] = sum;
         }
