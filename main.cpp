@@ -95,8 +95,8 @@ void testNotQuantumGate() {
 }
 
 void testSqrtNotQuantumGate() {
-    double probabilitiesOfTwoQubits[] = {1.0, 0.0};
-    double *singleQubit = generateQubit(1, probabilitiesOfTwoQubits);
+    double probabilitiesOfQubit0[] = {1.0, 0.0};
+    double *singleQubit = generateQubit(1, probabilitiesOfQubit0);
 
     cout << "Qubit before SQRT(NOT):" << endl;
     printSingleQubit(singleQubit);
@@ -165,6 +165,36 @@ void testPhaseShiftQuantumGate() {
     printSingleQubit(makePhaseShiftOnQubit(angle, singleQubit));
 }
 
+void testPauliXQuantumGate() {
+    double probabilitiesOfQubit0[] = {1, 0};
+    double *singleQubit = generateQubit(1, probabilitiesOfQubit0);
+
+    cout << "Qubit 0 (1 0) before PAULI X:" << endl;
+    printSingleQubit(singleQubit);
+    cout << "Qubit 0 (1 0) after before PAULI X:" << endl;
+    printSingleQubit(makePauliXOnQubit(singleQubit));
+}
+
+void testPauliYQuantumGate() {
+    double probabilitiesOfQubit0[] = {1, 0};
+    double *singleQubit = generateQubit(1, probabilitiesOfQubit0);
+
+    cout << "Qubit 0 (1 0) before PAULI Y:" << endl;
+    printSingleQubit(singleQubit);
+    cout << "Qubit 0 (1 0) after before PAULI Y:" << endl;
+    printSingleComplexQubit(makePauliYOnQubit(singleQubit));
+}
+
+void testPauliZQuantumGate() {
+    double probabilitiesOfQubit0[] = {1, 0};
+    double *singleQubit = generateQubit(1, probabilitiesOfQubit0);
+
+    cout << "Qubit 0 (1 0) before PAULI Z:" << endl;
+    printSingleQubit(singleQubit);
+    cout << "Qubit 0 (1 0) after before PAULI Z:" << endl;
+    printSingleQubit(makePauliZOnQubit(singleQubit));
+}
+
 void testQubitWithNonCorrectProbabilities() {
     double probabilitiesOfThreeQubits[] = {4.0, 0.0, 3.0, 0.0, 4.0, 0.0, 3.0, 0.0};
     double *threeQubits = generateAndNormalizeQubit(3, probabilitiesOfThreeQubits);
@@ -179,6 +209,9 @@ int main() {
     testToffoliQuantumGate();
     testHadamardQuantumGate();
     testPhaseShiftQuantumGate();
+    testPauliXQuantumGate();
+    testPauliYQuantumGate();
+    testPauliZQuantumGate();
 
     //runMatrixOperations();
     return 0;
