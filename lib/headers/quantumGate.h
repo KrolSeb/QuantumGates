@@ -18,6 +18,9 @@ double *makeFredkinOnQubit(double *qubit);
 double *makeToffoliOnQubit(double *qubit);
 double *makeHadamardOnQubit(double *qubit);
 double *makePhaseShiftOnQubit(double angle, double *qubit);
+double *makePauliXOnQubit(double *qubit);
+std::complex<double> *makePauliYOnQubit(double *qubit);
+double *makePauliZOnQubit(double *qubit);
 
 double **getNotGate();
 

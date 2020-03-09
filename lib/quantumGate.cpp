@@ -50,23 +50,25 @@ const double HADAMARD_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR_HADAMARD
                                                                 {FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * -1}};
 
 /// @params - Phase shift quantum gate matrix representation
-const complex<double> I_VALUE(0, 1);
+const complex<double> I_COMPLEX_VALUE(0, 1);
 const double EULER = exp(1.0);
 const double PHASE_SHIFT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
                                                                    {0, EULER}};
-//TODO: Implementation of all quantum gates
-//TODO: Reverse and combining/folding of quantum gates
 
-/// Function used to show quantum gate on output - int type
-void printNotGateRepresentation() {
-    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
-            cout << NOT_QUANTUM_GATE[i][j];
-        }
-        cout << endl;
-    }
-    cout << endl;
-}
+/// @param - PAULI X(NOT) quantum gate matrix representation
+const double PAULI_X_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, 1},
+                                                               {1, 0}};
+
+/// @param - PAULI Y quantum gate matrix representation
+const complex<double> MINUS_I_COMPLEX_VALUE(0, -1);
+const complex<double> PAULI_Y_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, MINUS_I_COMPLEX_VALUE},
+                                                                        {I_COMPLEX_VALUE, 0}};
+
+/// @param - PAULI Z(PHASE SHIFT for PI argument) quantum gate matrix representation
+const double PAULI_Z_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
+                                                               {0, -1}};
+
+//TODO: Reverse and combining/folding of quantum gates
 
 /// Function used to make NOT on qubit
 double *makeNotOnQubit(double *qubit) {
@@ -200,7 +202,7 @@ void setPhaseShiftAngle(double **phaseShiftQuantumGate, double angle) {
             phaseShiftQuantumGate[i][j] = PHASE_SHIFT_QUANTUM_GATE[i][j];
             if (phaseShiftQuantumGate[i][j] == EULER) {
                 //Euler's formula - e^ix = cos(x) + i * sin(x)
-                phaseShiftQuantumGate[i][j] = cos(angle) + (imag(I_VALUE) * sin(angle));
+                phaseShiftQuantumGate[i][j] = cos(angle) + (imag(I_COMPLEX_VALUE) * sin(angle));
             }
         }
     }
@@ -228,6 +230,60 @@ double *makePhaseShiftOnQubit(double angle, double *qubit) {
             sum = 0.0;
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += phaseShiftQuantumGate[i][k] * qubit[k];
+            }
+            outputQubit[i] = sum;
+        }
+    }
+
+    return outputQubit;
+}
+
+/// Function used to make PAULI X on qubit
+double *makePauliXOnQubit(double *qubit) {
+    double sum;
+    double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
+            sum = 0.0;
+            for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
+                sum += PAULI_X_QUANTUM_GATE[i][k] * qubit[k];
+            }
+            outputQubit[i] = sum;
+        }
+    }
+
+    return outputQubit;
+}
+
+/// Function used to make PAULI Y on qubit
+complex<double> *makePauliYOnQubit(double *qubit) {
+    complex<double> sum;
+    complex<double> *outputQubit = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
+            sum = complex<double>(0, 0);
+            for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
+                sum += PAULI_Y_QUANTUM_GATE[i][k] * qubit[k];
+            }
+            outputQubit[i] = sum;
+        }
+    }
+
+    return outputQubit;
+}
+
+/// Function used to make PAULI Z on qubit
+double *makePauliZOnQubit(double *qubit) {
+    double sum;
+    double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
+            sum = 0.0;
+            for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
+                sum += PAULI_Z_QUANTUM_GATE[i][k] * qubit[k];
             }
             outputQubit[i] = sum;
         }
