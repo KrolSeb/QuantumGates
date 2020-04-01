@@ -200,6 +200,12 @@ void testQubitWithNonCorrectProbabilities() {
     double *threeQubits = generateAndNormalizeQubit(3, probabilitiesOfThreeQubits);
 }
 
+void testGenerationOfHadamardGate() {
+    int elementNumber = 0;
+    cout << "Generated Hadamard gate for H" << elementNumber << ":" << endl;
+    generateHadamardGate(elementNumber);
+}
+
 int main() {
     testNotQuantumGate();
     testSqrtNotQuantumGate();
@@ -212,6 +218,7 @@ int main() {
     testPauliXQuantumGate();
     testPauliYQuantumGate();
     testPauliZQuantumGate();
+    testGenerationOfHadamardGate();
 
     //runMatrixOperations();
     return 0;

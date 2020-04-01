@@ -22,6 +22,8 @@ double *makePauliXOnQubit(double *qubit);
 std::complex<double> *makePauliYOnQubit(double *qubit);
 double *makePauliZOnQubit(double *qubit);
 
+void generateHadamardGate(int elementNumber);
+
 double **getNotGate();
 
 #endif //QUANTUMGATES_QUANTUMGATE_H
