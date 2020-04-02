@@ -293,8 +293,8 @@ double *makePauliZOnQubit(double *qubit) {
 }
 
 /// Function used to generate Hadamard gate of declared size
-void generateHadamardGate(int elementNumber) {
-    int gateSize = pow(2, elementNumber);
+double **generateMultidimensionalHadamardGate(int indexNumber) {
+    int gateSize = pow(2, indexNumber);
 
     double **hadamardGate = new double *[gateSize];
     for (int i = 0; i < gateSize; i++) {
@@ -315,6 +315,13 @@ void generateHadamardGate(int elementNumber) {
         }
     }
 
+    return hadamardGate;
+}
+
+/// Function used to print multidimensional Hadamard gate
+void printMultidimensionalHadamardGate(double **hadamardGate, int indexNumber) {
+    int gateSize = pow(2, indexNumber);
+
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
             if (hadamardGate[i][j] == 1) {
@@ -327,4 +334,9 @@ void generateHadamardGate(int elementNumber) {
         cout <<  endl;
     }
 
+}
+
+/// Function used to get multidimensional Hadamard gate
+double **getMultidimensionalHadamardGate(int indexNumber) {
+    return generateMultidimensionalHadamardGate(indexNumber);
 }
