@@ -292,19 +292,19 @@ double *makePauliZOnQubit(double *qubit) {
     return outputQubit;
 }
 
-/// Function used to generate Hadamard gate of declared size
-double **generateMultidimensionalHadamardGate(int indexNumber) {
-    int gateSize = pow(2, indexNumber);
+/// Function used to Hadamard gate and factor value multiplication - eg. 1/sqrt(2) * 1 or -1
+void multiplyHadamardGateByFactor(double **hadamardGate, int gateSize, int indexNumber) {
+    double factorValue = pow((1/sqrt(2)), indexNumber);
 
-    double **hadamardGate = new double *[gateSize];
     for (int i = 0; i < gateSize; i++) {
-        hadamardGate[i] = new double[gateSize];
+        for (int j = 0; j < gateSize; j++) {
+            hadamardGate[i][j] = hadamardGate[i][j] * factorValue;
+        }
     }
+}
 
-    //Definition of H0 element of Hadamard
-    hadamardGate[0][0] = 1;
-
-    //Creating Hadamard gate of defined size (gateSize >= 1)
+/// Function used to setting Hadamard gate values
+void setHadamardGateValues(double **hadamardGate, int gateSize, int indexNumber) {
     for (int k = 1; k < gateSize; k += k) {
         for (int i = 0; i < k; i++) {
             for (int j = 0; j < k; j++) {
@@ -313,6 +313,24 @@ double **generateMultidimensionalHadamardGate(int indexNumber) {
                 hadamardGate[i + k][j + k] = hadamardGate[i][j] * -1;
             }
         }
+    }
+
+    multiplyHadamardGateByFactor(hadamardGate, gateSize, indexNumber);
+}
+
+/// Function used to generation Hadamard gate of declared size
+double **generateMultidimensionalHadamardGate(int indexNumber) {
+    int gateSize = pow(2, indexNumber);
+
+    double **hadamardGate = new double *[gateSize];
+    for (int i = 0; i < gateSize; i++) {
+        hadamardGate[i] = new double[gateSize];
+    }
+    //Hadamard H0 element definition
+    hadamardGate[0][0] = 1;
+
+    if (indexNumber > 0) {
+        setHadamardGateValues(hadamardGate, gateSize, indexNumber);
     }
 
     return hadamardGate;
@@ -324,7 +342,7 @@ void printMultidimensionalHadamardGate(double **hadamardGate, int indexNumber) {
 
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
-            if (hadamardGate[i][j] == 1) {
+            if (hadamardGate[i][j] > 0) {
                 cout << " " << hadamardGate[i][j] << " ";
             }
             else {
