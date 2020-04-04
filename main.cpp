@@ -171,7 +171,7 @@ void testPauliXQuantumGate() {
 
     cout << "Qubit 0 (1 0) before PAULI X:" << endl;
     printSingleQubit(singleQubit);
-    cout << "Qubit 0 (1 0) after before PAULI X:" << endl;
+    cout << "Qubit 0 (1 0) after PAULI X:" << endl;
     printSingleQubit(makePauliXOnQubit(singleQubit));
 }
 
@@ -181,7 +181,7 @@ void testPauliYQuantumGate() {
 
     cout << "Qubit 0 (1 0) before PAULI Y:" << endl;
     printSingleQubit(singleQubit);
-    cout << "Qubit 0 (1 0) after before PAULI Y:" << endl;
+    cout << "Qubit 0 (1 0) after PAULI Y:" << endl;
     printSingleComplexQubit(makePauliYOnQubit(singleQubit));
 }
 
@@ -191,7 +191,7 @@ void testPauliZQuantumGate() {
 
     cout << "Qubit 0 (1 0) before PAULI Z:" << endl;
     printSingleQubit(singleQubit);
-    cout << "Qubit 0 (1 0) after before PAULI Z:" << endl;
+    cout << "Qubit 0 (1 0) after PAULI Z:" << endl;
     printSingleQubit(makePauliZOnQubit(singleQubit));
 }
 
@@ -200,12 +200,44 @@ void testQubitWithNonCorrectProbabilities() {
     double *threeQubits = generateAndNormalizeQubit(3, probabilitiesOfThreeQubits);
 }
 
-void testGetMultidimensionalHadamardGate() {
-    int indexNumber = 3;
+void testGetMultidimensionalHadamardGate(int indexNumber) {
     double **hadamardGate = getMultidimensionalHadamardGate(indexNumber);
-
     cout << "Generated Hadamard gate for n = " << indexNumber << " (H" << indexNumber << ")" << endl;
     printMultidimensionalHadamardGate(hadamardGate, indexNumber);
+}
+
+void testMultidimensionalHadamardGate(int indexNumber, int qubitNumber, double *probabilitiesOfQubits) {
+    double **hadamardGate = getMultidimensionalHadamardGate(indexNumber);
+    double *qubit = generateQubit(qubitNumber, probabilitiesOfQubits);
+
+    switch (indexNumber){
+        case 0:
+            cout << "Qubit before Hadamard:" << endl;
+            printSingleQubit(qubit);
+            cout << "Qubit after Hadamard:" << endl;
+            printSingleQubit(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber));
+            break;
+        case 1:
+            cout << "Qubit before Hadamard:" << endl;
+            printSingleQubit(qubit);
+            cout << "Qubit after Hadamard:" << endl;
+            printSingleQubit(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber));
+            break;
+        case 2:
+            cout << "Qubit before Hadamard:" << endl;
+            printTwoQubits(qubit);
+            cout << "Qubit after Hadamard:" << endl;
+            printTwoQubits(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber));
+            break;
+        case 3:
+            cout << "Qubit before Hadamard:" << endl;
+            printThreeQubits(qubit);
+            cout << "Qubit after Hadamard:" << endl;
+            printThreeQubits(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber));
+            break;
+        default:
+            break;
+    }
 }
 
 int main() {
@@ -220,7 +252,21 @@ int main() {
     testPauliXQuantumGate();
     testPauliYQuantumGate();
     testPauliZQuantumGate();
-    testGetMultidimensionalHadamardGate();
+
+    double probabilitiesOfSingleQubit[] = {1.0, 0.0};
+    //Test single qubit (0) * H0
+    testMultidimensionalHadamardGate(0, 1, probabilitiesOfSingleQubit);
+
+    //Test single qubit (0) * H1
+    testMultidimensionalHadamardGate(1, 1, probabilitiesOfSingleQubit);
+
+    //Test two qubits (00) * H2
+    double probabilitiesOfTwoQubits[] = {1.0, 0.0, 0.0, 0.0};
+    testMultidimensionalHadamardGate(2, 2, probabilitiesOfTwoQubits);
+
+    //Test three qubits (000) * H3
+    double probabilitiesOfThreeQubits[] = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    testMultidimensionalHadamardGate(3, 3, probabilitiesOfThreeQubits);
 
     //runMatrixOperations();
     return 0;
