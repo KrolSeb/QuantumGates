@@ -17,6 +17,7 @@ double *makeSwapOnQubit(double *qubit);
 double *makeFredkinOnQubit(double *qubit);
 double *makeToffoliOnQubit(double *qubit);
 double *makeHadamardOnQubit(double *qubit);
+double *makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumber, double *qubit, int qubitsNumber);
 double *makePhaseShiftOnQubit(double angle, double *qubit);
 double *makePauliXOnQubit(double *qubit);
 std::complex<double> *makePauliYOnQubit(double *qubit);

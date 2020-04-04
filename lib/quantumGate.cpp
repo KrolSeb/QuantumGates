@@ -358,3 +358,33 @@ void printMultidimensionalHadamardGate(double **hadamardGate, int indexNumber) {
 double **getMultidimensionalHadamardGate(int indexNumber) {
     return generateMultidimensionalHadamardGate(indexNumber);
 }
+
+/// Function used to make multidimensional Hadamard on qubit
+double *makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumber, double *qubit, int qubitsNumber) {
+    double sum;
+    int gateSize = pow(2, indexNumber);
+    int qubitRows = pow(2, qubitsNumber);
+
+    if (indexNumber == 0) {
+        return qubit;
+    }
+
+    /*
+    if (gateSize != qubitRows) {
+        throw "Incorrect gate size and qubit rows size!";
+    }
+    */
+
+    double *outputQubit = new double[gateSize];
+    for (int i = 0; i < gateSize; i++) {
+        for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
+            sum = 0.0;
+            for (int k = 0; k < gateSize; k++) {
+                sum += hadamardGate[i][k] * qubit[k];
+            }
+            outputQubit[i] = sum;
+        }
+    }
+
+    return outputQubit;
+}
