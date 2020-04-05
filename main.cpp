@@ -83,15 +83,15 @@ void testNotQuantumGate() {
 
     double *qubit0 = generateQubit(1, probabilitiesOfQubit0);
     cout << "Qubit 0 (1 0) before negation:" << endl;
-    printSingleQubit(qubit0);
+    printQubit(qubit0, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit 0 (1 0) after negation:" << endl;
-    printSingleQubit(makeNotOnQubit(qubit0));
+    printQubit(makeNotOnQubit(qubit0), ROWS_NUMBER_IN_SINGLE_QUBIT);
 
     double *qubit1 = generateQubit(1, probabilitiesOfQubit1);
     cout << "Qubit 1 (0 1) before negation:" << endl;
-    printSingleQubit(qubit1);
+    printQubit(qubit1, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit 1 (0 1) after negation:" << endl;
-    printSingleQubit(makeNotOnQubit(qubit1));
+    printQubit(makeNotOnQubit(qubit1), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testSqrtNotQuantumGate() {
@@ -99,9 +99,9 @@ void testSqrtNotQuantumGate() {
     double *singleQubit = generateQubit(1, probabilitiesOfQubit0);
 
     cout << "Qubit before SQRT(NOT):" << endl;
-    printSingleQubit(singleQubit);
+    printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit after SQRT(NOT):" << endl;
-    printSingleComplexQubit(makeSqrtNotOnQubit(singleQubit));
+    printComplexQubit(makeSqrtNotOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testCnotQuantumGate() {
@@ -109,9 +109,9 @@ void testCnotQuantumGate() {
     double *twoQubits = generateQubit(2, probabilitiesOfTwoQubits);
 
     cout << "Qubit before CNOT:" << endl;
-    printTwoQubits(twoQubits);
+    printQubit(twoQubits, ROWS_NUMBER_IN_TWO_QUBITS);
     cout << "Qubit after CNOT:" << endl;
-    printTwoQubits(makeCnotOnQubit(twoQubits));
+    printQubit(makeCnotOnQubit(twoQubits), ROWS_NUMBER_IN_TWO_QUBITS);
 }
 
 void testSwapQuantumGate() {
@@ -119,9 +119,9 @@ void testSwapQuantumGate() {
     double *twoQubits = generateQubit(2, probabilitiesOfTwoQubits);
 
     cout << "Qubit before SWAP:" << endl;
-    printTwoQubits(twoQubits);
+    printQubit(twoQubits, ROWS_NUMBER_IN_TWO_QUBITS);
     cout << "Qubit after SWAP:" << endl;
-    printTwoQubits(makeSwapOnQubit(twoQubits));
+    printQubit(makeSwapOnQubit(twoQubits), ROWS_NUMBER_IN_TWO_QUBITS);
 }
 
 void testFredkinQuantumGate() {
@@ -129,9 +129,9 @@ void testFredkinQuantumGate() {
     double *threeQubits = generateQubit(3, probabilitiesOfThreeQubits);
 
     cout << "Qubit before FREDKIN:" << endl;
-    printThreeQubits(threeQubits);
+    printQubit(threeQubits, ROWS_NUMBER_IN_THREE_QUBITS);
     cout << "Qubit after FREDKIN:" << endl;
-    printThreeQubits(makeFredkinOnQubit(threeQubits));
+    printQubit(makeFredkinOnQubit(threeQubits), ROWS_NUMBER_IN_THREE_QUBITS);
 }
 
 void testToffoliQuantumGate() {
@@ -139,9 +139,9 @@ void testToffoliQuantumGate() {
     double *threeQubits = generateQubit(3, probabilitiesOfThreeQubits);
 
     cout << "Qubit before TOFFOLI:" << endl;
-    printThreeQubits(threeQubits);
+    printQubit(threeQubits, ROWS_NUMBER_IN_THREE_QUBITS);
     cout << "Qubit after TOFFOLI:" << endl;
-    printThreeQubits(makeToffoliOnQubit(threeQubits));
+    printQubit(makeToffoliOnQubit(threeQubits), ROWS_NUMBER_IN_THREE_QUBITS);
 }
 
 void testHadamardQuantumGate() {
@@ -149,9 +149,9 @@ void testHadamardQuantumGate() {
     double *singleQubit = generateQubit(1, probabilitiesOfTwoQubits);
 
     cout << "Qubit before HADAMARD:" << endl;
-    printSingleQubit(singleQubit);
+    printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit after HADAMARD:" << endl;
-    printSingleQubit(makeHadamardOnQubit(singleQubit));
+    printQubit(makeHadamardOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testPhaseShiftQuantumGate() {
@@ -160,9 +160,9 @@ void testPhaseShiftQuantumGate() {
     double angle = M_PI;
 
     cout << "Qubit before PHASE SHIFT:" << endl;
-    printSingleQubit(singleQubit);
+    printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit after PHASE SHIFT:" << endl;
-    printSingleQubit(makePhaseShiftOnQubit(angle, singleQubit));
+    printQubit(makePhaseShiftOnQubit(angle, singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testPauliXQuantumGate() {
@@ -170,9 +170,9 @@ void testPauliXQuantumGate() {
     double *singleQubit = generateQubit(1, probabilitiesOfQubit0);
 
     cout << "Qubit 0 (1 0) before PAULI X:" << endl;
-    printSingleQubit(singleQubit);
+    printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit 0 (1 0) after PAULI X:" << endl;
-    printSingleQubit(makePauliXOnQubit(singleQubit));
+    printQubit(makePauliXOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testPauliYQuantumGate() {
@@ -180,9 +180,9 @@ void testPauliYQuantumGate() {
     double *singleQubit = generateQubit(1, probabilitiesOfQubit0);
 
     cout << "Qubit 0 (1 0) before PAULI Y:" << endl;
-    printSingleQubit(singleQubit);
+    printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit 0 (1 0) after PAULI Y:" << endl;
-    printSingleComplexQubit(makePauliYOnQubit(singleQubit));
+    printComplexQubit(makePauliYOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testPauliZQuantumGate() {
@@ -190,9 +190,9 @@ void testPauliZQuantumGate() {
     double *singleQubit = generateQubit(1, probabilitiesOfQubit0);
 
     cout << "Qubit 0 (1 0) before PAULI Z:" << endl;
-    printSingleQubit(singleQubit);
+    printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit 0 (1 0) after PAULI Z:" << endl;
-    printSingleQubit(makePauliZOnQubit(singleQubit));
+    printQubit(makePauliZOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testQubitWithNonCorrectProbabilities() {
@@ -210,34 +210,27 @@ void testMultidimensionalHadamardGate(int indexNumber, int qubitNumber, double *
     double **hadamardGate = getMultidimensionalHadamardGate(indexNumber);
     double *qubit = generateQubit(qubitNumber, probabilitiesOfQubits);
 
-    switch (indexNumber){
-        case 0:
-            cout << "Qubit before Hadamard:" << endl;
-            printSingleQubit(qubit);
-            cout << "Qubit after Hadamard:" << endl;
-            printSingleQubit(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber));
-            break;
-        case 1:
-            cout << "Qubit before Hadamard:" << endl;
-            printSingleQubit(qubit);
-            cout << "Qubit after Hadamard:" << endl;
-            printSingleQubit(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber));
-            break;
-        case 2:
-            cout << "Qubit before Hadamard:" << endl;
-            printTwoQubits(qubit);
-            cout << "Qubit after Hadamard:" << endl;
-            printTwoQubits(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber));
-            break;
-        case 3:
-            cout << "Qubit before Hadamard:" << endl;
-            printThreeQubits(qubit);
-            cout << "Qubit after Hadamard:" << endl;
-            printThreeQubits(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber));
-            break;
-        default:
-            break;
-    }
+    cout << "Qubit before multidimensional Hadamard:" << endl;
+    printQubit(qubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    cout << "Qubit after multidimensional Hadamard:" << endl;
+    printQubit(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber), ROWS_NUMBER_IN_SINGLE_QUBIT);
+}
+
+void defineDataForTestMultidimensionalHadamardGate() {
+    //Test single qubit (0) * H0
+    double probabilitiesOfSingleQubit[] = {1.0, 0.0};
+    testMultidimensionalHadamardGate(0, 1, probabilitiesOfSingleQubit);
+
+    //Test single qubit (0) * H1
+    testMultidimensionalHadamardGate(1, 1, probabilitiesOfSingleQubit);
+
+    //Test two qubits (00) * H2
+    double probabilitiesOfTwoQubits[] = {1.0, 0.0, 0.0, 0.0};
+    testMultidimensionalHadamardGate(2, 2, probabilitiesOfTwoQubits);
+
+    //Test three qubits (000) * H3
+    double probabilitiesOfThreeQubits[] = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    testMultidimensionalHadamardGate(3, 3, probabilitiesOfThreeQubits);
 }
 
 int main() {
@@ -252,21 +245,7 @@ int main() {
     testPauliXQuantumGate();
     testPauliYQuantumGate();
     testPauliZQuantumGate();
-
-    double probabilitiesOfSingleQubit[] = {1.0, 0.0};
-    //Test single qubit (0) * H0
-    testMultidimensionalHadamardGate(0, 1, probabilitiesOfSingleQubit);
-
-    //Test single qubit (0) * H1
-    testMultidimensionalHadamardGate(1, 1, probabilitiesOfSingleQubit);
-
-    //Test two qubits (00) * H2
-    double probabilitiesOfTwoQubits[] = {1.0, 0.0, 0.0, 0.0};
-    testMultidimensionalHadamardGate(2, 2, probabilitiesOfTwoQubits);
-
-    //Test three qubits (000) * H3
-    double probabilitiesOfThreeQubits[] = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-    testMultidimensionalHadamardGate(3, 3, probabilitiesOfThreeQubits);
+    defineDataForTestMultidimensionalHadamardGate();
 
     //runMatrixOperations();
     return 0;
