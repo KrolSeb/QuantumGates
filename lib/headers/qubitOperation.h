@@ -4,15 +4,13 @@
 #include <vector>
 #include <complex>
 
-const int SINGLE_QUBIT_ROWS = 2;
-const int TWO_QUBIT_ROWS = 4;
-const int THREE_QUBIT_ROWS = 8;
-const int QUBIT_COLUMNS = 1;
+const int ROWS_NUMBER_IN_SINGLE_QUBIT = 2;
+const int ROWS_NUMBER_IN_TWO_QUBITS = 4;
+const int ROWS_NUMBER_IN_THREE_QUBITS = 8;
+const int COLUMN_NUMBER_IN_QUBIT = 1;
 
-void printSingleQubit(double *singleQubit);
-void printSingleComplexQubit(std::complex<double> *singleQubit);
-void printTwoQubits(double *qubits);
-void printThreeQubits(double *qubits);
+void printQubit(double *singleQubit, const int qubitRows);
+void printComplexQubit(std::complex<double> *qubit, const int qubitRows);
 double *getBaseVectorAsArray(std::vector<double> baseVector);
 
 #endif //QUANTUMGATES_QUBITOPERATION_H
