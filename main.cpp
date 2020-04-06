@@ -206,31 +206,20 @@ void testGetMultidimensionalHadamardGate(int indexNumber) {
     printMultidimensionalHadamardGate(hadamardGate, indexNumber);
 }
 
-void testMultidimensionalHadamardGate(int indexNumber, int qubitNumber, double *probabilitiesOfQubits) {
-    double **hadamardGate = getMultidimensionalHadamardGate(indexNumber);
-    double *qubit = generateQubit(qubitNumber, probabilitiesOfQubits);
+void testMultidimensionalHadamardGate(int hadamardIndexNumber, int amountOfQubits, double *probabilities) {
+    double **hadamardGate = getMultidimensionalHadamardGate(hadamardIndexNumber);
+    double *qubit = generateQubit(amountOfQubits, probabilities);
 
     cout << "Qubit before multidimensional Hadamard:" << endl;
     printQubit(qubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit after multidimensional Hadamard:" << endl;
-    printQubit(makeMultidimensionalHadamardOnQubit(hadamardGate, indexNumber, qubit, qubitNumber), ROWS_NUMBER_IN_SINGLE_QUBIT);
-}
 
-void defineDataForTestMultidimensionalHadamardGate() {
-    //Test single qubit (0) * H0
-    double probabilitiesOfSingleQubit[] = {1.0, 0.0};
-    testMultidimensionalHadamardGate(0, 1, probabilitiesOfSingleQubit);
-
-    //Test single qubit (0) * H1
-    testMultidimensionalHadamardGate(1, 1, probabilitiesOfSingleQubit);
-
-    //Test two qubits (00) * H2
-    double probabilitiesOfTwoQubits[] = {1.0, 0.0, 0.0, 0.0};
-    testMultidimensionalHadamardGate(2, 2, probabilitiesOfTwoQubits);
-
-    //Test three qubits (000) * H3
-    double probabilitiesOfThreeQubits[] = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-    testMultidimensionalHadamardGate(3, 3, probabilitiesOfThreeQubits);
+    try {
+        printQubit(makeMultidimensionalHadamardOnQubit(hadamardGate, hadamardIndexNumber, qubit, amountOfQubits), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    }
+    catch (const std::string& my_msg){
+        cerr << my_msg << endl;
+    }
 }
 
 int main() {
@@ -245,7 +234,29 @@ int main() {
     testPauliXQuantumGate();
     testPauliYQuantumGate();
     testPauliZQuantumGate();
-    defineDataForTestMultidimensionalHadamardGate();
+
+    //Test single qubit (0) * H0
+    double probabilitiesOfSingleQubit[] = {1.0, 0.0};
+    int hadamardIndexNumber = 0;
+    int amountOfQubits = 1;
+    testMultidimensionalHadamardGate(hadamardIndexNumber, amountOfQubits, probabilitiesOfSingleQubit);
+
+    //Test single qubit (0) * H1
+    hadamardIndexNumber = 1;
+    amountOfQubits = 1;
+    testMultidimensionalHadamardGate(hadamardIndexNumber, amountOfQubits, probabilitiesOfSingleQubit);
+
+    //Test two qubits (00) * H2
+    hadamardIndexNumber = 2;
+    amountOfQubits = 3;
+    double probabilitiesOfTwoQubits[] = {1.0, 0.0, 0.0, 0.0};
+    testMultidimensionalHadamardGate(hadamardIndexNumber, amountOfQubits, probabilitiesOfTwoQubits);
+
+    //Test three qubits (000) * H3
+    hadamardIndexNumber = 3;
+    amountOfQubits = 3;
+    double probabilitiesOfThreeQubits[] = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    testMultidimensionalHadamardGate(hadamardIndexNumber, amountOfQubits, probabilitiesOfThreeQubits);
 
     //runMatrixOperations();
     return 0;

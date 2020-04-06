@@ -305,12 +305,12 @@ void multiplyHadamardGateByFactor(double **hadamardGate, int gateSize, int index
 
 /// Function used to setting Hadamard gate values
 void setHadamardGateValues(double **hadamardGate, int gateSize, int indexNumber) {
-    for (int k = 1; k < gateSize; k += k) {
-        for (int i = 0; i < k; i++) {
-            for (int j = 0; j < k; j++) {
-                hadamardGate[i + k][j]   =  hadamardGate[i][j];
-                hadamardGate[i][j + k]   =  hadamardGate[i][j];
-                hadamardGate[i + k][j + k] = hadamardGate[i][j] * -1;
+    for (int i = 1; i < gateSize; i += i) {
+        for (int j = 0; j < i; j++) {
+            for (int k = 0; k < i; k++) {
+                hadamardGate[j + i][k]   =  hadamardGate[j][k];
+                hadamardGate[j][k + i]   =  hadamardGate[j][k];
+                hadamardGate[j + i][k + i] = hadamardGate[j][k] * -1;
             }
         }
     }
@@ -369,11 +369,11 @@ double *makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumb
         return qubit;
     }
 
-    /*
     if (gateSize != qubitRows) {
-        throw "Incorrect gate size and qubit rows size!";
+        string error = string("Incorrect sizes: gateSize = 2^indexNumber = 2^") + to_string(indexNumber) + " = " + to_string(gateSize) +
+                       " and qubitRows = 2^qubitsNumber = 2^" + to_string(qubitsNumber) + " = " + to_string(qubitRows);
+        throw error;
     }
-    */
 
     double *outputQubit = new double[gateSize];
     for (int i = 0; i < gateSize; i++) {
