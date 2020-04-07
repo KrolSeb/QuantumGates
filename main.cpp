@@ -1,11 +1,11 @@
 #include <iostream>
 #include <complex>
 #include <ctime>
-#include "lib/headers/numericMatrix.h"
-#include "lib/headers/complexMatrix.h"
-#include "lib/headers/quantumComputer.h"
 #include "lib/headers/qubitOperation.h"
+#include "lib/headers/quantumComputer.h"
 #include "lib/headers/quantumGate.h"
+#include "lib/headers/quantumGateOperation.h"
+#include "lib/headers/complexMatrix.h"
 
 using namespace std;
 using namespace quantum;
@@ -15,28 +15,8 @@ void runMatrixOperations() {
     srand(static_cast<unsigned int>(time(nullptr)));
 
     int dimension = rand() % 4 + 2;
-    setNumericMatrixDimension(dimension);
     setComplexMatrixDimension(dimension);
     cout << "Rows: " << dimension << " " << "Columns: " << dimension << endl;
-
-    int **original01Matrix = allocateNumericMatrix(dimension);
-    generateRandomNumericMatrix(original01Matrix);
-    cout << "Original 01 matrix: " << endl;
-    printNumericMatrix(original01Matrix, dimension);
-
-    int **transposed01Matrix = transposeNumericMatrix(original01Matrix);
-    cout << "Transposed 01 matrix: " << endl;
-    /*
-     * Transposed matrix, that we revert columns and rows parameters in function call.
-     * In this case it doesn't matter - columns and rows have the same value
-     * It's important when matrix have different dimensions.
-     */
-    printNumericMatrix(transposed01Matrix, dimension);
-
-    delete (original01Matrix);
-    delete (transposed01Matrix);
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     complex<double> **originalComplexMatrix = allocateComplexMatrix(dimension);
     generateRandomComplexMatrix(originalComplexMatrix);
@@ -222,6 +202,69 @@ void testMultidimensionalHadamardGate(int hadamardIndexNumber, int amountOfQubit
     }
 }
 
+void testGetQuantumGates() {
+    cout << "NOT gate:" << endl;
+    printQuantumGate(getNotGate(), ONE_ARGUMENT_GATE_SIZE);
+    cout << endl;
+
+    cout << "SQRT(NOT) gate:" << endl;
+    printComplexQuantumGate(getSqrtNotGate(), ONE_ARGUMENT_GATE_SIZE);
+    cout << endl;
+
+    cout << "CNOT gate:" << endl;
+    printQuantumGate(getCnotGate(), TWO_ARGUMENTS_GATE_SIZE);
+    cout << endl;
+
+    cout << "SWAP gate:" << endl;
+    printQuantumGate(getSwapGate(), TWO_ARGUMENTS_GATE_SIZE);
+    cout << endl;
+
+    cout << "FREDKIN gate:" << endl;
+    printQuantumGate(getFredkinGate(), THREE_ARGUMENTS_GATE_SIZE);
+    cout << endl;
+
+    cout << "TOFFOLI gate:" << endl;
+    printQuantumGate(getToffoliGate(), THREE_ARGUMENTS_GATE_SIZE);
+    cout << endl;
+
+    cout << "HADAMARD gate:" << endl;
+    printQuantumGate(getHadamardGate(), ONE_ARGUMENT_GATE_SIZE);
+    cout << endl;
+
+    cout << "HADAMARD gate for argument 2:" << endl;
+    printQuantumGate(getMultidimensionalHadamardGate(2), ONE_ARGUMENT_GATE_SIZE);
+    cout << endl;
+
+    cout << "PHASE SHIFT gate for PI angle:" << endl;
+    printQuantumGate(getPhaseShiftGate(M_PI), ONE_ARGUMENT_GATE_SIZE);
+    cout << endl;
+
+    cout << "PHASE SHIFT gate for -PI angle:" << endl;
+    printQuantumGate(getPhaseShiftGate(-M_PI), ONE_ARGUMENT_GATE_SIZE);
+    cout << endl;
+
+    cout << "PAULI X gate:" << endl;
+    printQuantumGate(getPauliXGate(), ONE_ARGUMENT_GATE_SIZE);
+    cout << endl;
+
+    cout << "PAULI Y gate:" << endl;
+    printComplexQuantumGate(getPauliYGate(), ONE_ARGUMENT_GATE_SIZE);
+    cout << endl;
+
+    cout << "PAULI Z gate:" << endl;
+    printQuantumGate(getPauliZGate(), ONE_ARGUMENT_GATE_SIZE);
+    cout << endl;
+}
+
+void testAssemblyOfQuantumGates(double **firstGate, double **secondGate, int gateSize) {
+    if (isAssemblyOfGatesGiveIdentityMatrix(firstGate, secondGate, gateSize)) {
+        cout << "Multiplied gates are EQUAL with identity matrix" << endl;
+    }
+    else {
+        cout << "Multiplied gates are NOT equal with identity matrix" << endl;
+    }
+}
+
 int main() {
     testNotQuantumGate();
     testSqrtNotQuantumGate();
@@ -248,7 +291,7 @@ int main() {
 
     //Test two qubits (00) * H2
     hadamardIndexNumber = 2;
-    amountOfQubits = 3;
+    amountOfQubits = 2;
     double probabilitiesOfTwoQubits[] = {1.0, 0.0, 0.0, 0.0};
     testMultidimensionalHadamardGate(hadamardIndexNumber, amountOfQubits, probabilitiesOfTwoQubits);
 
@@ -257,6 +300,20 @@ int main() {
     amountOfQubits = 3;
     double probabilitiesOfThreeQubits[] = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     testMultidimensionalHadamardGate(hadamardIndexNumber, amountOfQubits, probabilitiesOfThreeQubits);
+
+    //Test get quantum gates
+    testGetQuantumGates();
+
+    /// Test assembly of gates (1 is identity matrix)
+    /// gate1 * gate2 = 1.
+    // NOT gates
+    testAssemblyOfQuantumGates(getNotGate(), getNotGate(), ONE_ARGUMENT_GATE_SIZE);
+
+    // Hadamard gates
+    testAssemblyOfQuantumGates(getHadamardGate(), getHadamardGate(), ONE_ARGUMENT_GATE_SIZE);
+
+    // F(alfa) and F(-alfa) - for PI value
+    testAssemblyOfQuantumGates(getPhaseShiftGate(M_PI), getPhaseShiftGate(-M_PI), ONE_ARGUMENT_GATE_SIZE);
 
     //runMatrixOperations();
     return 0;
