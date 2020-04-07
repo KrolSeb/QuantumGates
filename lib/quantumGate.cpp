@@ -68,8 +68,6 @@ const complex<double> PAULI_Y_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, MINU
 const double PAULI_Z_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
                                                                {0, -1}};
 
-//TODO: Reverse and combining/folding of quantum gates
-
 /// Function used to make NOT on qubit
 double *makeNotOnQubit(double *qubit) {
     double sum;
@@ -336,29 +334,6 @@ double **generateMultidimensionalHadamardGate(int indexNumber) {
     return hadamardGate;
 }
 
-/// Function used to print multidimensional Hadamard gate
-void printMultidimensionalHadamardGate(double **hadamardGate, int indexNumber) {
-    int gateSize = pow(2, indexNumber);
-
-    for (int i = 0; i < gateSize; i++) {
-        for (int j = 0; j < gateSize; j++) {
-            if (hadamardGate[i][j] > 0) {
-                cout << " " << hadamardGate[i][j] << " ";
-            }
-            else {
-                cout << hadamardGate[i][j] << " ";
-            }
-        }
-        cout <<  endl;
-    }
-
-}
-
-/// Function used to get multidimensional Hadamard gate
-double **getMultidimensionalHadamardGate(int indexNumber) {
-    return generateMultidimensionalHadamardGate(indexNumber);
-}
-
 /// Function used to make multidimensional Hadamard on qubit
 double *makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumber, double *qubit, int qubitsNumber) {
     double sum;
@@ -387,4 +362,225 @@ double *makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumb
     }
 
     return outputQubit;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Functions used to return declared quantum gate
+
+/// Function used to get NOT gate
+double **getNotGate() {
+    double **notGateToReturn = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        notGateToReturn[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+    }
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
+            notGateToReturn[i][j] = NOT_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return notGateToReturn;
+}
+
+/// Function used to get SQRT(NOT) gate
+complex<double> **getSqrtNotGate() {
+    complex<double> **sqrtNotGateToReturn = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        sqrtNotGateToReturn[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
+    }
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
+            sqrtNotGateToReturn[i][j] = SQRT_NOT_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return sqrtNotGateToReturn;
+}
+
+/// Function used to get CNOT gate
+double **getCnotGate() {
+    double **cnotGateToReturn = new double *[TWO_ARGUMENTS_GATE_SIZE];
+    for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
+        cnotGateToReturn[i] = new double[TWO_ARGUMENTS_GATE_SIZE];
+    }
+
+    for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
+        for (int j = 0; j < TWO_ARGUMENTS_GATE_SIZE; j++) {
+            cnotGateToReturn[i][j] = CNOT_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return cnotGateToReturn;
+}
+
+/// Function used to get SWAP gate
+double **getSwapGate() {
+    double **swapGateToReturn = new double *[TWO_ARGUMENTS_GATE_SIZE];
+    for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
+        swapGateToReturn[i] = new double[TWO_ARGUMENTS_GATE_SIZE];
+    }
+
+    for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
+        for (int j = 0; j < TWO_ARGUMENTS_GATE_SIZE; j++) {
+            swapGateToReturn[i][j] = SWAP_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return swapGateToReturn;
+}
+
+/// Function used to get FREDKIN gate
+double **getFredkinGate() {
+    double **fredkinGateToReturn = new double *[THREE_ARGUMENTS_GATE_SIZE];
+    for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
+        fredkinGateToReturn[i] = new double[THREE_ARGUMENTS_GATE_SIZE];
+    }
+
+    for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
+        for (int j = 0; j < THREE_ARGUMENTS_GATE_SIZE; j++) {
+            fredkinGateToReturn[i][j] = FREDKIN_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return fredkinGateToReturn;
+}
+
+/// Function used to get TOFFOLI gate
+double **getToffoliGate() {
+    double **toffoliGateToReturn = new double *[THREE_ARGUMENTS_GATE_SIZE];
+    for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
+        toffoliGateToReturn[i] = new double[THREE_ARGUMENTS_GATE_SIZE];
+    }
+
+    for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
+        for (int j = 0; j < THREE_ARGUMENTS_GATE_SIZE; j++) {
+            toffoliGateToReturn[i][j] = TOFFOLI_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return toffoliGateToReturn;
+}
+
+/// Function used to get HADAMARD gate
+double **getHadamardGate() {
+    double **hadamardGateToReturn = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        hadamardGateToReturn[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+    }
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
+            hadamardGateToReturn[i][j] = HADAMARD_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return hadamardGateToReturn;
+}
+
+/// Function used to get multidimensional HADAMARD gate
+double **getMultidimensionalHadamardGate(int indexNumber) {
+    return generateMultidimensionalHadamardGate(indexNumber);
+}
+
+/// Function used to get PHASE SHIFT gate
+double **getPhaseShiftGate(double angle) {
+    return getUpdatedPhaseShiftQuantumGate(angle);
+}
+
+/// Function used to get PAULI X gate
+double **getPauliXGate() {
+    double **pauliXGateToReturn = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        pauliXGateToReturn[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+    }
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
+            pauliXGateToReturn[i][j] = PAULI_X_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return pauliXGateToReturn;
+}
+
+/// Function used to get PAULI Y gate
+complex<double> **getPauliYGate() {
+    complex<double> **pauliYGateToReturn = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        pauliYGateToReturn[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
+    }
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
+            pauliYGateToReturn[i][j] = PAULI_Y_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return pauliYGateToReturn;
+}
+
+/// Function used to get PAULI Z gate
+double **getPauliZGate() {
+    double **pauliZGateToReturn = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        pauliZGateToReturn[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+    }
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
+            pauliZGateToReturn[i][j] = PAULI_Z_QUANTUM_GATE[i][j];
+        }
+    }
+
+    return pauliZGateToReturn;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Functions used to show declared quantum gates
+
+/// Function used to print any quantum gate
+void printQuantumGate(double **quantumGate, const int gateSize) {
+    for (int i = 0; i < gateSize; i++) {
+        for (int j = 0; j < gateSize; j++) {
+            cout << quantumGate[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+/// Function used to print any complex quantum gate
+void printComplexQuantumGate(complex<double> **quantumGate, const int gateSize) {
+    for (int i = 0; i < gateSize; i++) {
+        for (int j = 0; j < gateSize; j++) {
+            if (imag(quantumGate[i][j]) >= 0) {
+                cout << real(quantumGate[i][j]) << "+" << imag(quantumGate[i][j]) << "i" << " ";
+            }
+            else if (real(quantumGate[i][j]) == 0 && imag(quantumGate[i][j]) == 0) {
+                cout << real(quantumGate[i][j]) << " ";
+            }
+            else {
+                cout << real(quantumGate[i][j]) << imag(quantumGate[i][j]) << "i" << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+/// Function used to print multidimensional Hadamard gate
+void printMultidimensionalHadamardGate(double **hadamardGate, int indexNumber) {
+    int gateSize = pow(2, indexNumber);
+
+    for (int i = 0; i < gateSize; i++) {
+        for (int j = 0; j < gateSize; j++) {
+            if (hadamardGate[i][j] > 0) {
+                cout << " " << hadamardGate[i][j] << " ";
+            }
+            else {
+                cout << hadamardGate[i][j] << " ";
+            }
+        }
+        cout <<  endl;
+    }
 }
