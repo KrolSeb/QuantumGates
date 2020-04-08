@@ -9,12 +9,12 @@ add_library(
         lib/headers/quantumComputer.h
         lib/headers/quantumGate.h
         lib/headers/quantumGateOperation.h
-        lib/headers/complexMatrix.h
+        lib/headers/matrixOperation.h
         lib/qubitOperation.cpp
         lib/quantumComputer.cpp
         lib/quantumGate.cpp
         lib/quantumGateOperation.cpp
-        lib/complexMatrix.cpp
+        lib/matrixOperation.cpp
 )
 
 add_executable(QuantumGates main.cpp)

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include "headers/complexMatrix.h"
+#include "headers/matrixOperation.h"
 
 /// @param - global variable used to store matrix size
 int complexMatrixDimension;
