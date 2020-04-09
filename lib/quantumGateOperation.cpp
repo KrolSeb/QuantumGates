@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -40,9 +41,10 @@ double **getIdentityMatrixForDefinedSize(int gateSize) {
 }
 
 bool isIdentityMatrixAndMultipliedGatesAreEqual(double **identityMatrix, double **outputGate, int gateSize) {
+    double epsilon = 0.0000001;
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
-            if (identityMatrix[i][j] != outputGate[i][j]) {
+            if(fabs(identityMatrix[i][j] - outputGate[i][j]) >= epsilon) {
                 return false;
             }
         }
