@@ -69,17 +69,20 @@ const double PAULI_Z_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
                                                                {0, -1}};
 
 /// Function used to make NOT on qubit
-double *makeNotOnQubit(double *qubit) {
+double **makeNotOnQubit(double **qubit) {
     double sum;
-    double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
+    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
-                sum += NOT_QUANTUM_GATE[i][k] * qubit[k];
+                sum += NOT_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -87,17 +90,20 @@ double *makeNotOnQubit(double *qubit) {
 }
 
 /// Function used to make SQRT(NOT) on qubit
-complex<double> *makeSqrtNotOnQubit(double *qubit) {
+complex<double> **makeSqrtNotOnQubit(double **qubit) {
     complex<double> sum;
-    complex<double> *outputQubit = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
+    complex<double> **outputQubit = new complex<double>*[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = complex<double>(0, 0);
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
-                sum += SQRT_NOT_QUANTUM_GATE[i][k] * qubit[k];
+                sum += SQRT_NOT_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -105,17 +111,20 @@ complex<double> *makeSqrtNotOnQubit(double *qubit) {
 }
 
 /// Function used to make CNOT on qubit
-double *makeCnotOnQubit(double *qubit) {
+double **makeCnotOnQubit(double **qubit) {
     double sum;
-    double *outputQubit = new double[TWO_ARGUMENTS_GATE_SIZE];
+    double **outputQubit = new double *[TWO_ARGUMENTS_GATE_SIZE];
+    for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < TWO_ARGUMENTS_GATE_SIZE; k++) {
-                sum += CNOT_QUANTUM_GATE[i][k] * qubit[k];
+                sum += CNOT_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -123,17 +132,20 @@ double *makeCnotOnQubit(double *qubit) {
 }
 
 /// Function used to make SWAP on qubit
-double *makeSwapOnQubit(double *qubit) {
+double **makeSwapOnQubit(double **qubit) {
     double sum;
-    double *outputQubit = new double[TWO_ARGUMENTS_GATE_SIZE];
+    double **outputQubit = new double *[TWO_ARGUMENTS_GATE_SIZE];
+    for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < TWO_ARGUMENTS_GATE_SIZE; k++) {
-                sum += SWAP_QUANTUM_GATE[i][k] * qubit[k];
+                sum += SWAP_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -141,17 +153,20 @@ double *makeSwapOnQubit(double *qubit) {
 }
 
 /// Function used to make FREDKIN(CSWAP) on qubit
-double *makeFredkinOnQubit(double *qubit) {
+double **makeFredkinOnQubit(double **qubit) {
     double sum;
-    double *outputQubit = new double[THREE_ARGUMENTS_GATE_SIZE];
+    double **outputQubit = new double *[THREE_ARGUMENTS_GATE_SIZE];
+    for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < THREE_ARGUMENTS_GATE_SIZE; k++) {
-                sum += FREDKIN_QUANTUM_GATE[i][k] * qubit[k];
+                sum += FREDKIN_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -159,17 +174,20 @@ double *makeFredkinOnQubit(double *qubit) {
 }
 
 /// Function used to make TOFFOLI(CCNOT) on qubit
-double *makeToffoliOnQubit(double *qubit) {
+double **makeToffoliOnQubit(double **qubit) {
     double sum;
-    double *outputQubit = new double[THREE_ARGUMENTS_GATE_SIZE];
+    double **outputQubit = new double *[THREE_ARGUMENTS_GATE_SIZE];
+    for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < THREE_ARGUMENTS_GATE_SIZE; k++) {
-                sum += TOFFOLI_QUANTUM_GATE[i][k] * qubit[k];
+                sum += TOFFOLI_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -177,17 +195,20 @@ double *makeToffoliOnQubit(double *qubit) {
 }
 
 /// Function used to make HADAMARD(WALSH) on qubit
-double *makeHadamardOnQubit(double *qubit) {
+double **makeHadamardOnQubit(double **qubit) {
     double sum;
-    double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
+    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
-                sum += HADAMARD_QUANTUM_GATE[i][k] * qubit[k];
+                sum += HADAMARD_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
     return outputQubit;
@@ -218,18 +239,22 @@ double **getUpdatedPhaseShiftQuantumGate(double angle) {
 }
 
 /// Function used to make PHASE SHIFT on qubit
-double *makePhaseShiftOnQubit(double angle, double *qubit) {
+double **makePhaseShiftOnQubit(double angle, double **qubit) {
     double sum;
-    double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
     double **phaseShiftQuantumGate = getUpdatedPhaseShiftQuantumGate(angle);
+
+    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
-                sum += phaseShiftQuantumGate[i][k] * qubit[k];
+                sum += phaseShiftQuantumGate[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -237,17 +262,20 @@ double *makePhaseShiftOnQubit(double angle, double *qubit) {
 }
 
 /// Function used to make PAULI X on qubit
-double *makePauliXOnQubit(double *qubit) {
+double **makePauliXOnQubit(double **qubit) {
     double sum;
-    double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
+    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
-                sum += PAULI_X_QUANTUM_GATE[i][k] * qubit[k];
+                sum += PAULI_X_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -255,17 +283,20 @@ double *makePauliXOnQubit(double *qubit) {
 }
 
 /// Function used to make PAULI Y on qubit
-complex<double> *makePauliYOnQubit(double *qubit) {
+complex<double> **makePauliYOnQubit(double **qubit) {
     complex<double> sum;
-    complex<double> *outputQubit = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
+    complex<double> **outputQubit = new complex<double>*[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = complex<double>(0, 0);
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
-                sum += PAULI_Y_QUANTUM_GATE[i][k] * qubit[k];
+                sum += PAULI_Y_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -273,17 +304,20 @@ complex<double> *makePauliYOnQubit(double *qubit) {
 }
 
 /// Function used to make PAULI Z on qubit
-double *makePauliZOnQubit(double *qubit) {
+double **makePauliZOnQubit(double **qubit) {
     double sum;
-    double *outputQubit = new double[ONE_ARGUMENT_GATE_SIZE];
+    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
-                sum += PAULI_Z_QUANTUM_GATE[i][k] * qubit[k];
+                sum += PAULI_Z_QUANTUM_GATE[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 
@@ -335,7 +369,7 @@ double **generateMultidimensionalHadamardGate(int indexNumber) {
 }
 
 /// Function used to make multidimensional Hadamard on qubit
-double *makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumber, double *qubit, int qubitsNumber) {
+double **makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumber, double **qubit, int qubitsNumber) {
     double sum;
     int gateSize = pow(2, indexNumber);
     int qubitRows = pow(2, qubitsNumber);
@@ -350,14 +384,18 @@ double *makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumb
         throw error;
     }
 
-    double *outputQubit = new double[gateSize];
+    double **outputQubit = new double *[gateSize];
+    for (int i = 0; i < gateSize; i++) {
+        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+    }
+
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = 0.0;
             for (int k = 0; k < gateSize; k++) {
-                sum += hadamardGate[i][k] * qubit[k];
+                sum += hadamardGate[i][k] * qubit[k][j];
             }
-            outputQubit[i] = sum;
+            outputQubit[i][j] = sum;
         }
     }
 

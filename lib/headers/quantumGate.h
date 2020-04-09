@@ -11,18 +11,18 @@ const int THREE_ARGUMENTS_GATE_SIZE = 8;
 const int QUBIT_COLUMNS_SIZE = 1;
 
 /// @functions - @returns qubits after quantum gates operations
-double *makeNotOnQubit(double *qubit);
-std::complex<double> *makeSqrtNotOnQubit(double *qubit);
-double *makeCnotOnQubit(double *qubit);
-double *makeSwapOnQubit(double *qubit);
-double *makeFredkinOnQubit(double *qubit);
-double *makeToffoliOnQubit(double *qubit);
-double *makeHadamardOnQubit(double *qubit);
-double *makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumber, double *qubit, int qubitsNumber);
-double *makePhaseShiftOnQubit(double angle, double *qubit);
-double *makePauliXOnQubit(double *qubit);
-std::complex<double> *makePauliYOnQubit(double *qubit);
-double *makePauliZOnQubit(double *qubit);
+double **makeNotOnQubit(double **qubit);
+std::complex<double> **makeSqrtNotOnQubit(double **qubit);
+double **makeCnotOnQubit(double **qubit);
+double **makeSwapOnQubit(double **qubit);
+double **makeFredkinOnQubit(double **qubit);
+double **makeToffoliOnQubit(double **qubit);
+double **makeHadamardOnQubit(double **qubit);
+double **makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumber, double **qubit, int qubitsNumber);
+double **makePhaseShiftOnQubit(double angle, double **qubit);
+double **makePauliXOnQubit(double **qubit);
+std::complex<double> **makePauliYOnQubit(double **qubit);
+double **makePauliZOnQubit(double **qubit);
 
 /// @functions - @returns implementations of quantum gates
 double **getNotGate();
