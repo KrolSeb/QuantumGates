@@ -3,31 +3,43 @@
 
 using namespace std;
 
-void printQubit(double *qubit, const int qubitRows) {
-    for (int i = 0; i < qubitRows; i++) {
-        cout << qubit[i] << endl;
+void printQubit(double **qubit, const int qubitRows) {
+    for(int i = 0; i < qubitRows; i++) {
+        for(int j = 0; j < COLUMN_NUMBER_IN_QUBIT; j++) {
+            cout << qubit[i][j];
+        }
+        cout << endl;
     }
-    cout << endl;
 }
 
-void printComplexQubit(complex<double> *qubit, const int qubitRows) {
-    for (int i = 0; i < qubitRows; i++) {
-        if (imag(qubit[i]) >= 0) {
-            cout << real(qubit[i]) << "+" << imag(qubit[i]) << "i" << endl;
+void printComplexQubit(complex<double> **qubit, const int qubitRows) {
+    for(int i = 0; i < qubitRows; i++) {
+        for(int j = 0; j < COLUMN_NUMBER_IN_QUBIT; j++) {
+            if (imag(qubit[i][j]) >= 0) {
+                cout << real(qubit[i][j]) << "+" << imag(qubit[i][j]) << "i";
+            }
+            else if (real(qubit[i][j]) == 0 && imag(qubit[i][j]) == 0) {
+                cout << real(qubit[i][j]);
+            }
+            else {
+                cout << real(qubit[i][j]) << imag(qubit[i][j]) << "i";
+            }
         }
-        else if (real(qubit[i]) == 0 && imag(qubit[i]) == 0) {
-            cout << real(qubit[i]) << endl;
-        }
-        else {
-            cout << real(qubit[i]) << imag(qubit[i]) << "i" << endl;
-        }
+        cout << endl;
     }
-    cout << endl;
 }
 
-double *getBaseVectorAsArray(vector<double> baseVector) {
-    double *baseVectorAsArray = new double[baseVector.size()];
-    std::copy(baseVector.begin(), baseVector.end(), baseVectorAsArray);
+double **getBaseVectorAsTwoDimensionalArray(vector<double> baseVector) {
+    double **baseVectorAsTwoDimensionalArray = new double *[baseVector.size()];
+    for (int i = 0; i < baseVector.size(); i++) {
+        baseVectorAsTwoDimensionalArray[i] = new double[COLUMN_NUMBER_IN_QUBIT];
+    }
 
-    return baseVectorAsArray;
+    for(int i = 0; i < baseVector.size(); i++) {
+        for(int j = 0; j < COLUMN_NUMBER_IN_QUBIT; j++) {
+            baseVectorAsTwoDimensionalArray[i][j] = baseVector.at(i);
+        }
+    }
+
+    return baseVectorAsTwoDimensionalArray;
 }
