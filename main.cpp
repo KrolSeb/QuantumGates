@@ -35,26 +35,26 @@ void runMatrixOperations() {
     delete (conjugatedComplexMatrix);
 }
 
-double **generateAndNormalizeQubit(int numberOfQubits, double probabilities[]) {
-    int arrSize = pow(2, numberOfQubits);
-    struct QuantumComputer qc = QuantumComputer(numberOfQubits, probabilities, arrSize);
+complex<double> **generateAndNormalizeQubit(int numberOfQubits, double probabilities[]) {
+    int arraySize = pow(2, numberOfQubits);
+    struct QuantumComputer qc = QuantumComputer(numberOfQubits, probabilities, arraySize);
 
     qc.viewProbability();
     qc.normalizeRegister();
     qc.viewProbability();
     qc.viewQubitsInMathExpression();
 
-    return getBaseVectorAsTwoDimensionalArray(qc.getBaseVector());
+    return convertQubitRepresentationToComplexType(getQubitRepresentation(qc.getBaseVector()));
 }
 
-double **generateQubit(int numberOfQubits, double probabilities[]) {
-    int arrSize = pow(2, numberOfQubits);
-    struct QuantumComputer qc = QuantumComputer(numberOfQubits, probabilities, arrSize);
+complex<double> **generateQubit(int numberOfQubits, double *probabilities) {
+    int arraySize = pow(2, numberOfQubits);
+    struct QuantumComputer qc = QuantumComputer(numberOfQubits, probabilities, arraySize);
 
     qc.viewProbability();
     qc.viewQubitsInMathExpression();
 
-    return getBaseVectorAsTwoDimensionalArray(qc.getBaseVector());
+    return convertQubitRepresentationToComplexType(getQubitRepresentation(qc.getBaseVector()));
 }
 
 void testNotQuantumGate() {
@@ -62,13 +62,13 @@ void testNotQuantumGate() {
     double probabilitiesOfQubit1[] = {0, 1};
     const int numberOfQubits = 1;
 
-    double **qubit0 = generateQubit(numberOfQubits, probabilitiesOfQubit0);
+    complex<double> **qubit0 = generateQubit(numberOfQubits, probabilitiesOfQubit0);
     cout << "Qubit 0 (1 0) before negation:" << endl;
     printQubit(qubit0, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit 0 (1 0) after negation:" << endl;
     printQubit(makeNotOnQubit(qubit0), ROWS_NUMBER_IN_SINGLE_QUBIT);
 
-    double **qubit1 = generateQubit(numberOfQubits, probabilitiesOfQubit1);
+    complex<double> **qubit1 = generateQubit(numberOfQubits, probabilitiesOfQubit1);
     cout << "Qubit 1 (0 1) before negation:" << endl;
     printQubit(qubit1, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit 1 (0 1) after negation:" << endl;
@@ -77,17 +77,17 @@ void testNotQuantumGate() {
 
 void testSqrtNotQuantumGate() {
     double probabilitiesOfQubit0[] = {1.0, 0.0};
-    double **singleQubit = generateQubit(1, probabilitiesOfQubit0);
+    complex<double> **singleQubit = generateQubit(1, probabilitiesOfQubit0);
 
     cout << "Qubit before SQRT(NOT):" << endl;
     printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit after SQRT(NOT):" << endl;
-    printComplexQubit(makeSqrtNotOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    printQubit(makeSqrtNotOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testCnotQuantumGate() {
     double probabilitiesOfTwoQubits[] = {0.0, 0.0, 0.0, 1.0};
-    double **twoQubits = generateQubit(2, probabilitiesOfTwoQubits);
+    complex<double> **twoQubits = generateQubit(2, probabilitiesOfTwoQubits);
 
     cout << "Qubit before CNOT:" << endl;
     printQubit(twoQubits, ROWS_NUMBER_IN_TWO_QUBITS);
@@ -97,7 +97,7 @@ void testCnotQuantumGate() {
 
 void testSwapQuantumGate() {
     double probabilitiesOfTwoQubits[] = {0.0, 1.0, 0.0, 0.0};
-    double **twoQubits = generateQubit(2, probabilitiesOfTwoQubits);
+    complex<double> **twoQubits = generateQubit(2, probabilitiesOfTwoQubits);
 
     cout << "Qubit before SWAP:" << endl;
     printQubit(twoQubits, ROWS_NUMBER_IN_TWO_QUBITS);
@@ -107,7 +107,7 @@ void testSwapQuantumGate() {
 
 void testFredkinQuantumGate() {
     double probabilitiesOfThreeQubits[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0};
-    double **threeQubits = generateQubit(3, probabilitiesOfThreeQubits);
+    complex<double> **threeQubits = generateQubit(3, probabilitiesOfThreeQubits);
 
     cout << "Qubit before FREDKIN:" << endl;
     printQubit(threeQubits, ROWS_NUMBER_IN_THREE_QUBITS);
@@ -117,7 +117,7 @@ void testFredkinQuantumGate() {
 
 void testToffoliQuantumGate() {
     double probabilitiesOfThreeQubits[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0};
-    double **threeQubits = generateQubit(3, probabilitiesOfThreeQubits);
+    complex<double> **threeQubits = generateQubit(3, probabilitiesOfThreeQubits);
 
     cout << "Qubit before TOFFOLI:" << endl;
     printQubit(threeQubits, ROWS_NUMBER_IN_THREE_QUBITS);
@@ -127,7 +127,7 @@ void testToffoliQuantumGate() {
 
 void testHadamardQuantumGate() {
     double probabilitiesOfTwoQubits[] = {1.0, 0.0};
-    double **singleQubit = generateQubit(1, probabilitiesOfTwoQubits);
+    complex<double> **singleQubit = generateQubit(1, probabilitiesOfTwoQubits);
 
     cout << "Qubit before HADAMARD:" << endl;
     printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
@@ -137,18 +137,18 @@ void testHadamardQuantumGate() {
 
 void testPhaseShiftQuantumGate() {
     double probabilitiesOfTwoQubits[] = {0.0, 1.0};
-    double **singleQubit = generateQubit(1, probabilitiesOfTwoQubits);
     double angle = M_PI;
+    complex<double> **singleQubit = generateQubit(1, probabilitiesOfTwoQubits);
 
     cout << "Qubit before PHASE SHIFT:" << endl;
     printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit after PHASE SHIFT:" << endl;
-    printQubit(makePhaseShiftOnQubit(angle, singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    printQubit(makePhaseShiftOnQubit(singleQubit, angle), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testPauliXQuantumGate() {
     double probabilitiesOfQubit0[] = {1, 0};
-    double **singleQubit = generateQubit(1, probabilitiesOfQubit0);
+    complex<double> **singleQubit = generateQubit(1, probabilitiesOfQubit0);
 
     cout << "Qubit 0 (1 0) before PAULI X:" << endl;
     printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
@@ -158,17 +158,17 @@ void testPauliXQuantumGate() {
 
 void testPauliYQuantumGate() {
     double probabilitiesOfQubit0[] = {1, 0};
-    double **singleQubit = generateQubit(1, probabilitiesOfQubit0);
+    complex<double> **singleQubit = generateQubit(1, probabilitiesOfQubit0);
 
     cout << "Qubit 0 (1 0) before PAULI Y:" << endl;
     printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit 0 (1 0) after PAULI Y:" << endl;
-    printComplexQubit(makePauliYOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    printQubit(makePauliYOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
 }
 
 void testPauliZQuantumGate() {
     double probabilitiesOfQubit0[] = {1, 0};
-    double **singleQubit = generateQubit(1, probabilitiesOfQubit0);
+    complex<double> **singleQubit = generateQubit(1, probabilitiesOfQubit0);
 
     cout << "Qubit 0 (1 0) before PAULI Z:" << endl;
     printQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
@@ -178,25 +178,26 @@ void testPauliZQuantumGate() {
 
 void testQubitWithNonCorrectProbabilities() {
     double probabilitiesOfThreeQubits[] = {4.0, 0.0, 3.0, 0.0, 4.0, 0.0, 3.0, 0.0};
-    double **threeQubits = generateAndNormalizeQubit(3, probabilitiesOfThreeQubits);
+    complex<double> **threeQubits = generateAndNormalizeQubit(3, probabilitiesOfThreeQubits);
 }
 
 void testGetMultidimensionalHadamardGate(int indexNumber) {
-    double **hadamardGate = getMultidimensionalHadamardGate(indexNumber);
+    complex<double> **hadamardGate = getMultidimensionalHadamardGate(indexNumber);
     cout << "Generated Hadamard gate for n = " << indexNumber << " (H" << indexNumber << ")" << endl;
     printMultidimensionalHadamardGate(hadamardGate, indexNumber);
 }
 
 void testMultidimensionalHadamardGate(int hadamardIndexNumber, int amountOfQubits, double *probabilities) {
-    double **hadamardGate = getMultidimensionalHadamardGate(hadamardIndexNumber);
-    double **qubit = generateQubit(amountOfQubits, probabilities);
+    complex<double> **hadamardGate = getMultidimensionalHadamardGate(hadamardIndexNumber);
+    complex<double> **qubit = generateQubit(amountOfQubits, probabilities);
 
     cout << "Qubit before multidimensional Hadamard:" << endl;
     printQubit(qubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
     cout << "Qubit after multidimensional Hadamard:" << endl;
 
     try {
-        printQubit(makeMultidimensionalHadamardOnQubit(hadamardGate, hadamardIndexNumber, qubit, amountOfQubits), ROWS_NUMBER_IN_SINGLE_QUBIT);
+        printQubit(makeMultidimensionalHadamardOnQubit(qubit, amountOfQubits, hadamardGate, hadamardIndexNumber),
+                   ROWS_NUMBER_IN_SINGLE_QUBIT);
     }
     catch (const std::string& my_msg){
         cerr << my_msg << endl;
@@ -204,12 +205,15 @@ void testMultidimensionalHadamardGate(int hadamardIndexNumber, int amountOfQubit
 }
 
 void testGetQuantumGates() {
+    cout << endl;
+    cout << "Quantum gates" << endl;
+
     cout << "NOT gate:" << endl;
     printQuantumGate(getNotGate(), ONE_ARGUMENT_GATE_SIZE);
     cout << endl;
 
     cout << "SQRT(NOT) gate:" << endl;
-    printComplexQuantumGate(getSqrtNotGate(), ONE_ARGUMENT_GATE_SIZE);
+    printQuantumGate(getSqrtNotGate(), ONE_ARGUMENT_GATE_SIZE);
     cout << endl;
 
     cout << "CNOT gate:" << endl;
@@ -249,7 +253,7 @@ void testGetQuantumGates() {
     cout << endl;
 
     cout << "PAULI Y gate:" << endl;
-    printComplexQuantumGate(getPauliYGate(), ONE_ARGUMENT_GATE_SIZE);
+    printQuantumGate(getPauliYGate(), ONE_ARGUMENT_GATE_SIZE);
     cout << endl;
 
     cout << "PAULI Z gate:" << endl;
@@ -257,7 +261,7 @@ void testGetQuantumGates() {
     cout << endl;
 }
 
-void testAssemblyOfQuantumGates(double **firstGate, double **secondGate, int gateSize) {
+void testAssemblyOfQuantumGates(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
     if (isAssemblyOfGatesGiveIdentityMatrix(firstGate, secondGate, gateSize)) {
         cout << "Multiplied gates are EQUAL with identity matrix" << endl;
     }
