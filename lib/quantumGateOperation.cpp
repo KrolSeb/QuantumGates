@@ -1,12 +1,12 @@
 #include <iostream>
-#include <cmath>
+#include <complex>
 
 using namespace std;
 
-double **assembleQuantumGates(double **firstGate, double **secondGate, int gateSize) {
-    double **outputGate = new double *[gateSize];
+complex<double> **assembleQuantumGates(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
+    complex<double> **outputGate = new complex<double> *[gateSize];
     for (int i = 0; i < gateSize; i++) {
-        outputGate[i] = new double[gateSize];
+        outputGate[i] = new complex<double>[gateSize];
     }
 
     for (int i = 0; i < gateSize; i++) {
@@ -20,10 +20,10 @@ double **assembleQuantumGates(double **firstGate, double **secondGate, int gateS
     return outputGate;
 }
 
-double **getIdentityMatrixForDefinedSize(int gateSize) {
-    double **identityMatrix = new double *[gateSize];
+complex<double> **getIdentityMatrixForDefinedSize(int gateSize) {
+    complex<double> **identityMatrix = new complex<double> *[gateSize];
     for (int i = 0; i < gateSize; i++) {
-        identityMatrix[i] = new double[gateSize];
+        identityMatrix[i] = new complex<double>[gateSize];
     }
 
     for (int i = 0; i < gateSize; i++) {
@@ -40,7 +40,7 @@ double **getIdentityMatrixForDefinedSize(int gateSize) {
     return identityMatrix;
 }
 
-bool isIdentityMatrixAndMultipliedGatesAreEqual(double **identityMatrix, double **outputGate, int gateSize) {
+bool isIdentityMatrixAndMultipliedGatesAreEqual(complex<double> **identityMatrix, complex<double> **outputGate, int gateSize) {
     double epsilon = 0.0000001;
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
@@ -53,9 +53,9 @@ bool isIdentityMatrixAndMultipliedGatesAreEqual(double **identityMatrix, double 
     return true;
 }
 
-bool isAssemblyOfGatesGiveIdentityMatrix(double **firstGate, double **secondGate, int gateSize) {
-    double **identityMatrix = getIdentityMatrixForDefinedSize(gateSize);
-    double **outputGate = assembleQuantumGates(firstGate, secondGate, gateSize);
+bool isAssemblyOfGatesGiveIdentityMatrix(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
+    complex<double> **identityMatrix = getIdentityMatrixForDefinedSize(gateSize);
+    complex<double> **outputGate = assembleQuantumGates(firstGate, secondGate, gateSize);
 
     return isIdentityMatrixAndMultipliedGatesAreEqual(identityMatrix, outputGate, gateSize);
 }
