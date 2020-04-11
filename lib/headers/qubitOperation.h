@@ -9,8 +9,9 @@ const int ROWS_NUMBER_IN_TWO_QUBITS = 4;
 const int ROWS_NUMBER_IN_THREE_QUBITS = 8;
 const int COLUMN_NUMBER_IN_QUBIT = 1;
 
-void printQubit(double **qubit, const int qubitRows);
-void printComplexQubit(std::complex<double> **qubit, const int qubitRows);
-double **getBaseVectorAsTwoDimensionalArray(std::vector<double> baseVector);
+double **getQubitRepresentation(std::vector<double> baseVector);
+std::complex<double> **convertQubitRepresentationToComplexType(double **qubitRepresentation);
+
+void printQubit(std::complex<double> **qubit, const int qubitRows);
 
 #endif //QUANTUMGATES_QUBITOPERATION_H

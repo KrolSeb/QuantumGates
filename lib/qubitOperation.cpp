@@ -3,33 +3,39 @@
 
 using namespace std;
 
-void printQubit(double **qubit, const int qubitRows) {
+void printQubitElement(complex<double> qubitElement) {
+    if (imag(qubitElement) == 0) {
+        cout << real(qubitElement) << " ";
+    }
+    else if (real(qubitElement) == 0 && imag(qubitElement) == 1) {
+        cout << "i ";
+    }
+    else if (real(qubitElement) == 0 && imag(qubitElement) == -1) {
+        cout << "-i ";
+    }
+    else if (real(qubitElement) == 0) {
+        cout << imag(qubitElement) << "i ";
+    }
+    else {
+        if (imag(qubitElement) > 0) {
+            cout << real(qubitElement) << "+" << imag(qubitElement) << "i ";
+        }
+        else {
+            cout << real(qubitElement) << imag(qubitElement) << "i ";
+        }
+    }
+}
+
+void printQubit(complex<double> **qubit, const int qubitRows) {
     for(int i = 0; i < qubitRows; i++) {
         for(int j = 0; j < COLUMN_NUMBER_IN_QUBIT; j++) {
-            cout << qubit[i][j];
+            printQubitElement(qubit[i][j]);
         }
         cout << endl;
     }
 }
 
-void printComplexQubit(complex<double> **qubit, const int qubitRows) {
-    for(int i = 0; i < qubitRows; i++) {
-        for(int j = 0; j < COLUMN_NUMBER_IN_QUBIT; j++) {
-            if (imag(qubit[i][j]) >= 0) {
-                cout << real(qubit[i][j]) << "+" << imag(qubit[i][j]) << "i";
-            }
-            else if (real(qubit[i][j]) == 0 && imag(qubit[i][j]) == 0) {
-                cout << real(qubit[i][j]);
-            }
-            else {
-                cout << real(qubit[i][j]) << imag(qubit[i][j]) << "i";
-            }
-        }
-        cout << endl;
-    }
-}
-
-double **getBaseVectorAsTwoDimensionalArray(vector<double> baseVector) {
+double **migrateBaseVectorTo2dArray(vector<double> baseVector) {
     double **baseVectorAsTwoDimensionalArray = new double *[baseVector.size()];
     for (int i = 0; i < baseVector.size(); i++) {
         baseVectorAsTwoDimensionalArray[i] = new double[COLUMN_NUMBER_IN_QUBIT];
@@ -42,4 +48,12 @@ double **getBaseVectorAsTwoDimensionalArray(vector<double> baseVector) {
     }
 
     return baseVectorAsTwoDimensionalArray;
+}
+
+double **getQubitRepresentation(vector<double> baseVector) {
+    return migrateBaseVectorTo2dArray(baseVector);
+}
+
+complex<double> **convertQubitRepresentationToComplexType(double **qubitRepresentation) {
+    return reinterpret_cast<complex<double> **>(qubitRepresentation);
 }
