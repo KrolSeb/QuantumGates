@@ -4,60 +4,62 @@
 using namespace std;
 
 /// @param - NOT quantum gate matrix representation
-const double NOT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, 1},
-                                                           {1, 0}};
-/// @param - CNOT quantum gate matrix representation
-const double CNOT_QUANTUM_GATE[][TWO_ARGUMENTS_GATE_SIZE] = {{1, 0, 0, 0},
-                                                             {0, 1, 0, 0},
-                                                             {0, 0, 0, 1},
-                                                             {0, 0, 1, 0}};
+const complex<double> NOT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, 1},
+                                                                    {1, 0}};
 
-/// @param - SWAP quantum gate matrix representation
-const double SWAP_QUANTUM_GATE[][TWO_ARGUMENTS_GATE_SIZE] = {{1, 0, 0, 0},
-                                                             {0, 0, 1, 0},
-                                                             {0, 1, 0, 0},
-                                                             {0, 0, 0, 1}};
-
-/// @param - FREDKIN(CSWAP) quantum gate matrix representation
-const double FREDKIN_QUANTUM_GATE[][THREE_ARGUMENTS_GATE_SIZE] = {{1, 0, 0, 0, 0, 0, 0, 0},
-                                                                  {0, 1, 0, 0, 0, 0, 0, 0},
-                                                                  {0, 0, 1, 0, 0, 0, 0, 0},
-                                                                  {0, 0, 0, 1, 0, 0, 0, 0},
-                                                                  {0, 0, 0, 0, 1, 0, 0, 0},
-                                                                  {0, 0, 0, 0, 0, 0, 1, 0},
-                                                                  {0, 0, 0, 0, 0, 1, 0, 0},
-                                                                  {0, 0, 0, 0, 0, 0, 0, 1}};
-
-/// @param - TOFFOLI(CCNOT) quantum gate matrix representation
-const double TOFFOLI_QUANTUM_GATE[][THREE_ARGUMENTS_GATE_SIZE] = {{1, 0, 0, 0, 0, 0, 0, 0},
-                                                                  {0, 1, 0, 0, 0, 0, 0, 0},
-                                                                  {0, 0, 1, 0, 0, 0, 0, 0},
-                                                                  {0, 0, 0, 1, 0, 0, 0, 0},
-                                                                  {0, 0, 0, 0, 1, 0, 0, 0},
-                                                                  {0, 0, 0, 0, 0, 1, 0, 0},
-                                                                  {0, 0, 0, 0, 0, 0, 0, 1},
-                                                                  {0, 0, 0, 0, 0, 0, 1, 0}};
-
-/// @params - sqrt(NOT) quantum gate matrix representation
+/// @params - SQRT(NOT) quantum gate matrix representation
 const double FACTOR_SQRT_NOT_GATE = 0.5;
 const complex<double> positiveComplex(1, 1);
 const complex<double> negativeComplex(1, -1);
 const complex<double> SQRT_NOT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR_SQRT_NOT_GATE * positiveComplex, FACTOR_SQRT_NOT_GATE * negativeComplex},
                                                                          {FACTOR_SQRT_NOT_GATE * negativeComplex, FACTOR_SQRT_NOT_GATE * positiveComplex}};
+
+/// @param - CNOT quantum gate matrix representation
+const complex<double> CNOT_QUANTUM_GATE[][TWO_ARGUMENTS_GATE_SIZE] = {{1, 0, 0, 0},
+                                                                      {0, 1, 0, 0},
+                                                                      {0, 0, 0, 1},
+                                                                      {0, 0, 1, 0}};
+
+/// @param - SWAP quantum gate matrix representation
+const complex<double> SWAP_QUANTUM_GATE[][TWO_ARGUMENTS_GATE_SIZE] = {{1, 0, 0, 0},
+                                                                      {0, 0, 1, 0},
+                                                                      {0, 1, 0, 0},
+                                                                      {0, 0, 0, 1}};
+
+/// @param - FREDKIN(CSWAP) quantum gate matrix representation
+const complex<double> FREDKIN_QUANTUM_GATE[][THREE_ARGUMENTS_GATE_SIZE] = {{1, 0, 0, 0, 0, 0, 0, 0},
+                                                                           {0, 1, 0, 0, 0, 0, 0, 0},
+                                                                           {0, 0, 1, 0, 0, 0, 0, 0},
+                                                                           {0, 0, 0, 1, 0, 0, 0, 0},
+                                                                           {0, 0, 0, 0, 1, 0, 0, 0},
+                                                                           {0, 0, 0, 0, 0, 0, 1, 0},
+                                                                           {0, 0, 0, 0, 0, 1, 0, 0},
+                                                                           {0, 0, 0, 0, 0, 0, 0, 1}};
+
+/// @param - TOFFOLI(CCNOT) quantum gate matrix representation
+const complex<double> TOFFOLI_QUANTUM_GATE[][THREE_ARGUMENTS_GATE_SIZE] = {{1, 0, 0, 0, 0, 0, 0, 0},
+                                                                           {0, 1, 0, 0, 0, 0, 0, 0},
+                                                                           {0, 0, 1, 0, 0, 0, 0, 0},
+                                                                           {0, 0, 0, 1, 0, 0, 0, 0},
+                                                                           {0, 0, 0, 0, 1, 0, 0, 0},
+                                                                           {0, 0, 0, 0, 0, 1, 0, 0},
+                                                                           {0, 0, 0, 0, 0, 0, 0, 1},
+                                                                           {0, 0, 0, 0, 0, 0, 1, 0}};
+
 /// @params - Hadamard quantum gate matrix representation
 const double FACTOR_HADAMARD_GATE = 1 / sqrt(2);
-const double HADAMARD_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * 1},
-                                                                {FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * -1}};
+const complex<double> HADAMARD_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * 1},
+                                                                         {FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * -1}};
 
 /// @params - Phase shift quantum gate matrix representation
-const complex<double> I_COMPLEX_VALUE(0, 1);
 const double EULER = exp(1.0);
-const double PHASE_SHIFT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
-                                                                   {0, EULER}};
+const complex<double> I_COMPLEX_VALUE(0, 1);
+const complex<double> PHASE_SHIFT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
+                                                                            {0, EULER}};
 
 /// @param - PAULI X(NOT) quantum gate matrix representation
-const double PAULI_X_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, 1},
-                                                               {1, 0}};
+const complex<double> PAULI_X_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, 1},
+                                                                        {1, 0}};
 
 /// @param - PAULI Y quantum gate matrix representation
 const complex<double> MINUS_I_COMPLEX_VALUE(0, -1);
@@ -65,20 +67,20 @@ const complex<double> PAULI_Y_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, MINU
                                                                         {I_COMPLEX_VALUE, 0}};
 
 /// @param - PAULI Z(PHASE SHIFT for PI argument) quantum gate matrix representation
-const double PAULI_Z_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
-                                                               {0, -1}};
+const complex<double> PAULI_Z_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
+                                                                        {0, -1}};
 
 /// Function used to make NOT on qubit
-double **makeNotOnQubit(double **qubit) {
-    double sum;
-    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+complex<double> **makeNotOnQubit(complex<double> **qubit) {
+    complex<double> **outputQubit = new complex<double>*[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
+    complex<double> sum;
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += NOT_QUANTUM_GATE[i][k] * qubit[k][j];
             }
@@ -90,7 +92,7 @@ double **makeNotOnQubit(double **qubit) {
 }
 
 /// Function used to make SQRT(NOT) on qubit
-complex<double> **makeSqrtNotOnQubit(double **qubit) {
+complex<double> **makeSqrtNotOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = new complex<double>*[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -111,11 +113,11 @@ complex<double> **makeSqrtNotOnQubit(double **qubit) {
 }
 
 /// Function used to make CNOT on qubit
-double **makeCnotOnQubit(double **qubit) {
-    double sum;
-    double **outputQubit = new double *[TWO_ARGUMENTS_GATE_SIZE];
+complex<double> **makeCnotOnQubit(complex<double> **qubit) {
+    complex<double> sum;
+    complex<double> **outputQubit = new complex<double>*[TWO_ARGUMENTS_GATE_SIZE];
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
@@ -132,11 +134,11 @@ double **makeCnotOnQubit(double **qubit) {
 }
 
 /// Function used to make SWAP on qubit
-double **makeSwapOnQubit(double **qubit) {
-    double sum;
-    double **outputQubit = new double *[TWO_ARGUMENTS_GATE_SIZE];
+complex<double> **makeSwapOnQubit(complex<double> **qubit) {
+    complex<double> sum;
+    complex<double> **outputQubit = new complex<double>*[TWO_ARGUMENTS_GATE_SIZE];
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
@@ -153,11 +155,11 @@ double **makeSwapOnQubit(double **qubit) {
 }
 
 /// Function used to make FREDKIN(CSWAP) on qubit
-double **makeFredkinOnQubit(double **qubit) {
-    double sum;
-    double **outputQubit = new double *[THREE_ARGUMENTS_GATE_SIZE];
+complex<double> **makeFredkinOnQubit(complex<double> **qubit) {
+    complex<double> sum;
+    complex<double> **outputQubit = new complex<double> *[THREE_ARGUMENTS_GATE_SIZE];
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
@@ -174,11 +176,11 @@ double **makeFredkinOnQubit(double **qubit) {
 }
 
 /// Function used to make TOFFOLI(CCNOT) on qubit
-double **makeToffoliOnQubit(double **qubit) {
-    double sum;
-    double **outputQubit = new double *[THREE_ARGUMENTS_GATE_SIZE];
+complex<double> **makeToffoliOnQubit(complex<double> **qubit) {
+    complex<double> sum;
+    complex<double> **outputQubit = new complex<double> *[THREE_ARGUMENTS_GATE_SIZE];
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
@@ -195,11 +197,11 @@ double **makeToffoliOnQubit(double **qubit) {
 }
 
 /// Function used to make HADAMARD(WALSH) on qubit
-double **makeHadamardOnQubit(double **qubit) {
-    double sum;
-    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+complex<double> **makeHadamardOnQubit(complex<double> **qubit) {
+    complex<double> sum;
+    complex<double> **outputQubit = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -215,7 +217,7 @@ double **makeHadamardOnQubit(double **qubit) {
 }
 
 /// Helper function used to set correct form of PHASE SHIFT quantum gate
-void setPhaseShiftAngle(double **phaseShiftQuantumGate, double angle) {
+void setPhaseShiftAngle(complex<double> **phaseShiftQuantumGate, double angle) {
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
             phaseShiftQuantumGate[i][j] = PHASE_SHIFT_QUANTUM_GATE[i][j];
@@ -228,10 +230,10 @@ void setPhaseShiftAngle(double **phaseShiftQuantumGate, double angle) {
 }
 
 /// Helper function used to return updated PHASE SHIFT quantum gate
-double **getUpdatedPhaseShiftQuantumGate(double angle) {
-    double **phaseShiftQuantumGate = new double *[ONE_ARGUMENT_GATE_SIZE];
+complex<double> **getUpdatedPhaseShiftQuantumGate(double angle) {
+    complex<double> **phaseShiftQuantumGate = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        phaseShiftQuantumGate[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+        phaseShiftQuantumGate[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
     }
 
     setPhaseShiftAngle(phaseShiftQuantumGate, angle);
@@ -239,13 +241,13 @@ double **getUpdatedPhaseShiftQuantumGate(double angle) {
 }
 
 /// Function used to make PHASE SHIFT on qubit
-double **makePhaseShiftOnQubit(double angle, double **qubit) {
-    double sum;
-    double **phaseShiftQuantumGate = getUpdatedPhaseShiftQuantumGate(angle);
+complex<double> **makePhaseShiftOnQubit(complex<double> **qubit, double angle) {
+    complex<double> sum;
+    complex<double> **phaseShiftQuantumGate = getUpdatedPhaseShiftQuantumGate(angle);
 
-    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+    complex<double> **outputQubit = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -262,11 +264,11 @@ double **makePhaseShiftOnQubit(double angle, double **qubit) {
 }
 
 /// Function used to make PAULI X on qubit
-double **makePauliXOnQubit(double **qubit) {
-    double sum;
-    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+complex<double> **makePauliXOnQubit(complex<double> **qubit) {
+    complex<double> sum;
+    complex<double> **outputQubit = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -283,7 +285,7 @@ double **makePauliXOnQubit(double **qubit) {
 }
 
 /// Function used to make PAULI Y on qubit
-complex<double> **makePauliYOnQubit(double **qubit) {
+complex<double> **makePauliYOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = new complex<double>*[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -304,11 +306,11 @@ complex<double> **makePauliYOnQubit(double **qubit) {
 }
 
 /// Function used to make PAULI Z on qubit
-double **makePauliZOnQubit(double **qubit) {
-    double sum;
-    double **outputQubit = new double *[ONE_ARGUMENT_GATE_SIZE];
+complex<double> **makePauliZOnQubit(complex<double> **qubit) {
+    complex<double> sum;
+    complex<double> **outputQubit = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -325,7 +327,7 @@ double **makePauliZOnQubit(double **qubit) {
 }
 
 /// Function used to Hadamard gate and factor value multiplication - eg. 1/sqrt(2) * 1 or -1
-void multiplyHadamardGateByFactor(double **hadamardGate, int gateSize, int indexNumber) {
+void multiplyHadamardGateByFactor(complex<double> **hadamardGate, int gateSize, int indexNumber) {
     double factorValue = pow((1/sqrt(2)), indexNumber);
 
     for (int i = 0; i < gateSize; i++) {
@@ -336,13 +338,13 @@ void multiplyHadamardGateByFactor(double **hadamardGate, int gateSize, int index
 }
 
 /// Function used to setting Hadamard gate values
-void setHadamardGateValues(double **hadamardGate, int gateSize, int indexNumber) {
+void setHadamardGateValues(complex<double> **hadamardGate, int gateSize, int indexNumber) {
     for (int i = 1; i < gateSize; i += i) {
         for (int j = 0; j < i; j++) {
             for (int k = 0; k < i; k++) {
                 hadamardGate[j + i][k]   =  hadamardGate[j][k];
                 hadamardGate[j][k + i]   =  hadamardGate[j][k];
-                hadamardGate[j + i][k + i] = hadamardGate[j][k] * -1;
+                hadamardGate[j + i][k + i] = hadamardGate[j][k] * -1.0;
             }
         }
     }
@@ -351,12 +353,12 @@ void setHadamardGateValues(double **hadamardGate, int gateSize, int indexNumber)
 }
 
 /// Function used to generation Hadamard gate of declared size
-double **generateMultidimensionalHadamardGate(int indexNumber) {
+complex<double> **generateMultidimensionalHadamardGate(int indexNumber) {
     int gateSize = pow(2, indexNumber);
 
-    double **hadamardGate = new double *[gateSize];
+    complex<double> **hadamardGate = new complex<double> *[gateSize];
     for (int i = 0; i < gateSize; i++) {
-        hadamardGate[i] = new double[gateSize];
+        hadamardGate[i] = new complex<double>[gateSize];
     }
     //Hadamard H0 element definition
     hadamardGate[0][0] = 1;
@@ -369,8 +371,9 @@ double **generateMultidimensionalHadamardGate(int indexNumber) {
 }
 
 /// Function used to make multidimensional Hadamard on qubit
-double **makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumber, double **qubit, int qubitsNumber) {
-    double sum;
+complex<double> **makeMultidimensionalHadamardOnQubit(complex<double> **qubit, int qubitsNumber,
+                                                      complex<double> **hadamardGate, int indexNumber) {
+    complex<double> sum;
     int gateSize = pow(2, indexNumber);
     int qubitRows = pow(2, qubitsNumber);
 
@@ -384,9 +387,9 @@ double **makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNum
         throw error;
     }
 
-    double **outputQubit = new double *[gateSize];
+    complex<double> **outputQubit = new complex<double> *[gateSize];
     for (int i = 0; i < gateSize; i++) {
-        outputQubit[i] = new double[QUBIT_COLUMNS_SIZE];
+        outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
     for (int i = 0; i < gateSize; i++) {
@@ -406,10 +409,10 @@ double **makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNum
 /// Functions used to return declared quantum gate
 
 /// Function used to get NOT gate
-double **getNotGate() {
-    double **notGateToReturn = new double *[ONE_ARGUMENT_GATE_SIZE];
+complex<double> **getNotGate() {
+    complex<double> **notGateToReturn = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        notGateToReturn[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+        notGateToReturn[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
     }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -438,10 +441,10 @@ complex<double> **getSqrtNotGate() {
 }
 
 /// Function used to get CNOT gate
-double **getCnotGate() {
-    double **cnotGateToReturn = new double *[TWO_ARGUMENTS_GATE_SIZE];
+complex<double> **getCnotGate() {
+    complex<double> **cnotGateToReturn = new complex<double> *[TWO_ARGUMENTS_GATE_SIZE];
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
-        cnotGateToReturn[i] = new double[TWO_ARGUMENTS_GATE_SIZE];
+        cnotGateToReturn[i] = new complex<double>[TWO_ARGUMENTS_GATE_SIZE];
     }
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
@@ -454,10 +457,10 @@ double **getCnotGate() {
 }
 
 /// Function used to get SWAP gate
-double **getSwapGate() {
-    double **swapGateToReturn = new double *[TWO_ARGUMENTS_GATE_SIZE];
+complex<double> **getSwapGate() {
+    complex<double> **swapGateToReturn = new complex<double> *[TWO_ARGUMENTS_GATE_SIZE];
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
-        swapGateToReturn[i] = new double[TWO_ARGUMENTS_GATE_SIZE];
+        swapGateToReturn[i] = new complex<double>[TWO_ARGUMENTS_GATE_SIZE];
     }
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
@@ -470,10 +473,10 @@ double **getSwapGate() {
 }
 
 /// Function used to get FREDKIN gate
-double **getFredkinGate() {
-    double **fredkinGateToReturn = new double *[THREE_ARGUMENTS_GATE_SIZE];
+complex<double> **getFredkinGate() {
+    complex<double> **fredkinGateToReturn = new complex<double> *[THREE_ARGUMENTS_GATE_SIZE];
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
-        fredkinGateToReturn[i] = new double[THREE_ARGUMENTS_GATE_SIZE];
+        fredkinGateToReturn[i] = new complex<double>[THREE_ARGUMENTS_GATE_SIZE];
     }
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
@@ -486,10 +489,10 @@ double **getFredkinGate() {
 }
 
 /// Function used to get TOFFOLI gate
-double **getToffoliGate() {
-    double **toffoliGateToReturn = new double *[THREE_ARGUMENTS_GATE_SIZE];
+complex<double> **getToffoliGate() {
+    complex<double> **toffoliGateToReturn = new complex<double> *[THREE_ARGUMENTS_GATE_SIZE];
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
-        toffoliGateToReturn[i] = new double[THREE_ARGUMENTS_GATE_SIZE];
+        toffoliGateToReturn[i] = new complex<double>[THREE_ARGUMENTS_GATE_SIZE];
     }
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
@@ -502,10 +505,10 @@ double **getToffoliGate() {
 }
 
 /// Function used to get HADAMARD gate
-double **getHadamardGate() {
-    double **hadamardGateToReturn = new double *[ONE_ARGUMENT_GATE_SIZE];
+complex<double> **getHadamardGate() {
+    complex<double> **hadamardGateToReturn = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        hadamardGateToReturn[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+        hadamardGateToReturn[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
     }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -518,20 +521,20 @@ double **getHadamardGate() {
 }
 
 /// Function used to get multidimensional HADAMARD gate
-double **getMultidimensionalHadamardGate(int indexNumber) {
+complex<double> **getMultidimensionalHadamardGate(int indexNumber) {
     return generateMultidimensionalHadamardGate(indexNumber);
 }
 
 /// Function used to get PHASE SHIFT gate
-double **getPhaseShiftGate(double angle) {
+complex<double> **getPhaseShiftGate(double angle) {
     return getUpdatedPhaseShiftQuantumGate(angle);
 }
 
 /// Function used to get PAULI X gate
-double **getPauliXGate() {
-    double **pauliXGateToReturn = new double *[ONE_ARGUMENT_GATE_SIZE];
+complex<double> **getPauliXGate() {
+    complex<double> **pauliXGateToReturn = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        pauliXGateToReturn[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+        pauliXGateToReturn[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
     }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -560,10 +563,10 @@ complex<double> **getPauliYGate() {
 }
 
 /// Function used to get PAULI Z gate
-double **getPauliZGate() {
-    double **pauliZGateToReturn = new double *[ONE_ARGUMENT_GATE_SIZE];
+complex<double> **getPauliZGate() {
+    complex<double> **pauliZGateToReturn = new complex<double> *[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
-        pauliZGateToReturn[i] = new double[ONE_ARGUMENT_GATE_SIZE];
+        pauliZGateToReturn[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
     }
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
@@ -578,46 +581,46 @@ double **getPauliZGate() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Functions used to show declared quantum gates
 
-/// Function used to print any quantum gate
-void printQuantumGate(double **quantumGate, const int gateSize) {
-    for (int i = 0; i < gateSize; i++) {
-        for (int j = 0; j < gateSize; j++) {
-            cout << quantumGate[i][j] << " ";
+void printGateElement(complex<double> gateElement) {
+    if (imag(gateElement) == 0) {
+        cout << real(gateElement) << " ";
+    }
+    else if (real(gateElement) == 0 && imag(gateElement) == 1) {
+        cout << "i ";
+    }
+    else if (real(gateElement) == 0 && imag(gateElement) == -1) {
+        cout << "-i ";
+    }
+    else if (real(gateElement) == 0) {
+        cout << imag(gateElement) << "i ";
+    }
+    else {
+        if (imag(gateElement) > 0) {
+            cout << real(gateElement) << "+" << imag(gateElement) << "i ";
         }
-        cout << endl;
+        else {
+            cout << real(gateElement) << imag(gateElement) << "i ";
+        }
     }
 }
 
 /// Function used to print any complex quantum gate
-void printComplexQuantumGate(complex<double> **quantumGate, const int gateSize) {
+void printQuantumGate(complex<double> **quantumGate, const int gateSize) {
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
-            if (imag(quantumGate[i][j]) >= 0) {
-                cout << real(quantumGate[i][j]) << "+" << imag(quantumGate[i][j]) << "i" << " ";
-            }
-            else if (real(quantumGate[i][j]) == 0 && imag(quantumGate[i][j]) == 0) {
-                cout << real(quantumGate[i][j]) << " ";
-            }
-            else {
-                cout << real(quantumGate[i][j]) << imag(quantumGate[i][j]) << "i" << " ";
-            }
+            printGateElement(quantumGate[i][j]);
         }
         cout << endl;
     }
 }
 
 /// Function used to print multidimensional Hadamard gate
-void printMultidimensionalHadamardGate(double **hadamardGate, int indexNumber) {
+void printMultidimensionalHadamardGate(complex<double> **hadamardGate, int indexNumber) {
     int gateSize = pow(2, indexNumber);
 
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
-            if (hadamardGate[i][j] > 0) {
-                cout << " " << hadamardGate[i][j] << " ";
-            }
-            else {
-                cout << hadamardGate[i][j] << " ";
-            }
+            printGateElement(hadamardGate[i][j]);
         }
         cout <<  endl;
     }

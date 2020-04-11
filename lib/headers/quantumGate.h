@@ -11,36 +11,36 @@ const int THREE_ARGUMENTS_GATE_SIZE = 8;
 const int QUBIT_COLUMNS_SIZE = 1;
 
 /// @functions - @returns qubits after quantum gates operations
-double **makeNotOnQubit(double **qubit);
-std::complex<double> **makeSqrtNotOnQubit(double **qubit);
-double **makeCnotOnQubit(double **qubit);
-double **makeSwapOnQubit(double **qubit);
-double **makeFredkinOnQubit(double **qubit);
-double **makeToffoliOnQubit(double **qubit);
-double **makeHadamardOnQubit(double **qubit);
-double **makeMultidimensionalHadamardOnQubit(double **hadamardGate, int indexNumber, double **qubit, int qubitsNumber);
-double **makePhaseShiftOnQubit(double angle, double **qubit);
-double **makePauliXOnQubit(double **qubit);
-std::complex<double> **makePauliYOnQubit(double **qubit);
-double **makePauliZOnQubit(double **qubit);
+std::complex<double> **makeNotOnQubit(std::complex<double> **qubit);
+std::complex<double> **makeSqrtNotOnQubit(std::complex<double> **qubit);
+std::complex<double> **makeCnotOnQubit(std::complex<double> **qubit);
+std::complex<double> **makeSwapOnQubit(std::complex<double> **qubit);
+std::complex<double> **makeFredkinOnQubit(std::complex<double> **qubit);
+std::complex<double> **makeToffoliOnQubit(std::complex<double> **qubit);
+std::complex<double> **makeHadamardOnQubit(std::complex<double> **qubit);
+std::complex<double> **makeMultidimensionalHadamardOnQubit(std::complex<double> **qubit, int qubitsNumber,
+                                                           std::complex<double> **hadamardGate, int indexNumber);
+std::complex<double> **makePhaseShiftOnQubit(std::complex<double> **qubit, double angle);
+std::complex<double> **makePauliXOnQubit(std::complex<double> **qubit);
+std::complex<double> **makePauliYOnQubit(std::complex<double> **qubit);
+std::complex<double> **makePauliZOnQubit(std::complex<double> **qubit);
 
 /// @functions - @returns implementations of quantum gates
-double **getNotGate();
+std::complex<double> **getNotGate();
 std::complex<double> **getSqrtNotGate();
-double **getCnotGate();
-double **getSwapGate();
-double **getFredkinGate();
-double **getToffoliGate();
-double **getHadamardGate();
-double **getMultidimensionalHadamardGate(int indexNumber);
-double **getPhaseShiftGate(double angle);
-double **getPauliXGate();
+std::complex<double> **getCnotGate();
+std::complex<double> **getSwapGate();
+std::complex<double> **getFredkinGate();
+std::complex<double> **getToffoliGate();
+std::complex<double> **getHadamardGate();
+std::complex<double> **getMultidimensionalHadamardGate(int indexNumber);
+std::complex<double> **getPhaseShiftGate(double angle);
+std::complex<double> **getPauliXGate();
 std::complex<double> **getPauliYGate();
-double **getPauliZGate();
+std::complex<double> **getPauliZGate();
 
 /// @functions - presents implementations of quantum gates
-void printQuantumGate(double **quantumGate, const int gateSize);
-void printComplexQuantumGate(std::complex<double> **quantumGate, const int gateSize);
-void printMultidimensionalHadamardGate(double **hadamardGate, int indexNumber);
+void printQuantumGate(std::complex<double> **quantumGate, const int gateSize);
+void printMultidimensionalHadamardGate(std::complex<double> **hadamardGate, int indexNumber);
 
 #endif //QUANTUMGATES_QUANTUMGATE_H
