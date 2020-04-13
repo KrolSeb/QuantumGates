@@ -44,7 +44,7 @@ complex<double> **generateAndNormalizeQubit(int numberOfQubits, double probabili
     qc.viewProbability();
     qc.viewQubitsInMathExpression();
 
-    return convertQubitRepresentationToComplexType(getQubitRepresentation(qc.getBaseVector()));
+    return getQubitRepresentation(qc.getBaseVector());
 }
 
 complex<double> **generateQubit(int numberOfQubits, double *probabilities) {
@@ -54,7 +54,7 @@ complex<double> **generateQubit(int numberOfQubits, double *probabilities) {
     qc.viewProbability();
     qc.viewQubitsInMathExpression();
 
-    return convertQubitRepresentationToComplexType(getQubitRepresentation(qc.getBaseVector()));
+    return getQubitRepresentation(qc.getBaseVector());
 }
 
 void testNotQuantumGate() {
@@ -270,6 +270,21 @@ void testAssemblyOfQuantumGates(complex<double> **firstGate, complex<double> **s
     }
 }
 
+void testMakeConjugateTransposeOfQubit(int amountOfQubits, double *probabilities) {
+    complex<double> **qubit00 = generateQubit(amountOfQubits, probabilities);
+    cout << "Original qubit: " << endl;
+    printQubit(qubit00, ROWS_NUMBER_IN_TWO_QUBITS);
+
+    cout << "Qubit after transposition and conjugation: " << endl;
+    complex<double> **transposedAndConjugatedQubit = makeConjugateTransposeOnQubit(qubit00, ROWS_NUMBER_IN_TWO_QUBITS, COLUMN_NUMBER_IN_QUBIT);
+    printQubitAfterConjugateTranspose(transposedAndConjugatedQubit, ROWS_NUMBER_IN_TWO_QUBITS);
+
+    cout << "Reverted qubit to original state: " << endl;
+    //Reverse of qubit - swapped columns and rows parameters is necessary to get original qubit
+    complex<double> **originalQubit = makeConjugateTransposeOnQubit(transposedAndConjugatedQubit, COLUMN_NUMBER_IN_QUBIT, ROWS_NUMBER_IN_TWO_QUBITS);
+    printQubit(originalQubit, ROWS_NUMBER_IN_TWO_QUBITS);
+}
+
 int main() {
     testNotQuantumGate();
     testSqrtNotQuantumGate();
@@ -319,6 +334,10 @@ int main() {
 
     // F(alfa) and F(-alfa) - for PI value
     testAssemblyOfQuantumGates(getPhaseShiftGate(M_PI), getPhaseShiftGate(-M_PI), ONE_ARGUMENT_GATE_SIZE);
+
+    // Test transposition and conjugation of two qubits
+    amountOfQubits = 2;
+    testMakeConjugateTransposeOfQubit(amountOfQubits, probabilitiesOfTwoQubits);
 
     //runMatrixOperations();
     return 0;
