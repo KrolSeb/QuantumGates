@@ -3,6 +3,40 @@
 
 using namespace std;
 
+complex<double> **makeConjugateTransposeOnQubit(complex<double> **qubit, const int rows, const int columns) {
+    complex<double> **transposedQubit = new complex<double>*[columns];
+    for (int i = 0; i < columns; i++) {
+        transposedQubit[i] = new complex<double>[rows];
+    }
+
+    for (int i = 0; i < columns; i++) {
+        for (int j = 0; j < rows; j++) {
+            transposedQubit[i][j] = conj(qubit[j][i]);
+        }
+    }
+
+    return transposedQubit;
+}
+
+double **migrateBaseVectorTo2dArray(vector<double> baseVector) {
+    double **baseVectorAsTwoDimensionalArray = new double *[baseVector.size()];
+    for (int i = 0; i < baseVector.size(); i++) {
+        baseVectorAsTwoDimensionalArray[i] = new double[COLUMN_NUMBER_IN_QUBIT];
+    }
+
+    for(int i = 0; i < baseVector.size(); i++) {
+        for(int j = 0; j < COLUMN_NUMBER_IN_QUBIT; j++) {
+            baseVectorAsTwoDimensionalArray[i][j] = baseVector.at(i);
+        }
+    }
+
+    return baseVectorAsTwoDimensionalArray;
+}
+
+complex<double> **getQubitRepresentation(vector<double> baseVector) {
+    return reinterpret_cast<complex<double> **>(migrateBaseVectorTo2dArray(baseVector));
+}
+
 void printQubitElement(complex<double> qubitElement) {
     if (imag(qubitElement) == 0) {
         cout << real(qubitElement) << " ";
@@ -35,25 +69,11 @@ void printQubit(complex<double> **qubit, const int qubitRows) {
     }
 }
 
-double **migrateBaseVectorTo2dArray(vector<double> baseVector) {
-    double **baseVectorAsTwoDimensionalArray = new double *[baseVector.size()];
-    for (int i = 0; i < baseVector.size(); i++) {
-        baseVectorAsTwoDimensionalArray[i] = new double[COLUMN_NUMBER_IN_QUBIT];
-    }
-
-    for(int i = 0; i < baseVector.size(); i++) {
-        for(int j = 0; j < COLUMN_NUMBER_IN_QUBIT; j++) {
-            baseVectorAsTwoDimensionalArray[i][j] = baseVector.at(i);
+void printQubitAfterConjugateTranspose(complex<double> **qubit,  const int qubitRows) {
+    for (int i = 0; i < COLUMN_NUMBER_IN_QUBIT; i++) {
+        for (int j = 0; j < qubitRows; j++) {
+            printQubitElement(qubit[i][j]);
         }
+        cout << endl;
     }
-
-    return baseVectorAsTwoDimensionalArray;
-}
-
-double **getQubitRepresentation(vector<double> baseVector) {
-    return migrateBaseVectorTo2dArray(baseVector);
-}
-
-complex<double> **convertQubitRepresentationToComplexType(double **qubitRepresentation) {
-    return reinterpret_cast<complex<double> **>(qubitRepresentation);
 }
