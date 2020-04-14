@@ -1,21 +1,25 @@
 #include <iostream>
 #include "headers/qubitOperation.h"
+#include "headers/matrixOperation.h"
 
 using namespace std;
 
-complex<double> **makeConjugateTransposeOnQubit(complex<double> **qubit, const int rows, const int columns) {
-    complex<double> **transposedQubit = new complex<double>*[columns];
+complex<double> **makeScalarProductOfQubits(complex<double> **firstQubit, complex<double> **secondQubit, int rows, int columns) {
+    complex<double> sum;
+    complex<double> **scalarProduct = new complex<double>*[columns];
     for (int i = 0; i < columns; i++) {
-        transposedQubit[i] = new complex<double>[rows];
+        scalarProduct[i] = new complex<double>[columns];
     }
 
+    sum = 0.0;
     for (int i = 0; i < columns; i++) {
         for (int j = 0; j < rows; j++) {
-            transposedQubit[i][j] = conj(qubit[j][i]);
+           sum += firstQubit[i][j] * secondQubit[j][i];
         }
     }
+    scalarProduct[0][0] = sum;
 
-    return transposedQubit;
+    return scalarProduct;
 }
 
 double **migrateBaseVectorTo2dArray(vector<double> baseVector) {
@@ -37,25 +41,25 @@ complex<double> **getQubitRepresentation(vector<double> baseVector) {
     return reinterpret_cast<complex<double> **>(migrateBaseVectorTo2dArray(baseVector));
 }
 
-void printQubitElement(complex<double> qubitElement) {
-    if (imag(qubitElement) == 0) {
-        cout << real(qubitElement) << " ";
+void printElement(complex<double> element) {
+    if (imag(element) == 0) {
+        cout << real(element) << " ";
     }
-    else if (real(qubitElement) == 0 && imag(qubitElement) == 1) {
+    else if (real(element) == 0 && imag(element) == 1) {
         cout << "i ";
     }
-    else if (real(qubitElement) == 0 && imag(qubitElement) == -1) {
+    else if (real(element) == 0 && imag(element) == -1) {
         cout << "-i ";
     }
-    else if (real(qubitElement) == 0) {
-        cout << imag(qubitElement) << "i ";
+    else if (real(element) == 0) {
+        cout << imag(element) << "i ";
     }
     else {
-        if (imag(qubitElement) > 0) {
-            cout << real(qubitElement) << "+" << imag(qubitElement) << "i ";
+        if (imag(element) > 0) {
+            cout << real(element) << "+" << imag(element) << "i ";
         }
         else {
-            cout << real(qubitElement) << imag(qubitElement) << "i ";
+            cout << real(element) << imag(element) << "i ";
         }
     }
 }
@@ -63,17 +67,29 @@ void printQubitElement(complex<double> qubitElement) {
 void printQubit(complex<double> **qubit, const int qubitRows) {
     for(int i = 0; i < qubitRows; i++) {
         for(int j = 0; j < COLUMN_NUMBER_IN_QUBIT; j++) {
-            printQubitElement(qubit[i][j]);
+            printElement(qubit[i][j]);
         }
         cout << endl;
     }
+    cout << endl;
 }
 
 void printQubitAfterConjugateTranspose(complex<double> **qubit,  const int qubitRows) {
     for (int i = 0; i < COLUMN_NUMBER_IN_QUBIT; i++) {
         for (int j = 0; j < qubitRows; j++) {
-            printQubitElement(qubit[i][j]);
+            printElement(qubit[i][j]);
         }
         cout << endl;
     }
+    cout << endl;
+}
+
+void printScalarProduct(complex<double> **scalarProduct) {
+    for (int i = 0; i < COLUMN_NUMBER_IN_QUBIT; i++) {
+        for (int j = 0; j < COLUMN_NUMBER_IN_QUBIT; j++) {
+            printElement(scalarProduct[i][j]);
+        }
+        cout << endl;
+    }
+    cout << endl;
 }
