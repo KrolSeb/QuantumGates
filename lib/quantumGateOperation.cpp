@@ -40,11 +40,11 @@ complex<double> **getIdentityMatrixForDefinedSize(int gateSize) {
     return identityMatrix;
 }
 
-bool isIdentityMatrixAndMultipliedGatesAreEqual(complex<double> **identityMatrix, complex<double> **outputGate, int gateSize) {
+bool isIdentityMatrixAndMultipliedGatesAreEqual(complex<double> **identityMatrix, complex<double> **multipliedGates, int gateSize) {
     double epsilon = 0.0000001;
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
-            if(fabs(identityMatrix[i][j] - outputGate[i][j]) >= epsilon) {
+            if(fabs(identityMatrix[i][j] - multipliedGates[i][j]) >= epsilon) {
                 return false;
             }
         }
@@ -60,4 +60,13 @@ bool isAssemblyOfGatesGiveIdentityMatrix(complex<double> **firstGate, complex<do
     return isIdentityMatrixAndMultipliedGatesAreEqual(identityMatrix, outputGate, gateSize);
 }
 
+bool isMatrixUnitary(complex<double> **quantumGate, complex<double> **conjugateTransposedQuantumGate, int gateSize) {
+    complex<double> **identityMatrix = getIdentityMatrixForDefinedSize(gateSize);
+    complex<double> **firstConditionMatrix = assembleQuantumGates(quantumGate, conjugateTransposedQuantumGate, gateSize);
+    complex<double> **secondConditionMatrix = assembleQuantumGates(conjugateTransposedQuantumGate, quantumGate, gateSize);
+
+    bool isFirstConditionDone = isIdentityMatrixAndMultipliedGatesAreEqual(identityMatrix, firstConditionMatrix, gateSize);
+    bool isSecondConditionDone = isIdentityMatrixAndMultipliedGatesAreEqual(identityMatrix, secondConditionMatrix, gateSize);
+    return isFirstConditionDone && isSecondConditionDone;
+}
 
