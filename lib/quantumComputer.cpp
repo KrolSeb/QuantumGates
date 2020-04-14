@@ -47,7 +47,7 @@ int integerToBinary(int num) {
 }
 
 void quantum::QuantumComputer::viewProbability() {
-    std::cout << "\nVector with probabilities {";
+    std::cout << "Vector with probabilities {";
     for (auto x: this->baseVector) {
         printf("[%.4f]", x);
     }
@@ -56,9 +56,7 @@ void quantum::QuantumComputer::viewProbability() {
 
 void quantum::QuantumComputer::viewQubitsInMathExpression() {
     if (!this->isNormalize) {
-        std::cout
-                << "Base Vector is not in normalize state. To view qubit you should normalize it before.  Use .normalize() function for that"
-                << std::endl;
+        std::cout << "Base Vector is not in normalize state. To view qubit you should normalize it before.  Use .normalize() function for that" << std::endl;
     }
     else {
         printf("\nQubit in expression: \n");

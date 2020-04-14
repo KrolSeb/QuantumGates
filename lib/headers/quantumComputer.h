@@ -1,6 +1,5 @@
 #ifndef UNTITLED_QUANTUM_H
 #define UNTITLED_QUANTUM_H
-
 #include <vector>
 
 namespace quantum {
