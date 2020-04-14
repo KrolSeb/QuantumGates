@@ -10,29 +10,26 @@
 using namespace std;
 using namespace quantum;
 
-void runMatrixOperations() {
+void testMatrixOperations() {
     //TODO: another implementation for generate random values
     srand(static_cast<unsigned int>(time(nullptr)));
 
+    cout << endl;
+    cout << "Test of generating random hermitian matrix" << endl;
     int dimension = rand() % 4 + 2;
-    setComplexMatrixDimension(dimension);
     cout << "Rows: " << dimension << " " << "Columns: " << dimension << endl;
 
-    complex<double> **originalComplexMatrix = allocateComplexMatrix(dimension);
-    generateRandomComplexMatrix(originalComplexMatrix);
+    complex<double> **originalComplexMatrix = getRandomHermitianMatrix(dimension);
     cout << "Original complex matrix: " << endl;
-    printHermitianComplexMatrix(originalComplexMatrix, dimension);
+    printMatrix(originalComplexMatrix, dimension);
 
-    complex<double> **transposedComplexMatrix = transposeComplexMatrix(originalComplexMatrix);
-    cout << "Transposed complex matrix: " << endl;
-    printHermitianComplexMatrix(transposedComplexMatrix, dimension);
-
-    complex<double> **conjugatedComplexMatrix = conjugateComplexMatrix(transposedComplexMatrix);
-    cout << "Conjugated complex matrix: " << endl;
-    printHermitianComplexMatrix(conjugatedComplexMatrix, dimension);
+    complex<double> **transposedAndConjugatedMatrix = makeConjugateTranspose(originalComplexMatrix, dimension, dimension);
+    cout << "Complex matrix after conjugate transpose: " << endl;
+    //Result is the same as original matrix -> A^+ = A
+    printMatrix(transposedAndConjugatedMatrix, dimension);
 
     delete (originalComplexMatrix);
-    delete (conjugatedComplexMatrix);
+    delete (transposedAndConjugatedMatrix);
 }
 
 complex<double> **generateAndNormalizeQubit(int numberOfQubits, double probabilities[]) {
@@ -205,7 +202,6 @@ void testMultidimensionalHadamardGate(int hadamardIndexNumber, int amountOfQubit
 }
 
 void testGetQuantumGates() {
-    cout << endl;
     cout << "Quantum gates" << endl;
 
     cout << "NOT gate:" << endl;
@@ -270,22 +266,54 @@ void testAssemblyOfQuantumGates(complex<double> **firstGate, complex<double> **s
     }
 }
 
-void testMakeConjugateTransposeOfQubit(int amountOfQubits, double *probabilities) {
+void testMakeScalarProductOfQubits(int amountOfQubits, double *probabilities) {
     complex<double> **qubit00 = generateQubit(amountOfQubits, probabilities);
     cout << "Original qubit: " << endl;
     printQubit(qubit00, ROWS_NUMBER_IN_TWO_QUBITS);
 
     cout << "Qubit after transposition and conjugation: " << endl;
-    complex<double> **transposedAndConjugatedQubit = makeConjugateTransposeOnQubit(qubit00, ROWS_NUMBER_IN_TWO_QUBITS, COLUMN_NUMBER_IN_QUBIT);
+    complex<double> **transposedAndConjugatedQubit = makeConjugateTranspose(qubit00, ROWS_NUMBER_IN_TWO_QUBITS,
+                                                                            COLUMN_NUMBER_IN_QUBIT);
     printQubitAfterConjugateTranspose(transposedAndConjugatedQubit, ROWS_NUMBER_IN_TWO_QUBITS);
 
     cout << "Reverted qubit to original state: " << endl;
     //Reverse of qubit - swapped columns and rows parameters is necessary to get original qubit
-    complex<double> **originalQubit = makeConjugateTransposeOnQubit(transposedAndConjugatedQubit, COLUMN_NUMBER_IN_QUBIT, ROWS_NUMBER_IN_TWO_QUBITS);
+    complex<double> **originalQubit = makeConjugateTranspose(transposedAndConjugatedQubit, COLUMN_NUMBER_IN_QUBIT,
+                                                             ROWS_NUMBER_IN_TWO_QUBITS);
     printQubit(originalQubit, ROWS_NUMBER_IN_TWO_QUBITS);
+
+    cout << "Scalar product of two qubits: " << endl;
+    complex<double> **scalarProduct = makeScalarProductOfQubits(transposedAndConjugatedQubit, originalQubit, ROWS_NUMBER_IN_TWO_QUBITS, COLUMN_NUMBER_IN_QUBIT);
+    printScalarProduct(scalarProduct);
+}
+
+void testIsMatrixUnitary(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
+    if (isMatrixUnitary(firstGate, secondGate, gateSize)) {
+        cout << "Matrix is UNITARY" << endl;
+    }
+    else {
+        cout << "Matrix is NOT unitary" << endl;
+    }
+}
+
+complex<double> **getNotUnitaryMatrix() {
+    complex<double> **matrixWithZeroDeterminant = new complex<double>*[ONE_ARGUMENT_GATE_SIZE];
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        matrixWithZeroDeterminant[i] = new complex<double>[ONE_ARGUMENT_GATE_SIZE];
+    }
+
+    for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
+        for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
+            matrixWithZeroDeterminant[i][j] = complex<double>(0,0);
+        }
+    }
+
+    return matrixWithZeroDeterminant;
 }
 
 int main() {
+    testMatrixOperations();
+
     testNotQuantumGate();
     testSqrtNotQuantumGate();
     testCnotQuantumGate();
@@ -335,10 +363,17 @@ int main() {
     // F(alfa) and F(-alfa) - for PI value
     testAssemblyOfQuantumGates(getPhaseShiftGate(M_PI), getPhaseShiftGate(-M_PI), ONE_ARGUMENT_GATE_SIZE);
 
-    // Test transposition and conjugation of two qubits
+    // Test scalar product of qubits
     amountOfQubits = 2;
-    testMakeConjugateTransposeOfQubit(amountOfQubits, probabilitiesOfTwoQubits);
+    testMakeScalarProductOfQubits(amountOfQubits, probabilitiesOfTwoQubits);
 
-    //runMatrixOperations();
+    // Test unitary of matrix
+    testIsMatrixUnitary(getNotGate(), getNotGate(), ONE_ARGUMENT_GATE_SIZE);
+    testIsMatrixUnitary(getSwapGate(), getSwapGate(), TWO_ARGUMENTS_GATE_SIZE);
+
+    // Test matrix is not unitary
+    complex<double> **notUnitaryMatrix = getNotUnitaryMatrix();
+    testIsMatrixUnitary(notUnitaryMatrix, notUnitaryMatrix, ONE_ARGUMENT_GATE_SIZE);
+
     return 0;
 }
