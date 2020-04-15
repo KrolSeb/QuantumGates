@@ -3,7 +3,7 @@
 
 using namespace std;
 
-complex<double> **assembleQuantumGates(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
+complex<double> **composeQuantumGates(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
     complex<double> **outputGate = new complex<double> *[gateSize];
     for (int i = 0; i < gateSize; i++) {
         outputGate[i] = new complex<double>[gateSize];
@@ -20,7 +20,7 @@ complex<double> **assembleQuantumGates(complex<double> **firstGate, complex<doub
     return outputGate;
 }
 
-complex<double> **getIdentityMatrixForDefinedSize(int gateSize) {
+complex<double> **getIdentityMatrix(int gateSize) {
     complex<double> **identityMatrix = new complex<double> *[gateSize];
     for (int i = 0; i < gateSize; i++) {
         identityMatrix[i] = new complex<double>[gateSize];
@@ -53,17 +53,17 @@ bool isIdentityMatrixAndMultipliedGatesAreEqual(complex<double> **identityMatrix
     return true;
 }
 
-bool isAssemblyOfGatesGiveIdentityMatrix(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
-    complex<double> **identityMatrix = getIdentityMatrixForDefinedSize(gateSize);
-    complex<double> **outputGate = assembleQuantumGates(firstGate, secondGate, gateSize);
+bool isComposeOfGatesGivesIdentityMatrix(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
+    complex<double> **identityMatrix = getIdentityMatrix(gateSize);
+    complex<double> **outputGate = composeQuantumGates(firstGate, secondGate, gateSize);
 
     return isIdentityMatrixAndMultipliedGatesAreEqual(identityMatrix, outputGate, gateSize);
 }
 
 bool isMatrixUnitary(complex<double> **quantumGate, complex<double> **conjugateTransposedQuantumGate, int gateSize) {
-    complex<double> **identityMatrix = getIdentityMatrixForDefinedSize(gateSize);
-    complex<double> **firstConditionMatrix = assembleQuantumGates(quantumGate, conjugateTransposedQuantumGate, gateSize);
-    complex<double> **secondConditionMatrix = assembleQuantumGates(conjugateTransposedQuantumGate, quantumGate, gateSize);
+    complex<double> **identityMatrix = getIdentityMatrix(gateSize);
+    complex<double> **firstConditionMatrix = composeQuantumGates(quantumGate, conjugateTransposedQuantumGate, gateSize);
+    complex<double> **secondConditionMatrix = composeQuantumGates(conjugateTransposedQuantumGate, quantumGate, gateSize);
 
     bool isFirstConditionDone = isIdentityMatrixAndMultipliedGatesAreEqual(identityMatrix, firstConditionMatrix, gateSize);
     bool isSecondConditionDone = isIdentityMatrixAndMultipliedGatesAreEqual(identityMatrix, secondConditionMatrix, gateSize);

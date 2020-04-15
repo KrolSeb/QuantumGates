@@ -12,8 +12,8 @@ const int COLUMN_NUMBER_IN_QUBIT = 1;
 std::complex<double> **makeScalarProductOfQubits(std::complex<double> **firstQubit, std::complex<double> **secondQubit, int rows, int columns);
 std::complex<double> **getQubitRepresentation(std::vector<double> baseVector);
 
-void printQubit(std::complex<double> **qubit, const int qubitRows);
-void printQubitAfterConjugateTranspose(std::complex<double> **qubit,  const int qubitRows);
-void printScalarProduct(std::complex<double> **scalarProduct);
+void showQubit(std::complex<double> **qubit, const int qubitRows);
+void showQubitAfterConjugateTranspose(std::complex<double> **qubit, const int qubitRows);
+void showScalarProduct(std::complex<double> **scalarProduct);
 
 #endif //QUANTUMGATES_QUBITOPERATION_H

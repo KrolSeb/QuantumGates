@@ -72,12 +72,12 @@ const complex<double> PAULI_Z_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
 
 /// Function used to make NOT on qubit
 complex<double> **makeNotOnQubit(complex<double> **qubit) {
+    complex<double> sum;
     complex<double> **outputQubit = new complex<double>*[ONE_ARGUMENT_GATE_SIZE];
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         outputQubit[i] = new complex<double>[QUBIT_COLUMNS_SIZE];
     }
 
-    complex<double> sum;
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
             sum = complex<double>(0, 0);
@@ -122,7 +122,7 @@ complex<double> **makeCnotOnQubit(complex<double> **qubit) {
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < TWO_ARGUMENTS_GATE_SIZE; k++) {
                 sum += CNOT_QUANTUM_GATE[i][k] * qubit[k][j];
             }
@@ -143,7 +143,7 @@ complex<double> **makeSwapOnQubit(complex<double> **qubit) {
 
     for (int i = 0; i < TWO_ARGUMENTS_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < TWO_ARGUMENTS_GATE_SIZE; k++) {
                 sum += SWAP_QUANTUM_GATE[i][k] * qubit[k][j];
             }
@@ -164,7 +164,7 @@ complex<double> **makeFredkinOnQubit(complex<double> **qubit) {
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < THREE_ARGUMENTS_GATE_SIZE; k++) {
                 sum += FREDKIN_QUANTUM_GATE[i][k] * qubit[k][j];
             }
@@ -185,7 +185,7 @@ complex<double> **makeToffoliOnQubit(complex<double> **qubit) {
 
     for (int i = 0; i < THREE_ARGUMENTS_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < THREE_ARGUMENTS_GATE_SIZE; k++) {
                 sum += TOFFOLI_QUANTUM_GATE[i][k] * qubit[k][j];
             }
@@ -206,7 +206,7 @@ complex<double> **makeHadamardOnQubit(complex<double> **qubit) {
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += HADAMARD_QUANTUM_GATE[i][k] * qubit[k][j];
             }
@@ -252,7 +252,7 @@ complex<double> **makePhaseShiftOnQubit(complex<double> **qubit, double angle) {
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += phaseShiftQuantumGate[i][k] * qubit[k][j];
             }
@@ -273,7 +273,7 @@ complex<double> **makePauliXOnQubit(complex<double> **qubit) {
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += PAULI_X_QUANTUM_GATE[i][k] * qubit[k][j];
             }
@@ -315,7 +315,7 @@ complex<double> **makePauliZOnQubit(complex<double> **qubit) {
 
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < ONE_ARGUMENT_GATE_SIZE; k++) {
                 sum += PAULI_Z_QUANTUM_GATE[i][k] * qubit[k][j];
             }
@@ -337,7 +337,7 @@ void multiplyHadamardGateByFactor(complex<double> **hadamardGate, int gateSize, 
     }
 }
 
-/// Function used to setting Hadamard gate values
+/// Function used to set Hadamard gate values
 void setHadamardGateValues(complex<double> **hadamardGate, int gateSize, int indexNumber) {
     for (int i = 1; i < gateSize; i += i) {
         for (int j = 0; j < i; j++) {
@@ -394,7 +394,7 @@ complex<double> **makeMultidimensionalHadamardOnQubit(complex<double> **qubit, i
 
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < QUBIT_COLUMNS_SIZE; j++) {
-            sum = 0.0;
+            sum = complex<double>(0, 0);
             for (int k = 0; k < gateSize; k++) {
                 sum += hadamardGate[i][k] * qubit[k][j];
             }
@@ -581,7 +581,7 @@ complex<double> **getPauliZGate() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Functions used to show declared quantum gates
 
-void printGateElement(complex<double> gateElement) {
+void showSingleGateElement(complex<double> gateElement) {
     if (imag(gateElement) == 0) {
         cout << real(gateElement) << " ";
     }
@@ -605,22 +605,22 @@ void printGateElement(complex<double> gateElement) {
 }
 
 /// Function used to print any complex quantum gate
-void printQuantumGate(complex<double> **quantumGate, const int gateSize) {
+void showQuantumGate(complex<double> **quantumGate, const int gateSize) {
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
-            printGateElement(quantumGate[i][j]);
+            showSingleGateElement(quantumGate[i][j]);
         }
         cout << endl;
     }
 }
 
 /// Function used to print multidimensional Hadamard gate
-void printMultidimensionalHadamardGate(complex<double> **hadamardGate, int indexNumber) {
+void showMultidimensionalHadamardGate(complex<double> **hadamardGate, int indexNumber) {
     int gateSize = pow(2, indexNumber);
 
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
-            printGateElement(hadamardGate[i][j]);
+            showSingleGateElement(hadamardGate[i][j]);
         }
         cout <<  endl;
     }
