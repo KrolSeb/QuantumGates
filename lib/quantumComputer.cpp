@@ -1,9 +1,9 @@
-#include "headers/quantumComputer.h"
-#include <cmath>
 #include <iostream>
+#include <cmath>
 #include <vector>
+#include "headers/quantumComputer.h"
 
-
+/// Function used to set values of QuantumComputer structure
 quantum::QuantumComputer::QuantumComputer(int regSize, double probability[], int arrSize) {
     this->registerSize = regSize;
     this->baseVectorsCount = 0;
@@ -20,6 +20,8 @@ quantum::QuantumComputer::QuantumComputer(int regSize, double probability[], int
     countNonZeroBaseVector();
 }
 
+/// Function used to count base vector elements,
+/// where single element != 0
 void quantum::QuantumComputer::countNonZeroBaseVector() {
     for (auto x: this->baseVector) {
         if ((double) x != 0.0) {
@@ -28,6 +30,8 @@ void quantum::QuantumComputer::countNonZeroBaseVector() {
     }
 }
 
+/// Function used to reset state of base vector.
+/// First element of vector is set to 1, other elements are set to 0.
 void quantum::QuantumComputer::resetState() {
     std::vector<double>::iterator it;
     for (it = this->baseVector.begin(); it < this->baseVector.end(); it++) {
@@ -36,6 +40,16 @@ void quantum::QuantumComputer::resetState() {
     this->baseVector.at(0) = 1;
 }
 
+/// Function used to show defined base vector
+void quantum::QuantumComputer::viewProbability() {
+    std::cout << "Vector with probabilities {";
+    for (auto x: this->baseVector) {
+        printf("[%.4f]", x);
+    }
+    std::cout << "}";
+}
+
+/// Helper function used to convert integer to binary
 int integerToBinary(int num) {
     if (num == 0) {
         return 0;
@@ -46,14 +60,8 @@ int integerToBinary(int num) {
     return (num % 2) + 10 * integerToBinary(num / 2);
 }
 
-void quantum::QuantumComputer::viewProbability() {
-    std::cout << "Vector with probabilities {";
-    for (auto x: this->baseVector) {
-        printf("[%.4f]", x);
-    }
-    std::cout << "}";
-}
-
+/// Function used to show qubit as math expression
+/// eg. for qubit 0 - |0>
 void quantum::QuantumComputer::viewQubitsInMathExpression() {
     if (!this->isNormalize) {
         std::cout << "Base Vector is not in normalize state. To view qubit you should normalize it before.  Use .normalize() function for that" << std::endl;
@@ -97,6 +105,7 @@ void quantum::QuantumComputer::viewQubitsInMathExpression() {
     }
 }
 
+/// Function used to check register size and array size from input
 void quantum::QuantumComputer::validateArraySize(int arrSize, int regSize) {
     if (regSize < 1) {
         printf("\n[ERROR] Register size cannot be less than 1");
@@ -109,52 +118,44 @@ void quantum::QuantumComputer::validateArraySize(int arrSize, int regSize) {
     }
 }
 
+/// Function used to check probabilities of base vector
+/// If sum of square probabilities is not equal 1 - error, vector should be normalized
 void quantum::QuantumComputer::validateProbability() {
     double result = 0.0;
-
     for (auto x: this->baseVector) {
         result += pow(sqrt(fabs(x)), 2);
     }
 
     if (result != 1.0) {
-        printf("\n[ERROR] Probability should be equal 1, u can normalize vector use .normalize() function for that");
-        this->isNormalize = false;
+        printf("\n[ERROR] Probability should be equal 1, normalize register function is executed...\n");
+        viewProbability();
+        normalizeRegister();
     }
     else {
         this->isNormalize = true;
     }
-
 }
 
+/// Function used to normalize probabilities of base vector(register)
 void quantum::QuantumComputer::normalizeRegister() {
-    /* Dopytać Łukasza, jak to działa na przykładzie
-     * i czy na czymś się wzorował, jak to implementował, czy to po prostu jego koncepcja.
-     * Kiedy normalizacja musi być robiona, tzn. czy tylko
-     * przy sumie prawdopodobieństw != 1, czy też gdy jest wszystko ok.
-    */
     double vectorLength = 0.0;
-    //std::cout << std::endl;
 
     for (auto x: this->baseVector) {
-        //std::cout << x << " ";
         vectorLength += pow(x, 2);
-        //std::cout << vectorLength << " ";
     }
 
     vectorLength = sqrt(vectorLength);
-    //std::cout << vectorLength << std::endl;
     std::vector<double>::iterator it;
 
     for (it = this->baseVector.begin(); it < this->baseVector.end(); it++) {
-        //std::cout <<*it << " ";
         *it = *it / vectorLength;
-        //std::cout <<*it << " ";
     }
 
     this->isNormalize = true;
-
+    printf("\nRegister (vector) is normalized\n");
 }
 
+/// Function used to measure of base vector
 // TODO:  DO IT
 void quantum::QuantumComputer::QuantumComputer::measure() {
     if (this->isMeasured) {
@@ -166,6 +167,7 @@ void quantum::QuantumComputer::QuantumComputer::measure() {
     this->isMeasured = true;
 }
 
+/// Function used to get created base vector
 std::vector<double> quantum::QuantumComputer::QuantumComputer::getBaseVector() {
     return baseVector;
 }

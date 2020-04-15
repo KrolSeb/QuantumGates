@@ -13,7 +13,6 @@ using namespace quantum;
 void testMatrixOperations() {
     srand(static_cast<unsigned int>(time(nullptr)));
 
-    cout << endl;
     cout << "Test of generation random hermitian matrix" << endl;
     int dimension = rand() % 4 + 2;
     cout << "Rows and Columns size: " << dimension << endl;
@@ -30,22 +29,9 @@ void testMatrixOperations() {
     delete (transposedAndConjugatedMatrix);
 }
 
-complex<double> **generateAndNormalizeQubit(int numberOfQubits, double probabilities[]) {
-    int arraySize = pow(2, numberOfQubits);
-    struct QuantumComputer quantumComputer = QuantumComputer(numberOfQubits, probabilities, arraySize);
-
-    quantumComputer.viewProbability();
-    quantumComputer.normalizeRegister();
-    quantumComputer.viewProbability();
-    quantumComputer.viewQubitsInMathExpression();
-
-    return getQubitRepresentation(quantumComputer.getBaseVector());
-}
-
 complex<double> **generateQubit(int numberOfQubits, double *probabilities) {
     int arraySize = pow(2, numberOfQubits);
     struct QuantumComputer quantumComputer = QuantumComputer(numberOfQubits, probabilities, arraySize);
-
     quantumComputer.viewProbability();
     quantumComputer.viewQubitsInMathExpression();
 
@@ -183,13 +169,16 @@ void testPauliZQuantumGate() {
 
 void testQubitWithNonCorrectProbabilities() {
     double probabilitiesOfThreeQubits[] = {4.0, 0.0, 3.0, 0.0, 4.0, 0.0, 3.0, 0.0};
-    complex<double> **threeQubits = generateAndNormalizeQubit(3, probabilitiesOfThreeQubits);
+    const int numberOfQubits = 3;
+    complex<double> **threeQubits = generateQubit(numberOfQubits, probabilitiesOfThreeQubits);
+    showQubit(threeQubits, ROWS_NUMBER_IN_THREE_QUBITS);
 }
 
 void testGetMultidimensionalHadamardGate(int indexNumber) {
     complex<double> **hadamardGate = getMultidimensionalHadamardGate(indexNumber);
     cout << "Generated Hadamard gate for n = " << indexNumber << " (H" << indexNumber << ")" << endl;
     showMultidimensionalHadamardGate(hadamardGate, indexNumber);
+    cout << endl;
 }
 
 void testMultidimensionalHadamardGate(int hadamardIndexNumber, int numberOfQubits, double *probabilities) {
@@ -273,6 +262,7 @@ void testAssemblyOfQuantumGates(complex<double> **firstGate, complex<double> **s
     else {
         cout << "Multiplied gates are NOT equal with identity matrix" << endl;
     }
+    cout << endl;
 }
 
 void testMakeScalarProductOfQubits(int numberOfQubits, double *probabilities) {
@@ -340,23 +330,27 @@ int main() {
     double probabilitiesOfSingleQubit[] = {1.0, 0.0};
     int hadamardIndexNumber = 0;
     int numberOfQubits = 1;
+    testGetMultidimensionalHadamardGate(hadamardIndexNumber);
     testMultidimensionalHadamardGate(hadamardIndexNumber, numberOfQubits, probabilitiesOfSingleQubit);
 
     //Test single qubit (0) * H1
     hadamardIndexNumber = 1;
     numberOfQubits = 1;
+    testGetMultidimensionalHadamardGate(hadamardIndexNumber);
     testMultidimensionalHadamardGate(hadamardIndexNumber, numberOfQubits, probabilitiesOfSingleQubit);
 
     //Test two qubits (00) * H2
     hadamardIndexNumber = 2;
     numberOfQubits = 2;
     double probabilitiesOfTwoQubits[] = {1.0, 0.0, 0.0, 0.0};
+    testGetMultidimensionalHadamardGate(hadamardIndexNumber);
     testMultidimensionalHadamardGate(hadamardIndexNumber, numberOfQubits, probabilitiesOfTwoQubits);
 
     //Test three qubits (000) * H3
     hadamardIndexNumber = 3;
     numberOfQubits = 3;
     double probabilitiesOfThreeQubits[] = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    testGetMultidimensionalHadamardGate(hadamardIndexNumber);
     testMultidimensionalHadamardGate(hadamardIndexNumber, numberOfQubits, probabilitiesOfThreeQubits);
 
     //Test get quantum gates
@@ -385,5 +379,6 @@ int main() {
     complex<double> **notUnitaryMatrix = getNotUnitaryMatrix();
     testIsMatrixUnitary(notUnitaryMatrix, notUnitaryMatrix, ONE_ARGUMENT_GATE_SIZE);
 
+    testQubitWithNonCorrectProbabilities();
     return 0;
 }
