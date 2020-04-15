@@ -255,7 +255,7 @@ void testGetQuantumGates() {
     cout << endl;
 }
 
-void testAssemblyOfQuantumGates(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
+void testComposeOfQuantumGates(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
     if (isComposeOfGatesGivesIdentityMatrix(firstGate, secondGate, gateSize)) {
         cout << "Multiplied gates are EQUAL with identity matrix" << endl;
     }
@@ -356,16 +356,16 @@ int main() {
     //Test get quantum gates
     testGetQuantumGates();
 
-    /// Test assembly of gates (1 is identity matrix)
+    /// Test compose of quantum gates (1 is identity matrix)
     /// gate1 * gate2 = 1.
     // NOT gates
-    testAssemblyOfQuantumGates(getNotGate(), getNotGate(), ONE_ARGUMENT_GATE_SIZE);
+    testComposeOfQuantumGates(getNotGate(), getNotGate(), ONE_ARGUMENT_GATE_SIZE);
 
     // Hadamard gates
-    testAssemblyOfQuantumGates(getHadamardGate(), getHadamardGate(), ONE_ARGUMENT_GATE_SIZE);
+    testComposeOfQuantumGates(getHadamardGate(), getHadamardGate(), ONE_ARGUMENT_GATE_SIZE);
 
     // F(alfa) and F(-alfa) - for PI value
-    testAssemblyOfQuantumGates(getPhaseShiftGate(M_PI), getPhaseShiftGate(-M_PI), ONE_ARGUMENT_GATE_SIZE);
+    testComposeOfQuantumGates(getPhaseShiftGate(M_PI), getPhaseShiftGate(-M_PI), ONE_ARGUMENT_GATE_SIZE);
 
     // Test scalar product of qubits
     numberOfQubits = 2;

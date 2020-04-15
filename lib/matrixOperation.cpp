@@ -4,6 +4,7 @@
 
 using namespace std;
 
+/// Function used to allocate matrix.
 complex<double> **allocateMatrix(int dimension) {
     complex<double> **matrix = new complex<double>*[dimension];
     for (int i = 0; i < dimension; i++) {
@@ -13,6 +14,8 @@ complex<double> **allocateMatrix(int dimension) {
     return matrix;
 }
 
+/// Function used to get random hermitian matrix.
+/// Hermitian matrix - https://pl.wikipedia.org/wiki/Macierz_hermitowska
 complex<double> **getRandomHermitianMatrix(int dimension) {
     complex<double> number;
     complex<double> **outputMatrix = allocateMatrix(dimension);
@@ -31,6 +34,8 @@ complex<double> **getRandomHermitianMatrix(int dimension) {
     return outputMatrix;
 }
 
+/// Function used to make conjugate transpose of matrix.
+/// Conjugate transpose - https://en.wikipedia.org/wiki/Conjugate_transpose#Example
 complex<double> **makeConjugateTranspose(complex<double> **matrix, const int rows, const int columns) {
     complex<double> **outputMatrix = new complex<double>*[columns];
     for (int i = 0; i < columns; i++) {
@@ -46,6 +51,7 @@ complex<double> **makeConjugateTranspose(complex<double> **matrix, const int row
     return outputMatrix;
 }
 
+/// Function used to show single element of matrix (2D array)
 void showSingleMatrixElement(complex<double> element) {
     if (imag(element) == 0) {
         cout << setw(6) << real(element) << " " << setw(4);
@@ -64,6 +70,7 @@ void showSingleMatrixElement(complex<double> element) {
 
 }
 
+/// Function used to show all elements of matrix (2D array)
 void showMatrix(complex<double> **matrix, int dimension) {
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {
