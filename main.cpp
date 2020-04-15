@@ -282,8 +282,8 @@ void testMakeScalarProductOfQubits(int numberOfQubits, double *probabilities) {
     showQubit(originalQubit, ROWS_NUMBER_IN_TWO_QUBITS);
 
     cout << "Scalar product of two qubits: " << endl;
-    complex<double> **scalarProduct = makeScalarProductOfQubits(transposedAndConjugatedQubit, originalQubit,
-            ROWS_NUMBER_IN_TWO_QUBITS, COLUMN_NUMBER_IN_QUBIT);
+    complex<double> **scalarProduct = makeDotProductOfQubits(transposedAndConjugatedQubit, originalQubit,
+                                                             ROWS_NUMBER_IN_TWO_QUBITS, COLUMN_NUMBER_IN_QUBIT);
     showScalarProduct(scalarProduct);
 }
 
