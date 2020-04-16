@@ -1,11 +1,11 @@
 #include <iostream>
 #include <complex>
 #include <ctime>
-#include "lib/headers/qubitOperation.h"
-#include "lib/headers/quantumComputer.h"
-#include "lib/headers/quantumGate.h"
-#include "lib/headers/quantumGateOperation.h"
-#include "lib/headers/matrixOperation.h"
+#include "headers/qubitOperation.h"
+#include "headers/quantumComputer.h"
+#include "headers/quantumGate.h"
+#include "headers/quantumGateOperation.h"
+#include "headers/matrixOperation.h"
 
 using namespace std;
 using namespace quantum;
