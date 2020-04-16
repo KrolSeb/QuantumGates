@@ -7,8 +7,8 @@ const int ONE_ARGUMENT_GATE_SIZE = 2;
 const int TWO_ARGUMENTS_GATE_SIZE = 4;
 const int THREE_ARGUMENTS_GATE_SIZE = 8;
 
-/// @param - constant size of columns in input qubits
-const int QUBIT_COLUMNS_SIZE = 1;
+/// @function - @returns allocated quantum gate
+std::complex<double> **getAllocatedQuantumGate(int dimension);
 
 /// @functions - @returns qubits after quantum gates operations
 std::complex<double> **makeNotOnQubit(std::complex<double> **qubit);
@@ -43,4 +43,4 @@ std::complex<double> **getPauliZGate();
 void showQuantumGate(std::complex<double> **quantumGate, const int gateSize);
 void showMultidimensionalHadamardGate(std::complex<double> **hadamardGate, int indexNumber);
 
-#endif //QUANTUMGATES_QUANTUMGATE_H
+#endif
