@@ -1,19 +1,24 @@
 #ifndef QUANTUMGATES_QUBITOPERATION_H
 #define QUANTUMGATES_QUBITOPERATION_H
-#include <algorithm>
-#include <vector>
 #include <complex>
+#include <vector>
 
-const int ROWS_NUMBER_IN_SINGLE_QUBIT = 2;
-const int ROWS_NUMBER_IN_TWO_QUBITS = 4;
-const int ROWS_NUMBER_IN_THREE_QUBITS = 8;
-const int COLUMN_NUMBER_IN_QUBIT = 1;
+/// @params - constant sizes of qubit rows
+const int SINGLE_QUBIT_NUMBER_OF_ROWS = 2;
+const int TWO_QUBITS_NUMBER_OF_ROWS = 4;
+const int THREE_QUBITS_NUMBER_OF_ROWS = 8;
 
+/// @params - constant size of qubit columns
+const int QUBIT_NUMBER_OF_COLUMNS = 1;
+
+/// @functions
+std::complex<double> **getAllocatedQubit(int rows);
 std::complex<double> **makeDotProductOfQubits(std::complex<double> **firstQubit, std::complex<double> **secondQubit, int rows, int columns);
 std::complex<double> **getQubitRepresentation(std::vector<double> baseVector);
 
+/// @functions - presents qubits and scalar product results
 void showQubit(std::complex<double> **qubit, const int qubitRows);
 void showQubitAfterConjugateTranspose(std::complex<double> **qubit, const int qubitRows);
 void showScalarProduct(std::complex<double> **scalarProduct);
 
-#endif //QUANTUMGATES_QUBITOPERATION_H
+#endif

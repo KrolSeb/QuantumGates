@@ -1,15 +1,12 @@
-#include <iostream>
 #include <complex>
+#include "headers/quantumGate.h"
 
 using namespace std;
 
 /// Function used to compose two quantum gates.
 /// Compose - multiplication of values from two matrices, at the same indexes
 complex<double> **composeQuantumGates(complex<double> **firstGate, complex<double> **secondGate, int gateSize) {
-    complex<double> **outputGate = new complex<double> *[gateSize];
-    for (int i = 0; i < gateSize; i++) {
-        outputGate[i] = new complex<double>[gateSize];
-    }
+    complex<double> **outputGate = getAllocatedQuantumGate(gateSize);
 
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
@@ -25,10 +22,7 @@ complex<double> **composeQuantumGates(complex<double> **firstGate, complex<doubl
 /// Function used to get identity matrix for defined size.
 /// Identity matrix - https://en.wikipedia.org/wiki/Identity_matrix
 complex<double> **getIdentityMatrix(int gateSize) {
-    complex<double> **identityMatrix = new complex<double> *[gateSize];
-    for (int i = 0; i < gateSize; i++) {
-        identityMatrix[i] = new complex<double>[gateSize];
-    }
+    complex<double> **identityMatrix = getAllocatedQuantumGate(gateSize);
 
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
