@@ -3,19 +3,10 @@ project(QuantumGates)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_library(
-        qg STATIC
-        lib/headers/qubitOperation.h
-        lib/headers/quantumComputer.h
-        lib/headers/quantumGate.h
-        lib/headers/quantumGateOperation.h
-        lib/headers/matrixOperation.h
-        lib/qubitOperation.cpp
-        lib/quantumComputer.cpp
-        lib/quantumGate.cpp
-        lib/quantumGateOperation.cpp
-        lib/matrixOperation.cpp
-)
+include_directories(quantum)
 
-add_executable(QuantumGates main.cpp)
-target_link_libraries(QuantumGates qg)
+add_subdirectory(quantum)
+add_subdirectory(quantum-tests)
+
+add_executable(QuantumGatesRun main.cpp)
+target_link_libraries(QuantumGatesRun quantum)

@@ -2,3 +2,4 @@
 /cmake-build-debug/
 /.idea/
 /README.md
+/quantum-tests/lib/gtest-1.10.0/CMakeFiles/
