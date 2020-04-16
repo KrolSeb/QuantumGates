@@ -45,15 +45,15 @@ void testNotQuantumGate() {
 
     complex<double> **qubit0 = generateQubit(numberOfQubits, probabilitiesOfQubit0);
     cout << "Qubit 0 (1 0) before negation:" << endl;
-    showQubit(qubit0, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(qubit0, SINGLE_QUBIT_NUMBER_OF_ROWS);
     cout << "Qubit 0 (1 0) after negation:" << endl;
-    showQubit(makeNotOnQubit(qubit0), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(makeNotOnQubit(qubit0), SINGLE_QUBIT_NUMBER_OF_ROWS);
 
     complex<double> **qubit1 = generateQubit(numberOfQubits, probabilitiesOfQubit1);
     cout << "Qubit 1 (0 1) before negation:" << endl;
-    showQubit(qubit1, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(qubit1, SINGLE_QUBIT_NUMBER_OF_ROWS);
     cout << "Qubit 1 (0 1) after negation:" << endl;
-    showQubit(makeNotOnQubit(qubit1), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(makeNotOnQubit(qubit1), SINGLE_QUBIT_NUMBER_OF_ROWS);
 }
 
 void testSqrtNotQuantumGate() {
@@ -62,9 +62,9 @@ void testSqrtNotQuantumGate() {
     complex<double> **singleQubit = generateQubit(numberOfQubits, probabilitiesOfQubit0);
 
     cout << "Qubit before SQRT(NOT):" << endl;
-    showQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(singleQubit, SINGLE_QUBIT_NUMBER_OF_ROWS);
     cout << "Qubit after SQRT(NOT):" << endl;
-    showQubit(makeSqrtNotOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(makeSqrtNotOnQubit(singleQubit), SINGLE_QUBIT_NUMBER_OF_ROWS);
 }
 
 void testCnotQuantumGate() {
@@ -73,9 +73,9 @@ void testCnotQuantumGate() {
     complex<double> **twoQubits = generateQubit(numberOfQubits, probabilitiesOfTwoQubits);
 
     cout << "Qubit before CNOT:" << endl;
-    showQubit(twoQubits, ROWS_NUMBER_IN_TWO_QUBITS);
+    showQubit(twoQubits, TWO_QUBITS_NUMBER_OF_ROWS);
     cout << "Qubit after CNOT:" << endl;
-    showQubit(makeCnotOnQubit(twoQubits), ROWS_NUMBER_IN_TWO_QUBITS);
+    showQubit(makeCnotOnQubit(twoQubits), TWO_QUBITS_NUMBER_OF_ROWS);
 }
 
 void testSwapQuantumGate() {
@@ -84,9 +84,9 @@ void testSwapQuantumGate() {
     complex<double> **twoQubits = generateQubit(numberOfQubits, probabilitiesOfTwoQubits);
 
     cout << "Qubit before SWAP:" << endl;
-    showQubit(twoQubits, ROWS_NUMBER_IN_TWO_QUBITS);
+    showQubit(twoQubits, TWO_QUBITS_NUMBER_OF_ROWS);
     cout << "Qubit after SWAP:" << endl;
-    showQubit(makeSwapOnQubit(twoQubits), ROWS_NUMBER_IN_TWO_QUBITS);
+    showQubit(makeSwapOnQubit(twoQubits), TWO_QUBITS_NUMBER_OF_ROWS);
 }
 
 void testFredkinQuantumGate() {
@@ -95,9 +95,9 @@ void testFredkinQuantumGate() {
     complex<double> **threeQubits = generateQubit(numberOfQubits, probabilitiesOfThreeQubits);
 
     cout << "Qubit before FREDKIN:" << endl;
-    showQubit(threeQubits, ROWS_NUMBER_IN_THREE_QUBITS);
+    showQubit(threeQubits, THREE_QUBITS_NUMBER_OF_ROWS);
     cout << "Qubit after FREDKIN:" << endl;
-    showQubit(makeFredkinOnQubit(threeQubits), ROWS_NUMBER_IN_THREE_QUBITS);
+    showQubit(makeFredkinOnQubit(threeQubits), THREE_QUBITS_NUMBER_OF_ROWS);
 }
 
 void testToffoliQuantumGate() {
@@ -106,9 +106,9 @@ void testToffoliQuantumGate() {
     complex<double> **threeQubits = generateQubit(numberOfQubits, probabilitiesOfThreeQubits);
 
     cout << "Qubit before TOFFOLI:" << endl;
-    showQubit(threeQubits, ROWS_NUMBER_IN_THREE_QUBITS);
+    showQubit(threeQubits, THREE_QUBITS_NUMBER_OF_ROWS);
     cout << "Qubit after TOFFOLI:" << endl;
-    showQubit(makeToffoliOnQubit(threeQubits), ROWS_NUMBER_IN_THREE_QUBITS);
+    showQubit(makeToffoliOnQubit(threeQubits), THREE_QUBITS_NUMBER_OF_ROWS);
 }
 
 void testHadamardQuantumGate() {
@@ -117,9 +117,9 @@ void testHadamardQuantumGate() {
     complex<double> **singleQubit = generateQubit(numberOfQubits, probabilitiesOfTwoQubits);
 
     cout << "Qubit before HADAMARD:" << endl;
-    showQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(singleQubit, SINGLE_QUBIT_NUMBER_OF_ROWS);
     cout << "Qubit after HADAMARD:" << endl;
-    showQubit(makeHadamardOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(makeHadamardOnQubit(singleQubit), SINGLE_QUBIT_NUMBER_OF_ROWS);
 }
 
 void testPhaseShiftQuantumGate() {
@@ -129,9 +129,9 @@ void testPhaseShiftQuantumGate() {
     complex<double> **singleQubit = generateQubit(numberOfQubits, probabilitiesOfTwoQubits);
 
     cout << "Qubit before PHASE SHIFT:" << endl;
-    showQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(singleQubit, SINGLE_QUBIT_NUMBER_OF_ROWS);
     cout << "Qubit after PHASE SHIFT:" << endl;
-    showQubit(makePhaseShiftOnQubit(singleQubit, angle), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(makePhaseShiftOnQubit(singleQubit, angle), SINGLE_QUBIT_NUMBER_OF_ROWS);
 }
 
 void testPauliXQuantumGate() {
@@ -140,9 +140,9 @@ void testPauliXQuantumGate() {
     complex<double> **singleQubit = generateQubit(numberOfQubits, probabilitiesOfQubit0);
 
     cout << "Qubit 0 (1 0) before PAULI X:" << endl;
-    showQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(singleQubit, SINGLE_QUBIT_NUMBER_OF_ROWS);
     cout << "Qubit 0 (1 0) after PAULI X:" << endl;
-    showQubit(makePauliXOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(makePauliXOnQubit(singleQubit), SINGLE_QUBIT_NUMBER_OF_ROWS);
 }
 
 void testPauliYQuantumGate() {
@@ -151,9 +151,9 @@ void testPauliYQuantumGate() {
     complex<double> **singleQubit = generateQubit(numberOfQubits, probabilitiesOfQubit0);
 
     cout << "Qubit 0 (1 0) before PAULI Y:" << endl;
-    showQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(singleQubit, SINGLE_QUBIT_NUMBER_OF_ROWS);
     cout << "Qubit 0 (1 0) after PAULI Y:" << endl;
-    showQubit(makePauliYOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(makePauliYOnQubit(singleQubit), SINGLE_QUBIT_NUMBER_OF_ROWS);
 }
 
 void testPauliZQuantumGate() {
@@ -162,16 +162,16 @@ void testPauliZQuantumGate() {
     complex<double> **singleQubit = generateQubit(numberOfQubits, probabilitiesOfQubit0);
 
     cout << "Qubit 0 (1 0) before PAULI Z:" << endl;
-    showQubit(singleQubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(singleQubit, SINGLE_QUBIT_NUMBER_OF_ROWS);
     cout << "Qubit 0 (1 0) after PAULI Z:" << endl;
-    showQubit(makePauliZOnQubit(singleQubit), ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(makePauliZOnQubit(singleQubit), SINGLE_QUBIT_NUMBER_OF_ROWS);
 }
 
 void testQubitWithNonCorrectProbabilities() {
     double probabilitiesOfThreeQubits[] = {4.0, 0.0, 3.0, 0.0, 4.0, 0.0, 3.0, 0.0};
     const int numberOfQubits = 3;
     complex<double> **threeQubits = generateQubit(numberOfQubits, probabilitiesOfThreeQubits);
-    showQubit(threeQubits, ROWS_NUMBER_IN_THREE_QUBITS);
+    showQubit(threeQubits, THREE_QUBITS_NUMBER_OF_ROWS);
 }
 
 void testGetMultidimensionalHadamardGate(int indexNumber) {
@@ -186,12 +186,12 @@ void testMultidimensionalHadamardGate(int hadamardIndexNumber, int numberOfQubit
     complex<double> **qubit = generateQubit(numberOfQubits, probabilities);
 
     cout << "Qubit before multidimensional Hadamard:" << endl;
-    showQubit(qubit, ROWS_NUMBER_IN_SINGLE_QUBIT);
+    showQubit(qubit, SINGLE_QUBIT_NUMBER_OF_ROWS);
     cout << "Qubit after multidimensional Hadamard:" << endl;
 
     try {
         showQubit(makeMultidimensionalHadamardOnQubit(qubit, numberOfQubits, hadamardGate, hadamardIndexNumber),
-                  ROWS_NUMBER_IN_SINGLE_QUBIT);
+                  SINGLE_QUBIT_NUMBER_OF_ROWS);
     }
     catch (const std::string& my_msg){
         cerr << my_msg << endl;
@@ -268,22 +268,21 @@ void testComposeOfQuantumGates(complex<double> **firstGate, complex<double> **se
 void testMakeScalarProductOfQubits(int numberOfQubits, double *probabilities) {
     complex<double> **twoQubits = generateQubit(numberOfQubits, probabilities);
     cout << "Original qubit: " << endl;
-    showQubit(twoQubits, ROWS_NUMBER_IN_TWO_QUBITS);
+    showQubit(twoQubits, TWO_QUBITS_NUMBER_OF_ROWS);
 
     cout << "Qubit after transposition and conjugation: " << endl;
-    complex<double> **transposedAndConjugatedQubit = makeConjugateTranspose(twoQubits, ROWS_NUMBER_IN_TWO_QUBITS,
-                                                                            COLUMN_NUMBER_IN_QUBIT);
-    showQubitAfterConjugateTranspose(transposedAndConjugatedQubit, ROWS_NUMBER_IN_TWO_QUBITS);
+    complex<double> **transposedAndConjugatedQubit = makeConjugateTranspose(twoQubits, TWO_QUBITS_NUMBER_OF_ROWS,
+                                                                            QUBIT_NUMBER_OF_COLUMNS);
+    showQubitAfterConjugateTranspose(transposedAndConjugatedQubit, TWO_QUBITS_NUMBER_OF_ROWS);
 
     cout << "Reverted qubit to original state: " << endl;
-    //Reverse of qubit - swapped columns and rows parameters is necessary to get original qubit
-    complex<double> **originalQubit = makeConjugateTranspose(transposedAndConjugatedQubit, COLUMN_NUMBER_IN_QUBIT,
-                                                             ROWS_NUMBER_IN_TWO_QUBITS);
-    showQubit(originalQubit, ROWS_NUMBER_IN_TWO_QUBITS);
+    complex<double> **originalQubit = makeConjugateTranspose(transposedAndConjugatedQubit, QUBIT_NUMBER_OF_COLUMNS,
+                                                             TWO_QUBITS_NUMBER_OF_ROWS);
+    showQubit(originalQubit, TWO_QUBITS_NUMBER_OF_ROWS);
 
     cout << "Scalar product of two qubits: " << endl;
     complex<double> **scalarProduct = makeDotProductOfQubits(transposedAndConjugatedQubit, originalQubit,
-                                                             ROWS_NUMBER_IN_TWO_QUBITS, COLUMN_NUMBER_IN_QUBIT);
+                                                             TWO_QUBITS_NUMBER_OF_ROWS, QUBIT_NUMBER_OF_COLUMNS);
     showScalarProduct(scalarProduct);
 }
 
