@@ -8,5 +8,5 @@ include_directories(quantum)
 add_subdirectory(quantum)
 add_subdirectory(quantum-tests)
 
-add_executable(QuantumGatesRun main.cpp)
-target_link_libraries(QuantumGatesRun quantum)
+add_executable(QuantumGates main.cpp)
+target_link_libraries(QuantumGates quantum)
