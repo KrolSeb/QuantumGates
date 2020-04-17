@@ -19,6 +19,6 @@ std::complex<double> **getQubitRepresentation(std::vector<double> baseVector);
 /// @functions - presents qubits and scalar product results
 void showQubit(std::complex<double> **qubit, const int qubitRows);
 void showQubitAfterConjugateTranspose(std::complex<double> **qubit, const int qubitRows);
-void showScalarProduct(std::complex<double> **scalarProduct);
+void showDotProduct(std::complex<double> **dotProduct);
 
 #endif

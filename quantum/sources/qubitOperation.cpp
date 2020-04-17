@@ -97,11 +97,11 @@ void showQubitAfterConjugateTranspose(complex<double> **qubit, const int qubitRo
     cout << endl;
 }
 
-/// Function used to show scalar product
-void showScalarProduct(complex<double> **scalarProduct) {
+/// Function used to show dot product
+void showDotProduct(complex<double> **dotProduct) {
     for (int i = 0; i < QUBIT_NUMBER_OF_COLUMNS; i++) {
         for (int j = 0; j < QUBIT_NUMBER_OF_COLUMNS; j++) {
-            showSingleQubitElement(scalarProduct[i][j]);
+            showSingleQubitElement(dotProduct[i][j]);
         }
         cout << endl;
     }
