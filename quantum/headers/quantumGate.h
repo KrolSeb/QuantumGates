@@ -18,7 +18,7 @@ std::complex<double> **makeSwapOnQubit(std::complex<double> **qubit);
 std::complex<double> **makeFredkinOnQubit(std::complex<double> **qubit);
 std::complex<double> **makeToffoliOnQubit(std::complex<double> **qubit);
 std::complex<double> **makeHadamardOnQubit(std::complex<double> **qubit);
-std::complex<double> **makeMultidimensionalHadamardOnQubit(std::complex<double> **qubit, int qubitsNumber,
+std::complex<double> **makeMultidimensionalHadamardOnQubit(std::complex<double> **qubit, int numberOfQubits,
                                                            std::complex<double> **hadamardGate, int indexNumber);
 std::complex<double> **makePhaseShiftOnQubit(std::complex<double> **qubit, double angle);
 std::complex<double> **makePauliXOnQubit(std::complex<double> **qubit);

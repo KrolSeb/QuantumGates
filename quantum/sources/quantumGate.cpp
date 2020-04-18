@@ -341,11 +341,11 @@ complex<double> **generateMultidimensionalHadamardGate(int indexNumber) {
 }
 
 /// Function used to make multidimensional Hadamard on qubit
-complex<double> **makeMultidimensionalHadamardOnQubit(complex<double> **qubit, int qubitsNumber,
+complex<double> **makeMultidimensionalHadamardOnQubit(complex<double> **qubit, int numberOfQubits,
                                                       complex<double> **hadamardGate, int indexNumber) {
     complex<double> sum;
     int gateSize = pow(2, indexNumber);
-    int qubitRows = pow(2, qubitsNumber);
+    int qubitRows = pow(2, numberOfQubits);
 
     if (indexNumber == 0) {
         return qubit;
@@ -353,8 +353,8 @@ complex<double> **makeMultidimensionalHadamardOnQubit(complex<double> **qubit, i
 
     if (gateSize != qubitRows) {
         string error = string("Incorrect sizes: gateSize = 2^indexNumber = 2^") + to_string(indexNumber) + " = " +
-                to_string(gateSize) + " and qubitRows = 2^qubitsNumber = 2^" + to_string(qubitsNumber) + " = " +
-                to_string(qubitRows);
+                       to_string(gateSize) + " and qubitRows = 2^qubitsNumber = 2^" + to_string(numberOfQubits) + " = " +
+                       to_string(qubitRows);
         throw error;
     }
 
