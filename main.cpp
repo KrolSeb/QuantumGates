@@ -144,14 +144,14 @@ void getHadamardGateForIndexNumber(int indexNumber) {
 void performHadamardGateForIndexNumberOnQubit(int hadamardIndexNumber, int numberOfQubits, double *probabilities) {
     complex<double> **hadamardGate = getMultidimensionalHadamardGate(hadamardIndexNumber);
     complex<double> **qubit = generateQubit(numberOfQubits, probabilities);
+    int qubitRows = pow(2, numberOfQubits);
 
     cout << "Qubit before multidimensional Hadamard:" << endl;
-    showQubit(qubit, SINGLE_QUBIT_NUMBER_OF_ROWS);
+    showQubit(qubit, qubitRows);
     cout << "Qubit after multidimensional Hadamard:" << endl;
 
     try {
-        showQubit(makeMultidimensionalHadamardOnQubit(qubit, numberOfQubits, hadamardGate, hadamardIndexNumber),
-                  SINGLE_QUBIT_NUMBER_OF_ROWS);
+        showQubit(makeMultidimensionalHadamardOnQubit(qubit, numberOfQubits, hadamardGate, hadamardIndexNumber), qubitRows);
     }
     catch (const std::string& my_msg){
         cerr << my_msg << endl;
