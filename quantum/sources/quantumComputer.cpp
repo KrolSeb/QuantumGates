@@ -130,6 +130,7 @@ void quantum::QuantumComputer::validateProbability() {
         printf("\n[ERROR] Probability should be equal 1, normalize register function is executed...\n");
         viewProbability();
         normalizeRegister();
+        resetState();
     }
     else {
         this->isNormalize = true;

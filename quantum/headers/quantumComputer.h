@@ -2,6 +2,8 @@
 #define UNTITLED_QUANTUM_H
 #include <vector>
 
+using namespace std;
+
 namespace quantum {
     struct QuantumComputer {
         int registerSize;
