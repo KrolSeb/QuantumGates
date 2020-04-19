@@ -333,8 +333,13 @@ int main() {
     performDotProductOfQubits(numberOfQubits, probabilitiesOfQubits00);
 
     /// Performing matrix unitary state check
-    performCheckIsMatrixUnitary(getNotGate(), getNotGate(), ONE_ARGUMENT_GATE_SIZE);
-    performCheckIsMatrixUnitary(getSwapGate(), getSwapGate(), TWO_ARGUMENTS_GATE_SIZE);
+    complex<double> **notGate = getNotGate();
+    complex<double> **conjugateTransposedNotGate = makeConjugateTranspose(getNotGate(), ONE_ARGUMENT_GATE_SIZE, ONE_ARGUMENT_GATE_SIZE);
+    performCheckIsMatrixUnitary(notGate, conjugateTransposedNotGate, ONE_ARGUMENT_GATE_SIZE);
+
+    complex<double> **swapGate = getSwapGate();
+    complex<double> **conjugateTransposedSwapGate = makeConjugateTranspose(getSwapGate(), TWO_ARGUMENTS_GATE_SIZE, TWO_ARGUMENTS_GATE_SIZE);
+    performCheckIsMatrixUnitary(swapGate, conjugateTransposedSwapGate, TWO_ARGUMENTS_GATE_SIZE);
 
     return 0;
 }
