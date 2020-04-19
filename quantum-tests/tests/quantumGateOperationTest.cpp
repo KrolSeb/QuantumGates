@@ -82,11 +82,13 @@ TEST(quantumGateOperation, testGenerationOfPhaseShiftGateForMinusPi) {
     double angle = -M_PI;
 
     complex<double> **phaseShiftGate = getPhaseShiftGate(angle);
-    complex<double> expectedQubit[2][2] = {{1, 0}, {0, -1}};
+    const complex<double> imaginary(-1, 0);
+    complex<double> expectedQubit[2][2] = {{1, 0},
+                                           {0, imaginary}};
 
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
-            ASSERT_DOUBLE_EQ(real(expectedQubit[i][j]), real(phaseShiftGate[i][j]));
+            ASSERT_EQ(real(expectedQubit[i][j]), real(phaseShiftGate[i][j]));
         }
     }
 }

@@ -315,6 +315,16 @@ TEST(quantumGate, testHadamardN2ForQubit00) {
     }
 }
 
+TEST(quantumGate, testMultidimensionalHadamardThrowErrorForIncorrectArguments) {
+    int numberOfQubits = 1;
+    int indexNumber = 2;
+    double probabilitiesOfQubit00[] = {1, 0, 0, 0};
+
+    ASSERT_ANY_THROW(makeMultidimensionalHadamardOnQubit(getQubit(numberOfQubits, probabilitiesOfQubit00),
+            numberOfQubits, getMultidimensionalHadamardGate(indexNumber), indexNumber));
+}
+
+
 TEST(quantumGate, testPhaseShiftForPiAndQubit0) {
     int numberOfQubits = 1;
     int qubitRows = pow(2, numberOfQubits);

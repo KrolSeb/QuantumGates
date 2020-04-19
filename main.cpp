@@ -244,6 +244,7 @@ void performCheckIsMatrixUnitary(complex<double> **firstGate, complex<double> **
     else {
         cout << "Matrix is NOT unitary" << endl;
     }
+    cout << endl;
 }
 
 int main() {
