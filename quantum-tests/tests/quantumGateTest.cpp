@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "headers/quantumGate.h"
 #include "headers/quantumComputer.h"
-#include <headers/qubitOperation.h>
+#include "headers/qubitOperation.h"
 #include <complex>
 
 using namespace std;
