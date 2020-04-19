@@ -41,6 +41,7 @@ std::complex<double> **getPauliZGate();
 
 /// @functions - presents implementations of quantum gates
 void showQuantumGate(std::complex<double> **quantumGate, const int gateSize);
+void showPhaseShiftQuantumGate(std::complex<double> **phaseShiftGate, const int gateSize);
 void showMultidimensionalHadamardGate(std::complex<double> **hadamardGate, int indexNumber);
 
 #endif

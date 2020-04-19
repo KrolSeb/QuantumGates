@@ -146,10 +146,10 @@ TEST(quantumGate, testCnotForQubit11) {
 TEST(quantumGate, testSwapForQubit00) {
     int numberOfQubits = 2;
     int qubitRows = pow(2, numberOfQubits);
-    double probabilitiesOfQubit00[] = {0, 0, 0, 0};
+    double probabilitiesOfQubit00[] = {1, 0, 0, 0};
 
     complex<double> **qubitAfterSwap = makeSwapOnQubit(getQubit(numberOfQubits, probabilitiesOfQubit00));
-    complex<double> expectedQubit[4][1] = {{0}, {0}, {0}, {0}};
+    complex<double> expectedQubit[4][1] = {{1}, {0}, {0}, {0}};
 
     for (int i = 0; i < qubitRows; i++) {
         for (int j = 0; j < qubitColumns; j++) {

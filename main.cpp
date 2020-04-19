@@ -190,7 +190,7 @@ void getQuantumGates() {
     cout << endl;
 
     cout << "PHASE SHIFT gate for PI angle:" << endl;
-    showQuantumGate(getPhaseShiftGate(M_PI), ONE_ARGUMENT_GATE_SIZE);
+    showPhaseShiftQuantumGate(getPhaseShiftGate(M_PI), ONE_ARGUMENT_GATE_SIZE);
     cout << endl;
 
     cout << "PAULI X gate:" << endl;

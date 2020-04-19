@@ -213,7 +213,7 @@ void setPhaseShiftAngle(complex<double> **phaseShiftQuantumGate, double angle) {
         for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
             phaseShiftQuantumGate[i][j] = PHASE_SHIFT_QUANTUM_GATE[i][j];
             if (phaseShiftQuantumGate[i][j] == EULER) {
-                phaseShiftQuantumGate[i][j] = cos(angle) + (imag(I_COMPLEX_VALUE) * sin(angle));
+                phaseShiftQuantumGate[i][j] = exp(I_COMPLEX_VALUE * angle);
             }
         }
     }
@@ -547,6 +547,46 @@ void showQuantumGate(complex<double> **quantumGate, const int gateSize) {
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
             showSingleGateElement(quantumGate[i][j]);
+        }
+        cout << endl;
+    }
+}
+
+void showPhaseShiftGateElement(complex<double> gateElement) {
+    cout.precision(0);
+    if (imag(gateElement) == 0 || round(imag(gateElement)) == 0) {
+        cout << fixed << real(gateElement) << " ";
+    }
+    else if (real(gateElement) == 0 && imag(gateElement) == 1) {
+        cout << fixed << "i ";
+    }
+    else if (real(gateElement) == 0 && imag(gateElement) == -1) {
+        cout << fixed <<"-i ";
+    }
+    else if (real(gateElement) == 0 || round(real(gateElement)) == 0) {
+        cout << fixed << imag(gateElement) << "i ";
+    }
+    else {
+        if (imag(gateElement) > 0) {
+            cout << fixed << real(gateElement) << "+" << imag(gateElement) << "i ";
+        }
+        else {
+            cout << fixed << real(gateElement) << imag(gateElement) << "i ";
+        }
+    }
+    cout << defaultfloat;
+}
+
+/// Function used to print phase shift quantum gate
+void showPhaseShiftQuantumGate(complex<double> **phaseShiftGate, const int gateSize) {
+    for (int i = 0; i < gateSize; i++) {
+        for (int j = 0; j < gateSize; j++) {
+            if(i == gateSize-1 && j == gateSize-1) {
+                showPhaseShiftGateElement(phaseShiftGate[i][j]);
+            }
+            else {
+                showSingleGateElement(phaseShiftGate[i][j]);
+            }
         }
         cout << endl;
     }
