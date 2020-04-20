@@ -1,5 +1,13 @@
 # Project exclude paths
-/cmake-build-debug/
 /.idea/
-/README.md
+/cmake-build-debug/
 /quantum-tests/lib/gtest-1.10.0/CMakeFiles/
+
+/docs/html/*
+!/docs/html/*.png
+!/docs/html/*.css
+!/docs/html/*.js
+
+/docs/latex/*
+!/docs/latex/Makefile
+!/docs/latex/refman.tex
