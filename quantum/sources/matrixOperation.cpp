@@ -2,8 +2,6 @@
 #include <iomanip>
 #include "headers/matrixOperation.h"
 
-using namespace std;
-
 complex<double> **getAllocatedMatrix(int firstDimension, int secondDimension) {
     if (secondDimension > firstDimension) {
         swap(firstDimension, secondDimension);
@@ -35,7 +33,7 @@ complex<double> **getRandomHermitianMatrix(int dimension) {
     return outputMatrix;
 }
 
-complex<double> **makeConjugateTranspose(complex<double> **matrix, const int rows, const int columns) {
+complex<double> **makeConjugateTranspose(complex<double> **matrix, int rows, int columns) {
     complex<double> **outputMatrix = getAllocatedMatrix(columns, rows);
 
     for (int i = 0; i < columns; i++) {
@@ -47,6 +45,8 @@ complex<double> **makeConjugateTranspose(complex<double> **matrix, const int row
     return outputMatrix;
 }
 
+/// Used to show single formatted element of matrix
+/// \param element complex<double>
 void showSingleMatrixElement(complex<double> element) {
     if (imag(element) == 0) {
         cout << setw(6) << real(element) << " " << setw(4);

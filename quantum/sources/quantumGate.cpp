@@ -2,8 +2,6 @@
 #include "headers/quantumGate.h"
 #include "headers/qubitOperation.h"
 
-using namespace std;
-
 /// @param - NOT quantum gate matrix representation
 const complex<double> NOT_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, 1},
                                                                     {1, 0}};
@@ -71,7 +69,6 @@ const complex<double> PAULI_Y_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{0, MINU
 const complex<double> PAULI_Z_QUANTUM_GATE[][ONE_ARGUMENT_GATE_SIZE] = {{1, 0},
                                                                         {0, -1}};
 
-/// Function used to get allocated array for quantum gate.
 complex<double> **getAllocatedQuantumGate(int dimension) {
     complex<double> **matrix = new complex<double>*[dimension];
     for (int i = 0; i < dimension; i++) {
@@ -81,7 +78,6 @@ complex<double> **getAllocatedQuantumGate(int dimension) {
     return matrix;
 }
 
-/// Function used to make NOT on qubit
 complex<double> **makeNotOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(ONE_ARGUMENT_GATE_SIZE);
@@ -99,7 +95,6 @@ complex<double> **makeNotOnQubit(complex<double> **qubit) {
     return outputQubit;
 }
 
-/// Function used to make SQRT(NOT) on qubit
 complex<double> **makeSqrtNotOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(ONE_ARGUMENT_GATE_SIZE);
@@ -117,7 +112,6 @@ complex<double> **makeSqrtNotOnQubit(complex<double> **qubit) {
     return outputQubit;
 }
 
-/// Function used to make CNOT on qubit
 complex<double> **makeCnotOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(TWO_ARGUMENTS_GATE_SIZE);
@@ -135,7 +129,6 @@ complex<double> **makeCnotOnQubit(complex<double> **qubit) {
     return outputQubit;
 }
 
-/// Function used to make SWAP on qubit
 complex<double> **makeSwapOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(TWO_ARGUMENTS_GATE_SIZE);
@@ -153,7 +146,6 @@ complex<double> **makeSwapOnQubit(complex<double> **qubit) {
     return outputQubit;
 }
 
-/// Function used to make FREDKIN(CSWAP) on qubit
 complex<double> **makeFredkinOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(THREE_ARGUMENTS_GATE_SIZE);
@@ -171,7 +163,6 @@ complex<double> **makeFredkinOnQubit(complex<double> **qubit) {
     return outputQubit;
 }
 
-/// Function used to make TOFFOLI(CCNOT) on qubit
 complex<double> **makeToffoliOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(THREE_ARGUMENTS_GATE_SIZE);
@@ -189,7 +180,6 @@ complex<double> **makeToffoliOnQubit(complex<double> **qubit) {
     return outputQubit;
 }
 
-/// Function used to make HADAMARD(WALSH) on qubit
 complex<double> **makeHadamardOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(ONE_ARGUMENT_GATE_SIZE);
@@ -207,7 +197,9 @@ complex<double> **makeHadamardOnQubit(complex<double> **qubit) {
 }
 
 /// Helper function used to set correct form of PHASE SHIFT quantum gate
-/// Updating phase shift quantum gates elements via Euler's formula - e^ix = cos(x) + i * sin(x)
+/// Updating phase shift quantum gates elements via Euler's formula - e^ix
+/// \param phaseShiftQuantumGate complex<double>
+/// \param angle double
 void setPhaseShiftAngle(complex<double> **phaseShiftQuantumGate, double angle) {
     for (int i = 0; i < ONE_ARGUMENT_GATE_SIZE; i++) {
         for (int j = 0; j < ONE_ARGUMENT_GATE_SIZE; j++) {
@@ -220,6 +212,8 @@ void setPhaseShiftAngle(complex<double> **phaseShiftQuantumGate, double angle) {
 }
 
 /// Helper function used to return updated PHASE SHIFT quantum gate
+/// \param angle double
+/// \return phase shift quantum gate
 complex<double> **getUpdatedPhaseShiftQuantumGate(double angle) {
     complex<double> **phaseShiftQuantumGate = getAllocatedQuantumGate(ONE_ARGUMENT_GATE_SIZE);
     setPhaseShiftAngle(phaseShiftQuantumGate, angle);
@@ -227,7 +221,6 @@ complex<double> **getUpdatedPhaseShiftQuantumGate(double angle) {
     return phaseShiftQuantumGate;
 }
 
-/// Function used to make PHASE SHIFT on qubit
 complex<double> **makePhaseShiftOnQubit(complex<double> **qubit, double angle) {
     complex<double> sum;
     complex<double> **phaseShiftQuantumGate = getUpdatedPhaseShiftQuantumGate(angle);
@@ -246,7 +239,6 @@ complex<double> **makePhaseShiftOnQubit(complex<double> **qubit, double angle) {
     return outputQubit;
 }
 
-/// Function used to make PAULI X on qubit
 complex<double> **makePauliXOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(ONE_ARGUMENT_GATE_SIZE);
@@ -264,7 +256,6 @@ complex<double> **makePauliXOnQubit(complex<double> **qubit) {
     return outputQubit;
 }
 
-/// Function used to make PAULI Y on qubit
 complex<double> **makePauliYOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(ONE_ARGUMENT_GATE_SIZE);
@@ -282,7 +273,6 @@ complex<double> **makePauliYOnQubit(complex<double> **qubit) {
     return outputQubit;
 }
 
-/// Function used to make PAULI Z on qubit
 complex<double> **makePauliZOnQubit(complex<double> **qubit) {
     complex<double> sum;
     complex<double> **outputQubit = getAllocatedQubit(ONE_ARGUMENT_GATE_SIZE);
@@ -300,7 +290,10 @@ complex<double> **makePauliZOnQubit(complex<double> **qubit) {
     return outputQubit;
 }
 
-/// Function used to Hadamard gate and factor value multiplication - eg. 1/sqrt(2) * 1 or -1
+/// Helper function used to Hadamard gate elements and factor value multiplication - eg. 1/sqrt(2) * 1 or -1
+/// \param hadamardGate complex<double>
+/// \param gateSize int
+/// \param indexNumber int
 void multiplyHadamardGateByFactor(complex<double> **hadamardGate, int gateSize, int indexNumber) {
     double factorValue = pow((1/sqrt(2)), indexNumber);
 
@@ -311,7 +304,10 @@ void multiplyHadamardGateByFactor(complex<double> **hadamardGate, int gateSize, 
     }
 }
 
-/// Function used to set Hadamard gate values
+/// Helper function used to set Hadamard gate values
+/// \param hadamardGate complex<double>
+/// \param gateSize int
+/// \param indexNumber int
 void setHadamardGateValues(complex<double> **hadamardGate, int gateSize, int indexNumber) {
     for (int i = 1; i < gateSize; i += i) {
         for (int j = 0; j < i; j++) {
@@ -326,8 +322,10 @@ void setHadamardGateValues(complex<double> **hadamardGate, int gateSize, int ind
     multiplyHadamardGateByFactor(hadamardGate, gateSize, indexNumber);
 }
 
-/// Function used to generation Hadamard gate of declared size
-/// Hadamard H0 element definition - hadamardGate[0][0] = 1;
+/// Helper function used to generation Hadamard gate of declared size
+/// Hadamard H0 definition - hadamardGate[0][0] = 1;
+/// \param indexNumber int
+/// \return multidimensional Hadamard gate
 complex<double> **generateMultidimensionalHadamardGate(int indexNumber) {
     int gateSize = pow(2, indexNumber);
     complex<double> **hadamardGate = getAllocatedQuantumGate(gateSize);
@@ -340,7 +338,6 @@ complex<double> **generateMultidimensionalHadamardGate(int indexNumber) {
     return hadamardGate;
 }
 
-/// Function used to make multidimensional Hadamard on qubit
 complex<double> **makeMultidimensionalHadamardOnQubit(complex<double> **qubit, int numberOfQubits,
                                                       complex<double> **hadamardGate, int indexNumber) {
     complex<double> sum;
@@ -374,9 +371,8 @@ complex<double> **makeMultidimensionalHadamardOnQubit(complex<double> **qubit, i
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-/// Functions used to return declared quantum gate
+/// Functions used to return declared quantum gates
 
-/// Function used to get NOT gate
 complex<double> **getNotGate() {
     complex<double> **notGateToReturn = getAllocatedQuantumGate(ONE_ARGUMENT_GATE_SIZE);
 
@@ -389,7 +385,6 @@ complex<double> **getNotGate() {
     return notGateToReturn;
 }
 
-/// Function used to get SQRT(NOT) gate
 complex<double> **getSqrtNotGate() {
     complex<double> **sqrtNotGateToReturn = getAllocatedQuantumGate(ONE_ARGUMENT_GATE_SIZE);
 
@@ -402,7 +397,6 @@ complex<double> **getSqrtNotGate() {
     return sqrtNotGateToReturn;
 }
 
-/// Function used to get CNOT gate
 complex<double> **getCnotGate() {
     complex<double> **cnotGateToReturn = getAllocatedQuantumGate(TWO_ARGUMENTS_GATE_SIZE);
 
@@ -415,7 +409,6 @@ complex<double> **getCnotGate() {
     return cnotGateToReturn;
 }
 
-/// Function used to get SWAP gate
 complex<double> **getSwapGate() {
     complex<double> **swapGateToReturn = getAllocatedQuantumGate(TWO_ARGUMENTS_GATE_SIZE);
 
@@ -428,7 +421,6 @@ complex<double> **getSwapGate() {
     return swapGateToReturn;
 }
 
-/// Function used to get FREDKIN gate
 complex<double> **getFredkinGate() {
     complex<double> **fredkinGateToReturn = getAllocatedQuantumGate(THREE_ARGUMENTS_GATE_SIZE);
 
@@ -441,7 +433,6 @@ complex<double> **getFredkinGate() {
     return fredkinGateToReturn;
 }
 
-/// Function used to get TOFFOLI gate
 complex<double> **getToffoliGate() {
     complex<double> **toffoliGateToReturn = getAllocatedQuantumGate(THREE_ARGUMENTS_GATE_SIZE);
 
@@ -454,7 +445,6 @@ complex<double> **getToffoliGate() {
     return toffoliGateToReturn;
 }
 
-/// Function used to get HADAMARD gate
 complex<double> **getHadamardGate() {
     complex<double> **hadamardGateToReturn = getAllocatedQuantumGate(ONE_ARGUMENT_GATE_SIZE);
 
@@ -467,17 +457,14 @@ complex<double> **getHadamardGate() {
     return hadamardGateToReturn;
 }
 
-/// Function used to get multidimensional HADAMARD gate
 complex<double> **getMultidimensionalHadamardGate(int indexNumber) {
     return generateMultidimensionalHadamardGate(indexNumber);
 }
 
-/// Function used to get PHASE SHIFT gate
 complex<double> **getPhaseShiftGate(double angle) {
     return getUpdatedPhaseShiftQuantumGate(angle);
 }
 
-/// Function used to get PAULI X gate
 complex<double> **getPauliXGate() {
     complex<double> **pauliXGateToReturn = getAllocatedQuantumGate(ONE_ARGUMENT_GATE_SIZE);
 
@@ -490,7 +477,6 @@ complex<double> **getPauliXGate() {
     return pauliXGateToReturn;
 }
 
-/// Function used to get PAULI Y gate
 complex<double> **getPauliYGate() {
     complex<double> **pauliYGateToReturn = getAllocatedQuantumGate(ONE_ARGUMENT_GATE_SIZE);
 
@@ -503,7 +489,6 @@ complex<double> **getPauliYGate() {
     return pauliYGateToReturn;
 }
 
-/// Function used to get PAULI Z gate
 complex<double> **getPauliZGate() {
     complex<double> **pauliZGateToReturn = getAllocatedQuantumGate(ONE_ARGUMENT_GATE_SIZE);
 
@@ -519,6 +504,8 @@ complex<double> **getPauliZGate() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Functions used to show declared quantum gates
 
+/// Used to show single formatted element of quantum gate
+/// \param gateElement complex<double>
 void showSingleGateElement(complex<double> gateElement) {
     if (imag(gateElement) == 0) {
         cout << real(gateElement) << " ";
@@ -542,7 +529,6 @@ void showSingleGateElement(complex<double> gateElement) {
     }
 }
 
-/// Function used to print any complex quantum gate
 void showQuantumGate(complex<double> **quantumGate, const int gateSize) {
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
@@ -577,7 +563,6 @@ void showPhaseShiftGateElement(complex<double> gateElement) {
     cout << defaultfloat;
 }
 
-/// Function used to print phase shift quantum gate
 void showPhaseShiftQuantumGate(complex<double> **phaseShiftGate, const int gateSize) {
     for (int i = 0; i < gateSize; i++) {
         for (int j = 0; j < gateSize; j++) {
@@ -592,7 +577,6 @@ void showPhaseShiftQuantumGate(complex<double> **phaseShiftGate, const int gateS
     }
 }
 
-/// Function used to print multidimensional Hadamard gate
 void showMultidimensionalHadamardGate(complex<double> **hadamardGate, int indexNumber) {
     int gateSize = pow(2, indexNumber);
 
