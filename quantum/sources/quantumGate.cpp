@@ -45,12 +45,12 @@ const vector2d TOFFOLI_QUANTUM_GATE = {{1, 0, 0, 0, 0, 0, 0, 0},
                                        {0, 0, 0, 0, 0, 0, 0, 1},
                                        {0, 0, 0, 0, 0, 0, 1, 0}};
 
-/// @params - Hadamard quantum gate matrix representation
+/// @params - HADAMARD quantum gate matrix representation
 const double FACTOR_HADAMARD_GATE = 1 / sqrt(2);
 const vector2d HADAMARD_QUANTUM_GATE = {{FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * 1},
                                         {FACTOR_HADAMARD_GATE * 1, FACTOR_HADAMARD_GATE * -1}};
 
-/// @params - Phase shift quantum gate matrix representation
+/// @params - PHASE SHIFT quantum gate matrix representation
 const double EULER = exp(1.0);
 const complex<double> I_COMPLEX_VALUE(0, 1);
 const vector2d PHASE_SHIFT_QUANTUM_GATE = {{1, 0},
@@ -128,7 +128,7 @@ vector2d makeHadamardOnQubit(vector2d qubit) {
 
 /// Helper function used to set correct form of PHASE SHIFT quantum gate
 /// Updating phase shift quantum gates elements via Euler's formula - e^ix
-/// \param phaseShiftQuantumGate complex<double>
+/// \param phaseShiftQuantumGate vector2d
 /// \param angle double
 void setPhaseShiftAngle(vector2d &phaseShiftQuantumGate, double angle) {
     int lastIndex = phaseShiftQuantumGate.size() - 1;
@@ -168,7 +168,7 @@ vector2d makePauliZOnQubit(vector2d qubit) {
 }
 
 /// Helper function used to Hadamard gate elements and factor value multiplication - eg. 1/sqrt(2) * 1 or -1
-/// \param hadamardGate complex<double>
+/// \param hadamardGate vector2d
 /// \param indexNumber int
 void multiplyHadamardGateByFactor(vector2d &hadamardGate, int indexNumber) {
     double factorValue = pow((1/sqrt(2)), indexNumber);
@@ -181,8 +181,7 @@ void multiplyHadamardGateByFactor(vector2d &hadamardGate, int indexNumber) {
 }
 
 /// Helper function used to set Hadamard gate values
-/// \param hadamardGate complex<double>
-/// \param gateSize int
+/// \param hadamardGate vector2d
 /// \param indexNumber int
 void setHadamardGateValues(vector2d &hadamardGate, int indexNumber) {
     for (int i = 1; i < hadamardGate.size(); i += i) {
@@ -198,7 +197,7 @@ void setHadamardGateValues(vector2d &hadamardGate, int indexNumber) {
     multiplyHadamardGateByFactor(hadamardGate, indexNumber);
 }
 
-/// Helper function used to generation Hadamard gate of declared size
+/// Helper function used to generation of Hadamard gate for index argument
 /// Hadamard H0 definition - hadamardGate[0][0] = 1;
 /// \param indexNumber int
 /// \return multidimensional Hadamard gate

@@ -3,7 +3,7 @@
 #include <vector>
 #include "headers/matrixOperation.h"
 
-vector2d getPreparedContainerForHermitianMatrix(int dimension) {
+vector2d getPreparedVectorForHermitianMatrix(int dimension) {
     vector2d vector;
     vector.resize(dimension);
     for (int i = 0; i < dimension; i++) {
@@ -15,7 +15,7 @@ vector2d getPreparedContainerForHermitianMatrix(int dimension) {
 
 vector2d getRandomHermitianMatrix(int dimension) {
     complex<double> number;
-    vector2d outputMatrix = getPreparedContainerForHermitianMatrix(dimension);
+    vector2d outputMatrix = getPreparedVectorForHermitianMatrix(dimension);
 
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {

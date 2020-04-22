@@ -4,6 +4,7 @@
 #include <vector>
 
 using namespace std;
+/// Used as alias for declaration of two dimensional vector
 typedef vector<vector<complex<double>>> vector2d;
 
 /// \param - size of one argument quantum gates
@@ -18,65 +19,65 @@ const int THREE_ARGUMENTS_GATE_SIZE = 8;
 vector2d getPreparedContainerForQuantumGate(int dimension);
 
 /// Used to make NOT quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makeNotOnQubit(vector2d qubit);
 
 /// Used to make SQRT(NOT) quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makeSqrtNotOnQubit(vector2d);
 
 /// Used to make CNOT quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makeCnotOnQubit(vector2d qubit);
 
 /// Used to make SWAP quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makeSwapOnQubit(vector2d qubit);
 
 /// Used to make FREDKIN quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makeFredkinOnQubit(vector2d qubit);
 
 /// Used to make TOFFOLI quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makeToffoliOnQubit(vector2d qubit);
 
 /// Used to make HADAMARD quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makeHadamardOnQubit(vector2d qubit);
 
 /// Used to make multidimensional HADAMARD quantum gate on qubit
-/// \param qubit complex<double>
-/// \param hadamardGate complex<double>
+/// \param qubit vector2d
+/// \param hadamardGate vector2d
 /// \param indexNumber int
 /// \return updated qubit
 vector2d makeMultidimensionalHadamardOnQubit(vector2d qubit, vector2d hadamardGate, int indexNumber);
 
 /// Used to make PHASE SHIFT quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \param angle double - angle as value eg. PI or -PI
 /// \return updated qubit
 vector2d makePhaseShiftOnQubit(vector2d qubit, double angle);
 
 /// Used to make PAULI X quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makePauliXOnQubit(vector2d qubit);
 
 /// Used to make PAULI Y quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makePauliYOnQubit(vector2d qubit);
 
 /// Used to make PAULI Z quantum gate on qubit
-/// \param qubit complex<double>
+/// \param qubit vector2d
 /// \return updated qubit
 vector2d makePauliZOnQubit(vector2d qubit);
 
@@ -133,12 +134,12 @@ vector2d getPauliZGate();
 
 
 /// Used to show all elements of quantum gate
-/// \param quantumGate complex<double>
+/// \param quantumGate vector2d
 /// \param gateSize const int
 void showQuantumGate(vector2d quantumGate);
 
 /// Used to show all elements of PHASE SHIFT quantum gate
-/// \param phaseShiftGate complex<double>
+/// \param phaseShiftGate vector2d
 /// \param gateSize const int
 void showPhaseShiftQuantumGate(vector2d phaseShiftGate);
 

@@ -36,10 +36,10 @@ vector2d makeDotProductOfQubits(vector2d firstQubit, vector2d secondQubit) {
     return dotProduct;
 }
 
-/// Helper function used to convert qubit as vector to two dimensional array
+/// Helper function used to convert qubit as vector to two dimensional vector
 /// and change type from double to complex<double>
 /// \param baseVector vector<double>
-/// \return complex two dimensional array
+/// \return complex two dimensional vector
 vector2d convertBaseVectorTo2dVector(vector<double> baseVector) {
     vector2d complexDoubleVector;
 
