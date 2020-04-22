@@ -2,22 +2,32 @@
 #include "headers/qubitOperation.h"
 #include "headers/matrixOperation.h"
 
-complex<double> **getAllocatedQubit(int rows) {
-    complex<double> **matrix = new complex<double>*[rows];
-    for (int i = 0; i < rows; i++) {
-        matrix[i] = new complex<double>[QUBIT_NUMBER_OF_COLUMNS];
+vector2d getPreparedContainerForQubit(int qubitRows) {
+    vector2d vector;
+    vector.resize(qubitRows);
+    for (int i = 0; i < qubitRows; i++) {
+        vector[i].resize(QUBIT_NUMBER_OF_COLUMNS);
     }
 
-    return matrix;
+    return vector;
 }
 
-complex<double> **makeDotProductOfQubits(complex<double> **firstQubit, complex<double> **secondQubit, int rows, int columns) {
-    complex<double> sum;
-    complex<double> **dotProduct = getAllocatedMatrix(columns, columns);
+vector2d getPreparedContainerForDotProduct() {
+    vector2d vector;
+    vector.resize(QUBIT_NUMBER_OF_COLUMNS);
+    for (int i = 0; i < QUBIT_NUMBER_OF_COLUMNS; i++) {
+        vector[i].resize(QUBIT_NUMBER_OF_COLUMNS);
+    }
 
-    sum = complex<double>(0, 0);
-    for (int i = 0; i < columns; i++) {
-        for (int j = 0; j < rows; j++) {
+    return vector;
+}
+
+vector2d makeDotProductOfQubits(vector2d firstQubit, vector2d secondQubit) {
+    vector2d dotProduct = getPreparedContainerForDotProduct();
+
+    complex<double> sum = complex<double>(0, 0);
+    for (int i = 0; i < firstQubit.size(); i++) {
+        for (int j = 0; j < firstQubit[i].size(); j++) {
            sum += firstQubit[i][j] * secondQubit[j][i];
         }
     }
@@ -30,20 +40,22 @@ complex<double> **makeDotProductOfQubits(complex<double> **firstQubit, complex<d
 /// and change type from double to complex<double>
 /// \param baseVector vector<double>
 /// \return complex two dimensional array
-complex<double> **convertBaseVectorTo2dArray(vector<double> baseVector) {
-    complex<double> **baseVectorAsTwoDimensionalArray = getAllocatedMatrix(baseVector.size(), QUBIT_NUMBER_OF_COLUMNS);
+vector2d convertBaseVectorTo2dVector(vector<double> baseVector) {
+    vector2d complexDoubleVector;
 
-    for(int i = 0; i < baseVector.size(); i++) {
-        for(int j = 0; j < QUBIT_NUMBER_OF_COLUMNS; j++) {
-            baseVectorAsTwoDimensionalArray[i][j] = baseVector.at(i);
+    for (int i = 0; i < baseVector.size(); i++) {
+        vector<complex<double>> temp;
+        for (int j = 0; j < QUBIT_NUMBER_OF_COLUMNS; j++) {
+            temp.push_back(baseVector.at(i));
         }
+        complexDoubleVector.push_back(temp);
     }
 
-    return baseVectorAsTwoDimensionalArray;
+    return complexDoubleVector;
 }
 
-complex<double> **getQubitRepresentation(vector<double> baseVector) {
-    return convertBaseVectorTo2dArray(baseVector);
+vector2d getQubitRepresentation(vector<double> baseVector) {
+    return convertBaseVectorTo2dVector(baseVector);
 }
 
 /// Used to show single formatted element of qubit
@@ -71,9 +83,9 @@ void showSingleQubitElement(complex<double> element) {
     }
 }
 
-void showQubit(complex<double> **qubit, const int qubitRows) {
-    for(int i = 0; i < qubitRows; i++) {
-        for(int j = 0; j < QUBIT_NUMBER_OF_COLUMNS; j++) {
+void showQubit(vector2d qubit) {
+    for(int i = 0; i < qubit.size(); i++) {
+        for(int j = 0; j < qubit[i].size(); j++) {
             showSingleQubitElement(qubit[i][j]);
         }
         cout << endl;
@@ -81,19 +93,9 @@ void showQubit(complex<double> **qubit, const int qubitRows) {
     cout << endl;
 }
 
-void showQubitAfterConjugateTranspose(complex<double> **qubit, const int qubitRows) {
-    for (int i = 0; i < QUBIT_NUMBER_OF_COLUMNS; i++) {
-        for (int j = 0; j < qubitRows; j++) {
-            showSingleQubitElement(qubit[i][j]);
-        }
-        cout << endl;
-    }
-    cout << endl;
-}
-
-void showDotProduct(complex<double> **dotProduct) {
-    for (int i = 0; i < QUBIT_NUMBER_OF_COLUMNS; i++) {
-        for (int j = 0; j < QUBIT_NUMBER_OF_COLUMNS; j++) {
+void showDotProduct(vector2d dotProduct) {
+    for (int i = 0; i < dotProduct.size(); i++) {
+        for (int j = 0; j < dotProduct.size(); j++) {
             showSingleQubitElement(dotProduct[i][j]);
         }
         cout << endl;

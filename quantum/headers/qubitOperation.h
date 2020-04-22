@@ -4,6 +4,7 @@
 #include <vector>
 
 using namespace std;
+typedef vector<vector<complex<double>>> vector2d;
 
 /// \param - constant single qubit rows
 const int SINGLE_QUBIT_NUMBER_OF_ROWS = 2;
@@ -18,34 +19,27 @@ const int QUBIT_NUMBER_OF_COLUMNS = 1;
 /// Used to get allocated qubit
 /// \param rows int
 /// \return allocated qubit
-complex<double> **getAllocatedQubit(int rows);
+vector2d getPreparedContainerForQubit(int qubitRows);
 
 /// Used to make dot product of two qubits.\n
 /// Dot product - https://en.wikipedia.org/wiki/Dot_product#Algebraic_definition
 /// \param firstQubit complex<double>
 /// \param secondQubit complex<double>
-/// \param rows int
-/// \param columns int
 /// \return dot product of qubits
-complex<double> **makeDotProductOfQubits(complex<double> **firstQubit, complex<double> **secondQubit, int rows, int columns);
+vector2d makeDotProductOfQubits(vector2d firstQubit, vector2d secondQubit);
 
 /// Used to get qubit as complex type 2D array
 /// \param baseVector vector<double>
 /// \return qubit
-complex<double> **getQubitRepresentation(vector<double> baseVector);
+vector2d getQubitRepresentation(vector<double> baseVector);
 
 /// Used to show all elements of qubit (2D array)
 /// \param qubit complex<double>
 /// \param qubitRows const int
-void showQubit(complex<double> **qubit, const int qubitRows);
-
-/// Used to show qubit after conjugate transpose (reversed columns and rows number)
-/// \param qubit complex<double>
-/// \param qubitRows const int
-void showQubitAfterConjugateTranspose(complex<double> **qubit, const int qubitRows);
+void showQubit(vector2d qubit);
 
 /// Used to show dot product
 /// \param dotProduct complex<double>
-void showDotProduct(complex<double> **dotProduct);
+void showDotProduct(vector2d dotProduct);
 
 #endif
