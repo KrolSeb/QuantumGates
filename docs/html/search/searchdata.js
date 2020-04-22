@@ -5,7 +5,8 @@ var indexSectionsWithContent =
   2: "q",
   3: "mq",
   4: "cgimnqrsv",
-  5: "bioqrst"
+  5: "bioqrst",
+  6: "v"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "namespaces",
   3: "files",
   4: "functions",
-  5: "variables"
+  5: "variables",
+  6: "typedefs"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Namespaces",
   3: "Files",
   4: "Functions",
-  5: "Variables"
+  5: "Variables",
+  6: "Typedefs"
 };
 

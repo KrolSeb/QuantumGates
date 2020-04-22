@@ -1,18 +1,18 @@
 var searchData=
 [
-  ['makecnotonqubit_102',['makeCnotOnQubit',['../quantumGate_8h.html#a9a4ebdcf8086a5a972f6f01c1ca92217',1,'quantumGate.h']]],
-  ['makeconjugatetranspose_103',['makeConjugateTranspose',['../matrixOperation_8h.html#a710126a7c682028738ff0b25369ac7d1',1,'matrixOperation.h']]],
-  ['makedotproductofqubits_104',['makeDotProductOfQubits',['../qubitOperation_8h.html#ae3d2efcd7e7eab57b712f651b392a7a0',1,'qubitOperation.h']]],
-  ['makefredkinonqubit_105',['makeFredkinOnQubit',['../quantumGate_8h.html#acf2162ff846cb35a0ab27fb62e5f79b8',1,'quantumGate.h']]],
-  ['makehadamardonqubit_106',['makeHadamardOnQubit',['../quantumGate_8h.html#a75119c42c651828ea48ccdb2c91c4b8d',1,'quantumGate.h']]],
-  ['makemultidimensionalhadamardonqubit_107',['makeMultidimensionalHadamardOnQubit',['../quantumGate_8h.html#ae5532f4c0ce7cf33c5ce8ca2eba85ddf',1,'quantumGate.h']]],
-  ['makenotonqubit_108',['makeNotOnQubit',['../quantumGate_8h.html#abb766148b422ee5a0582591a56f97e00',1,'quantumGate.h']]],
-  ['makepaulixonqubit_109',['makePauliXOnQubit',['../quantumGate_8h.html#a7012e2cb51dbff79ba29c63de3a22d78',1,'quantumGate.h']]],
-  ['makepauliyonqubit_110',['makePauliYOnQubit',['../quantumGate_8h.html#a6728dfb1184c77f34b4ffa81618daadc',1,'quantumGate.h']]],
-  ['makepaulizonqubit_111',['makePauliZOnQubit',['../quantumGate_8h.html#a0624a11d8c2386f85025ab286243402f',1,'quantumGate.h']]],
-  ['makephaseshiftonqubit_112',['makePhaseShiftOnQubit',['../quantumGate_8h.html#a4bdb894abffa024b9f7cdf709ccdb883',1,'quantumGate.h']]],
-  ['makesqrtnotonqubit_113',['makeSqrtNotOnQubit',['../quantumGate_8h.html#a0a1e51115f0b08e75c07bda475503ddf',1,'quantumGate.h']]],
-  ['makeswaponqubit_114',['makeSwapOnQubit',['../quantumGate_8h.html#af7165bd58b69a1f96d7f4fe576ef00f8',1,'quantumGate.h']]],
-  ['maketoffolionqubit_115',['makeToffoliOnQubit',['../quantumGate_8h.html#ac2f4b1f33bba97103f1d69ed8bd2610a',1,'quantumGate.h']]],
-  ['measure_116',['measure',['../structquantum_1_1QuantumComputer.html#a1bff078c4a0761a9b9f2d4f553deac91',1,'quantum::QuantumComputer']]]
+  ['makecnotonqubit_101',['makeCnotOnQubit',['../quantumGate_8h.html#a529ee196682410e06224725346d3f589',1,'quantumGate.h']]],
+  ['makeconjugatetranspose_102',['makeConjugateTranspose',['../matrixOperation_8h.html#a30f44d02600b3bda49b316303d0731df',1,'matrixOperation.h']]],
+  ['makedotproductofqubits_103',['makeDotProductOfQubits',['../qubitOperation_8h.html#a8314fd2c328530d71cb60cc0acb3fbc1',1,'qubitOperation.h']]],
+  ['makefredkinonqubit_104',['makeFredkinOnQubit',['../quantumGate_8h.html#a7e47adfb6177c2b80deaedb2294de97a',1,'quantumGate.h']]],
+  ['makehadamardonqubit_105',['makeHadamardOnQubit',['../quantumGate_8h.html#a50db4ad142fa40290031d69f6e1bfc56',1,'quantumGate.h']]],
+  ['makemultidimensionalhadamardonqubit_106',['makeMultidimensionalHadamardOnQubit',['../quantumGate_8h.html#accbc57b4cd6b09ae476aee61ca286fb1',1,'quantumGate.h']]],
+  ['makenotonqubit_107',['makeNotOnQubit',['../quantumGate_8h.html#ae2b4590bf93d26fbae32d99a3545b790',1,'quantumGate.h']]],
+  ['makepaulixonqubit_108',['makePauliXOnQubit',['../quantumGate_8h.html#a658c72b64784cb37af734dfca9244716',1,'quantumGate.h']]],
+  ['makepauliyonqubit_109',['makePauliYOnQubit',['../quantumGate_8h.html#aa809339c7563f4e822c4645bc1b5651a',1,'quantumGate.h']]],
+  ['makepaulizonqubit_110',['makePauliZOnQubit',['../quantumGate_8h.html#a434b5b3221def87e77e20f4f1e36787a',1,'quantumGate.h']]],
+  ['makephaseshiftonqubit_111',['makePhaseShiftOnQubit',['../quantumGate_8h.html#a665366c832784e9f2790e1016fc28ec5',1,'quantumGate.h']]],
+  ['makesqrtnotonqubit_112',['makeSqrtNotOnQubit',['../quantumGate_8h.html#a730dec30049b33f125441127e1eee5f5',1,'quantumGate.h']]],
+  ['makeswaponqubit_113',['makeSwapOnQubit',['../quantumGate_8h.html#a0177eb19f4a4be1e17a8f12406486e0e',1,'quantumGate.h']]],
+  ['maketoffolionqubit_114',['makeToffoliOnQubit',['../quantumGate_8h.html#a5c31e941ca45d9b4d897edfea7af8b20',1,'quantumGate.h']]],
+  ['measure_115',['measure',['../structquantum_1_1QuantumComputer.html#a1bff078c4a0761a9b9f2d4f553deac91',1,'quantum::QuantumComputer']]]
 ];

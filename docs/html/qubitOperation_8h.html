@@ -5,14 +5,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>QuantumGates: /home/sebastian/Projects/CLionProjects/QuantumGates/quantum/headers/qubitOperation.h File Reference</title>
+<title>QuantumGates: qubitOperation.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,6 +34,21 @@
    <div id="projectname">QuantumGates
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +60,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('qubitOperation_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,13 +91,9 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_3c2d4af945300307a1a81eaabacd3270.html">quantum</a></li><li class="navelem"><a class="el" href="dir_c12f25bda4a3db0aea979374a8632039.html">headers</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -77,20 +105,24 @@ $(function() {
 </div>
 <p><a href="qubitOperation_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:abc4dbb6bf893b615d3c3e2dc477e52e1"><td class="memItemLeft" align="right" valign="top">typedef vector&lt; vector&lt; complex&lt; double &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a></td></tr>
+<tr class="memdesc:abc4dbb6bf893b615d3c3e2dc477e52e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used as alias for declaration of two dimensional vector.  <a href="qubitOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">More...</a><br /></td></tr>
+<tr class="separator:abc4dbb6bf893b615d3c3e2dc477e52e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acf33be5e37ee911a64e1380d56f65bc1"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#acf33be5e37ee911a64e1380d56f65bc1">getAllocatedQubit</a> (int rows)</td></tr>
-<tr class="separator:acf33be5e37ee911a64e1380d56f65bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3d2efcd7e7eab57b712f651b392a7a0"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#ae3d2efcd7e7eab57b712f651b392a7a0">makeDotProductOfQubits</a> (complex&lt; double &gt; **firstQubit, complex&lt; double &gt; **secondQubit, int rows, int columns)</td></tr>
-<tr class="separator:ae3d2efcd7e7eab57b712f651b392a7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add490c903a7fcad1d0fa8055b2a0ed46"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#add490c903a7fcad1d0fa8055b2a0ed46">getQubitRepresentation</a> (vector&lt; double &gt; baseVector)</td></tr>
-<tr class="separator:add490c903a7fcad1d0fa8055b2a0ed46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6b799a866d6176c49c4128870ff9c36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#ae6b799a866d6176c49c4128870ff9c36">showQubit</a> (complex&lt; double &gt; **qubit, const int qubitRows)</td></tr>
-<tr class="separator:ae6b799a866d6176c49c4128870ff9c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc3b4af8e21743e187de162a689bab66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#adc3b4af8e21743e187de162a689bab66">showQubitAfterConjugateTranspose</a> (complex&lt; double &gt; **qubit, const int qubitRows)</td></tr>
-<tr class="separator:adc3b4af8e21743e187de162a689bab66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17e3e6e87aa8e8e28855a8cfd4dc9f5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#a17e3e6e87aa8e8e28855a8cfd4dc9f5b">showDotProduct</a> (complex&lt; double &gt; **dotProduct)</td></tr>
-<tr class="separator:a17e3e6e87aa8e8e28855a8cfd4dc9f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e2a84b3c222bfc80ec0531a652a942b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#a2e2a84b3c222bfc80ec0531a652a942b">getPreparedContainerForQubit</a> (int qubitRows)</td></tr>
+<tr class="separator:a2e2a84b3c222bfc80ec0531a652a942b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8314fd2c328530d71cb60cc0acb3fbc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#a8314fd2c328530d71cb60cc0acb3fbc1">makeDotProductOfQubits</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> firstQubit, <a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> secondQubit)</td></tr>
+<tr class="separator:a8314fd2c328530d71cb60cc0acb3fbc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a611446f35ba7a38e343fc050efa18788"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#a611446f35ba7a38e343fc050efa18788">getQubitRepresentation</a> (vector&lt; double &gt; baseVector)</td></tr>
+<tr class="separator:a611446f35ba7a38e343fc050efa18788"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df928570024300857ba07369ae86026"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#a4df928570024300857ba07369ae86026">showQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:a4df928570024300857ba07369ae86026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c4120ffa09ffceb6e097b4458ec44d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#a8c4120ffa09ffceb6e097b4458ec44d6">showDotProduct</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> dotProduct)</td></tr>
+<tr class="separator:a8c4120ffa09ffceb6e097b4458ec44d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -103,25 +135,42 @@ Variables</h2></td></tr>
 <tr class="memitem:a1092e2df323978a708c663a62769ebe5"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qubitOperation_8h.html#a1092e2df323978a708c663a62769ebe5">QUBIT_NUMBER_OF_COLUMNS</a> = 1</td></tr>
 <tr class="separator:a1092e2df323978a708c663a62769ebe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="acf33be5e37ee911a64e1380d56f65bc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf33be5e37ee911a64e1380d56f65bc1">&#9670;&nbsp;</a></span>getAllocatedQubit()</h2>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="abc4dbb6bf893b615d3c3e2dc477e52e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc4dbb6bf893b615d3c3e2dc477e52e1">&#9670;&nbsp;</a></span>vector2d</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getAllocatedQubit </td>
+          <td class="memname">typedef vector&lt;vector&lt;complex&lt;double&gt; &gt; &gt; <a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Used as alias for declaration of two dimensional vector. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a2e2a84b3c222bfc80ec0531a652a942b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e2a84b3c222bfc80ec0531a652a942b">&#9670;&nbsp;</a></span>getPreparedContainerForQubit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getPreparedContainerForQubit </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rows</em></td><td>)</td>
+          <td class="paramname"><em>qubitRows</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to get allocated qubit </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Used to get defined qubit for declared dimension </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rows</td><td>int </td></tr>
+    <tr><td class="paramname">qubitRows</td><td>int </td></tr>
   </table>
   </dd>
 </dl>
@@ -129,14 +178,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="add490c903a7fcad1d0fa8055b2a0ed46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add490c903a7fcad1d0fa8055b2a0ed46">&#9670;&nbsp;</a></span>getQubitRepresentation()</h2>
+<a id="a611446f35ba7a38e343fc050efa18788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a611446f35ba7a38e343fc050efa18788">&#9670;&nbsp;</a></span>getQubitRepresentation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getQubitRepresentation </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getQubitRepresentation </td>
           <td>(</td>
           <td class="paramtype">vector&lt; double &gt;&#160;</td>
           <td class="paramname"><em>baseVector</em></td><td>)</td>
@@ -154,35 +203,23 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae3d2efcd7e7eab57b712f651b392a7a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3d2efcd7e7eab57b712f651b392a7a0">&#9670;&nbsp;</a></span>makeDotProductOfQubits()</h2>
+<a id="a8314fd2c328530d71cb60cc0acb3fbc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8314fd2c328530d71cb60cc0acb3fbc1">&#9670;&nbsp;</a></span>makeDotProductOfQubits()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makeDotProductOfQubits </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makeDotProductOfQubits </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>firstQubit</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
-          <td class="paramname"><em>secondQubit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rows</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>columns</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
+          <td class="paramname"><em>secondQubit</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -194,10 +231,8 @@ Variables</h2></td></tr>
 <p>Used to make dot product of two qubits.<br  />
 Dot product - <a href="https://en.wikipedia.org/wiki/Dot_product#Algebraic_definition">https://en.wikipedia.org/wiki/Dot_product#Algebraic_definition</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">firstQubit</td><td>complex&lt;double&gt; </td></tr>
-    <tr><td class="paramname">secondQubit</td><td>complex&lt;double&gt; </td></tr>
-    <tr><td class="paramname">rows</td><td>int </td></tr>
-    <tr><td class="paramname">columns</td><td>int </td></tr>
+    <tr><td class="paramname">firstQubit</td><td>vector2d </td></tr>
+    <tr><td class="paramname">secondQubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -205,8 +240,8 @@ Dot product - <a href="https://en.wikipedia.org/wiki/Dot_product#Algebraic_defin
 
 </div>
 </div>
-<a id="a17e3e6e87aa8e8e28855a8cfd4dc9f5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17e3e6e87aa8e8e28855a8cfd4dc9f5b">&#9670;&nbsp;</a></span>showDotProduct()</h2>
+<a id="a8c4120ffa09ffceb6e097b4458ec44d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c4120ffa09ffceb6e097b4458ec44d6">&#9670;&nbsp;</a></span>showDotProduct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,7 +249,7 @@ Dot product - <a href="https://en.wikipedia.org/wiki/Dot_product#Algebraic_defin
         <tr>
           <td class="memname">void showDotProduct </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>dotProduct</em></td><td>)</td>
           <td></td>
         </tr>
@@ -222,15 +257,15 @@ Dot product - <a href="https://en.wikipedia.org/wiki/Dot_product#Algebraic_defin
 </div><div class="memdoc">
 <p>Used to show dot product </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dotProduct</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">dotProduct</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ae6b799a866d6176c49c4128870ff9c36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6b799a866d6176c49c4128870ff9c36">&#9670;&nbsp;</a></span>showQubit()</h2>
+<a id="a4df928570024300857ba07369ae86026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4df928570024300857ba07369ae86026">&#9670;&nbsp;</a></span>showQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,61 +273,15 @@ Dot product - <a href="https://en.wikipedia.org/wiki/Dot_product#Algebraic_defin
         <tr>
           <td class="memname">void showQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
-          <td class="paramname"><em>qubit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
+          <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>qubitRows</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Used to show all elements of qubit (2D array) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
-    <tr><td class="paramname">qubitRows</td><td>const int </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="adc3b4af8e21743e187de162a689bab66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc3b4af8e21743e187de162a689bab66">&#9670;&nbsp;</a></span>showQubitAfterConjugateTranspose()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void showQubitAfterConjugateTranspose </td>
-          <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
-          <td class="paramname"><em>qubit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>qubitRows</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Used to show qubit after conjugate transpose (reversed columns and rows number) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
-    <tr><td class="paramname">qubitRows</td><td>const int </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -381,11 +370,15 @@ Dot product - <a href="https://en.wikipedia.org/wiki/Dot_product#Algebraic_defin
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3c2d4af945300307a1a81eaabacd3270.html">quantum</a></li><li class="navelem"><a class="el" href="dir_c12f25bda4a3db0aea979374a8632039.html">headers</a></li><li class="navelem"><a class="el" href="qubitOperation_8h.html">qubitOperation.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

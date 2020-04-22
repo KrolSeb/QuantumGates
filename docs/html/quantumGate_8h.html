@@ -5,14 +5,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>QuantumGates: /home/sebastian/Projects/CLionProjects/QuantumGates/quantum/headers/quantumGate.h File Reference</title>
+<title>QuantumGates: quantumGate.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,6 +34,21 @@
    <div id="projectname">QuantumGates
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +60,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('quantumGate_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,13 +91,9 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_3c2d4af945300307a1a81eaabacd3270.html">quantum</a></li><li class="navelem"><a class="el" href="dir_c12f25bda4a3db0aea979374a8632039.html">headers</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -73,67 +101,72 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;complex&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="quantumGate_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:abc4dbb6bf893b615d3c3e2dc477e52e1"><td class="memItemLeft" align="right" valign="top">typedef vector&lt; vector&lt; complex&lt; double &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a></td></tr>
+<tr class="memdesc:abc4dbb6bf893b615d3c3e2dc477e52e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used as alias for declaration of two dimensional vector.  <a href="quantumGate_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">More...</a><br /></td></tr>
+<tr class="separator:abc4dbb6bf893b615d3c3e2dc477e52e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a21359f25707b68827bbdf4b45e0ccece"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a21359f25707b68827bbdf4b45e0ccece">getAllocatedQuantumGate</a> (int dimension)</td></tr>
-<tr class="separator:a21359f25707b68827bbdf4b45e0ccece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb766148b422ee5a0582591a56f97e00"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#abb766148b422ee5a0582591a56f97e00">makeNotOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:abb766148b422ee5a0582591a56f97e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a1e51115f0b08e75c07bda475503ddf"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a0a1e51115f0b08e75c07bda475503ddf">makeSqrtNotOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:a0a1e51115f0b08e75c07bda475503ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a4ebdcf8086a5a972f6f01c1ca92217"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a9a4ebdcf8086a5a972f6f01c1ca92217">makeCnotOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:a9a4ebdcf8086a5a972f6f01c1ca92217"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7165bd58b69a1f96d7f4fe576ef00f8"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#af7165bd58b69a1f96d7f4fe576ef00f8">makeSwapOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:af7165bd58b69a1f96d7f4fe576ef00f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf2162ff846cb35a0ab27fb62e5f79b8"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#acf2162ff846cb35a0ab27fb62e5f79b8">makeFredkinOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:acf2162ff846cb35a0ab27fb62e5f79b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2f4b1f33bba97103f1d69ed8bd2610a"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#ac2f4b1f33bba97103f1d69ed8bd2610a">makeToffoliOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:ac2f4b1f33bba97103f1d69ed8bd2610a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75119c42c651828ea48ccdb2c91c4b8d"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a75119c42c651828ea48ccdb2c91c4b8d">makeHadamardOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:a75119c42c651828ea48ccdb2c91c4b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5532f4c0ce7cf33c5ce8ca2eba85ddf"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#ae5532f4c0ce7cf33c5ce8ca2eba85ddf">makeMultidimensionalHadamardOnQubit</a> (complex&lt; double &gt; **qubit, int numberOfQubits, complex&lt; double &gt; **hadamardGate, int indexNumber)</td></tr>
-<tr class="separator:ae5532f4c0ce7cf33c5ce8ca2eba85ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bdb894abffa024b9f7cdf709ccdb883"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a4bdb894abffa024b9f7cdf709ccdb883">makePhaseShiftOnQubit</a> (complex&lt; double &gt; **qubit, double angle)</td></tr>
-<tr class="separator:a4bdb894abffa024b9f7cdf709ccdb883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7012e2cb51dbff79ba29c63de3a22d78"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a7012e2cb51dbff79ba29c63de3a22d78">makePauliXOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:a7012e2cb51dbff79ba29c63de3a22d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6728dfb1184c77f34b4ffa81618daadc"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a6728dfb1184c77f34b4ffa81618daadc">makePauliYOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:a6728dfb1184c77f34b4ffa81618daadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0624a11d8c2386f85025ab286243402f"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a0624a11d8c2386f85025ab286243402f">makePauliZOnQubit</a> (complex&lt; double &gt; **qubit)</td></tr>
-<tr class="separator:a0624a11d8c2386f85025ab286243402f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71b6891e71aa79b8031105762577a6e6"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a71b6891e71aa79b8031105762577a6e6">getNotGate</a> ()</td></tr>
-<tr class="separator:a71b6891e71aa79b8031105762577a6e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7383eec2026bcac3a5f6475cf51b11e5"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a7383eec2026bcac3a5f6475cf51b11e5">getSqrtNotGate</a> ()</td></tr>
-<tr class="separator:a7383eec2026bcac3a5f6475cf51b11e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2593548997bbbf1f0f4a870fb2d46d5"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#ad2593548997bbbf1f0f4a870fb2d46d5">getCnotGate</a> ()</td></tr>
-<tr class="separator:ad2593548997bbbf1f0f4a870fb2d46d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a748dcdd7178fbc5d3e8afefad8cedabd"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a748dcdd7178fbc5d3e8afefad8cedabd">getSwapGate</a> ()</td></tr>
-<tr class="separator:a748dcdd7178fbc5d3e8afefad8cedabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1608f4061772aaca467025e396384c1"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#aa1608f4061772aaca467025e396384c1">getFredkinGate</a> ()</td></tr>
-<tr class="separator:aa1608f4061772aaca467025e396384c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4f8a282dfb8db35b4dbdcfd8ba4ac22"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#ac4f8a282dfb8db35b4dbdcfd8ba4ac22">getToffoliGate</a> ()</td></tr>
-<tr class="separator:ac4f8a282dfb8db35b4dbdcfd8ba4ac22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad80928ee2b2a6af6b67fd1e08116fb19"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#ad80928ee2b2a6af6b67fd1e08116fb19">getHadamardGate</a> ()</td></tr>
-<tr class="separator:ad80928ee2b2a6af6b67fd1e08116fb19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a562a633240143031d03c3535f3fe2551"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a562a633240143031d03c3535f3fe2551">getMultidimensionalHadamardGate</a> (int indexNumber)</td></tr>
-<tr class="separator:a562a633240143031d03c3535f3fe2551"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10b6b4c55b10908d4a1273d5b5e6f63a"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a10b6b4c55b10908d4a1273d5b5e6f63a">getPhaseShiftGate</a> (double angle)</td></tr>
-<tr class="separator:a10b6b4c55b10908d4a1273d5b5e6f63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68fa435692e1be3152839ee4d10ff619"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a68fa435692e1be3152839ee4d10ff619">getPauliXGate</a> ()</td></tr>
-<tr class="separator:a68fa435692e1be3152839ee4d10ff619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1758d86cb8d73f77e2eb46701ca233a9"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a1758d86cb8d73f77e2eb46701ca233a9">getPauliYGate</a> ()</td></tr>
-<tr class="separator:a1758d86cb8d73f77e2eb46701ca233a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e6d0d36e25ed60695cebfd9350935ee"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a6e6d0d36e25ed60695cebfd9350935ee">getPauliZGate</a> ()</td></tr>
-<tr class="separator:a6e6d0d36e25ed60695cebfd9350935ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0356fb51f588841d1c1e50d8d391edc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#ab0356fb51f588841d1c1e50d8d391edc">showQuantumGate</a> (complex&lt; double &gt; **quantumGate, const int gateSize)</td></tr>
-<tr class="separator:ab0356fb51f588841d1c1e50d8d391edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afac3cdafabeb79406459577fa508545b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#afac3cdafabeb79406459577fa508545b">showPhaseShiftQuantumGate</a> (complex&lt; double &gt; **phaseShiftGate, const int gateSize)</td></tr>
-<tr class="separator:afac3cdafabeb79406459577fa508545b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a298daf61895c36fbf67bada05a4be140"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a298daf61895c36fbf67bada05a4be140">showMultidimensionalHadamardGate</a> (complex&lt; double &gt; **hadamardGate, int indexNumber)</td></tr>
-<tr class="separator:a298daf61895c36fbf67bada05a4be140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b26e086edd7d217d91c2010d3a9df7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a8b26e086edd7d217d91c2010d3a9df7a">getPreparedContainerForQuantumGate</a> (int dimension)</td></tr>
+<tr class="separator:a8b26e086edd7d217d91c2010d3a9df7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2b4590bf93d26fbae32d99a3545b790"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#ae2b4590bf93d26fbae32d99a3545b790">makeNotOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:ae2b4590bf93d26fbae32d99a3545b790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a730dec30049b33f125441127e1eee5f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a730dec30049b33f125441127e1eee5f5">makeSqrtNotOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>)</td></tr>
+<tr class="separator:a730dec30049b33f125441127e1eee5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a529ee196682410e06224725346d3f589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a529ee196682410e06224725346d3f589">makeCnotOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:a529ee196682410e06224725346d3f589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0177eb19f4a4be1e17a8f12406486e0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a0177eb19f4a4be1e17a8f12406486e0e">makeSwapOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:a0177eb19f4a4be1e17a8f12406486e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e47adfb6177c2b80deaedb2294de97a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a7e47adfb6177c2b80deaedb2294de97a">makeFredkinOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:a7e47adfb6177c2b80deaedb2294de97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c31e941ca45d9b4d897edfea7af8b20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a5c31e941ca45d9b4d897edfea7af8b20">makeToffoliOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:a5c31e941ca45d9b4d897edfea7af8b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50db4ad142fa40290031d69f6e1bfc56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a50db4ad142fa40290031d69f6e1bfc56">makeHadamardOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:a50db4ad142fa40290031d69f6e1bfc56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accbc57b4cd6b09ae476aee61ca286fb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#accbc57b4cd6b09ae476aee61ca286fb1">makeMultidimensionalHadamardOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit, <a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> hadamardGate, int indexNumber)</td></tr>
+<tr class="separator:accbc57b4cd6b09ae476aee61ca286fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665366c832784e9f2790e1016fc28ec5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a665366c832784e9f2790e1016fc28ec5">makePhaseShiftOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit, double angle)</td></tr>
+<tr class="separator:a665366c832784e9f2790e1016fc28ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658c72b64784cb37af734dfca9244716"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a658c72b64784cb37af734dfca9244716">makePauliXOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:a658c72b64784cb37af734dfca9244716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa809339c7563f4e822c4645bc1b5651a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#aa809339c7563f4e822c4645bc1b5651a">makePauliYOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:aa809339c7563f4e822c4645bc1b5651a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a434b5b3221def87e77e20f4f1e36787a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a434b5b3221def87e77e20f4f1e36787a">makePauliZOnQubit</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> qubit)</td></tr>
+<tr class="separator:a434b5b3221def87e77e20f4f1e36787a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8952f848f0325a998e230fd00c8dd1c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a8952f848f0325a998e230fd00c8dd1c1">getNotGate</a> ()</td></tr>
+<tr class="separator:a8952f848f0325a998e230fd00c8dd1c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a338265be78e4473e1b7e991c48d3928a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a338265be78e4473e1b7e991c48d3928a">getSqrtNotGate</a> ()</td></tr>
+<tr class="separator:a338265be78e4473e1b7e991c48d3928a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d4ac9097b53193296c5acf2b2590331"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a4d4ac9097b53193296c5acf2b2590331">getCnotGate</a> ()</td></tr>
+<tr class="separator:a4d4ac9097b53193296c5acf2b2590331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08bc2bf8ce5fe0939ba23e06f86d0aae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a08bc2bf8ce5fe0939ba23e06f86d0aae">getSwapGate</a> ()</td></tr>
+<tr class="separator:a08bc2bf8ce5fe0939ba23e06f86d0aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f784f0f764a5f11381da80b04f6fb6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a8f784f0f764a5f11381da80b04f6fb6c">getFredkinGate</a> ()</td></tr>
+<tr class="separator:a8f784f0f764a5f11381da80b04f6fb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964e48c98f3ff75bca2bb5feb10cd5de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a964e48c98f3ff75bca2bb5feb10cd5de">getToffoliGate</a> ()</td></tr>
+<tr class="separator:a964e48c98f3ff75bca2bb5feb10cd5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1474bcfb7891ddc835652dec9b32e857"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a1474bcfb7891ddc835652dec9b32e857">getHadamardGate</a> ()</td></tr>
+<tr class="separator:a1474bcfb7891ddc835652dec9b32e857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee552b4c3276960abbbcc2e734959d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a9ee552b4c3276960abbbcc2e734959d6">getMultidimensionalHadamardGate</a> (int indexNumber)</td></tr>
+<tr class="separator:a9ee552b4c3276960abbbcc2e734959d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d55192403ec598f7360168afefc5c97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a9d55192403ec598f7360168afefc5c97">getPhaseShiftGate</a> (double angle)</td></tr>
+<tr class="separator:a9d55192403ec598f7360168afefc5c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af06f4b139819f693a35e4ca2a0ae61cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#af06f4b139819f693a35e4ca2a0ae61cf">getPauliXGate</a> ()</td></tr>
+<tr class="separator:af06f4b139819f693a35e4ca2a0ae61cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af73ccab9d85fbaf053ebc96231aefd66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#af73ccab9d85fbaf053ebc96231aefd66">getPauliYGate</a> ()</td></tr>
+<tr class="separator:af73ccab9d85fbaf053ebc96231aefd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7861f35b429d42141c7ec386edad84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a3a7861f35b429d42141c7ec386edad84">getPauliZGate</a> ()</td></tr>
+<tr class="separator:a3a7861f35b429d42141c7ec386edad84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f2a2222ddc904b38298356b8aaa3622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a8f2a2222ddc904b38298356b8aaa3622">showQuantumGate</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> quantumGate)</td></tr>
+<tr class="separator:a8f2a2222ddc904b38298356b8aaa3622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2cd350fd4cdd74877d783f414882822"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#ae2cd350fd4cdd74877d783f414882822">showPhaseShiftQuantumGate</a> (<a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> phaseShiftGate)</td></tr>
+<tr class="separator:ae2cd350fd4cdd74877d783f414882822"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -144,39 +177,32 @@ Variables</h2></td></tr>
 <tr class="memitem:a297d546353bd8710a4c790f0cca036a8"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantumGate_8h.html#a297d546353bd8710a4c790f0cca036a8">THREE_ARGUMENTS_GATE_SIZE</a> = 8</td></tr>
 <tr class="separator:a297d546353bd8710a4c790f0cca036a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a21359f25707b68827bbdf4b45e0ccece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21359f25707b68827bbdf4b45e0ccece">&#9670;&nbsp;</a></span>getAllocatedQuantumGate()</h2>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="abc4dbb6bf893b615d3c3e2dc477e52e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc4dbb6bf893b615d3c3e2dc477e52e1">&#9670;&nbsp;</a></span>vector2d</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getAllocatedQuantumGate </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dimension</em></td><td>)</td>
-          <td></td>
+          <td class="memname">typedef vector&lt;vector&lt;complex&lt;double&gt; &gt; &gt; <a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to generate and get quantum gate for declared dimensions </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dimension</td><td>int </td></tr>
-  </table>
-  </dd>
-</dl>
+
+<p>Used as alias for declaration of two dimensional vector. </p>
 
 </div>
 </div>
-<a id="ad2593548997bbbf1f0f4a870fb2d46d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2593548997bbbf1f0f4a870fb2d46d5">&#9670;&nbsp;</a></span>getCnotGate()</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a4d4ac9097b53193296c5acf2b2590331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d4ac9097b53193296c5acf2b2590331">&#9670;&nbsp;</a></span>getCnotGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getCnotGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getCnotGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -187,14 +213,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aa1608f4061772aaca467025e396384c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1608f4061772aaca467025e396384c1">&#9670;&nbsp;</a></span>getFredkinGate()</h2>
+<a id="a8f784f0f764a5f11381da80b04f6fb6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f784f0f764a5f11381da80b04f6fb6c">&#9670;&nbsp;</a></span>getFredkinGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getFredkinGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getFredkinGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -205,14 +231,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad80928ee2b2a6af6b67fd1e08116fb19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad80928ee2b2a6af6b67fd1e08116fb19">&#9670;&nbsp;</a></span>getHadamardGate()</h2>
+<a id="a1474bcfb7891ddc835652dec9b32e857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1474bcfb7891ddc835652dec9b32e857">&#9670;&nbsp;</a></span>getHadamardGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getHadamardGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getHadamardGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -223,14 +249,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a562a633240143031d03c3535f3fe2551"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a562a633240143031d03c3535f3fe2551">&#9670;&nbsp;</a></span>getMultidimensionalHadamardGate()</h2>
+<a id="a9ee552b4c3276960abbbcc2e734959d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee552b4c3276960abbbcc2e734959d6">&#9670;&nbsp;</a></span>getMultidimensionalHadamardGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getMultidimensionalHadamardGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getMultidimensionalHadamardGate </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>indexNumber</em></td><td>)</td>
@@ -248,14 +274,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a71b6891e71aa79b8031105762577a6e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71b6891e71aa79b8031105762577a6e6">&#9670;&nbsp;</a></span>getNotGate()</h2>
+<a id="a8952f848f0325a998e230fd00c8dd1c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8952f848f0325a998e230fd00c8dd1c1">&#9670;&nbsp;</a></span>getNotGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getNotGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getNotGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -266,14 +292,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a68fa435692e1be3152839ee4d10ff619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68fa435692e1be3152839ee4d10ff619">&#9670;&nbsp;</a></span>getPauliXGate()</h2>
+<a id="af06f4b139819f693a35e4ca2a0ae61cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af06f4b139819f693a35e4ca2a0ae61cf">&#9670;&nbsp;</a></span>getPauliXGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getPauliXGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getPauliXGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -284,14 +310,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1758d86cb8d73f77e2eb46701ca233a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1758d86cb8d73f77e2eb46701ca233a9">&#9670;&nbsp;</a></span>getPauliYGate()</h2>
+<a id="af73ccab9d85fbaf053ebc96231aefd66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af73ccab9d85fbaf053ebc96231aefd66">&#9670;&nbsp;</a></span>getPauliYGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getPauliYGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getPauliYGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -302,14 +328,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a6e6d0d36e25ed60695cebfd9350935ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e6d0d36e25ed60695cebfd9350935ee">&#9670;&nbsp;</a></span>getPauliZGate()</h2>
+<a id="a3a7861f35b429d42141c7ec386edad84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a7861f35b429d42141c7ec386edad84">&#9670;&nbsp;</a></span>getPauliZGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getPauliZGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getPauliZGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -320,14 +346,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a10b6b4c55b10908d4a1273d5b5e6f63a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10b6b4c55b10908d4a1273d5b5e6f63a">&#9670;&nbsp;</a></span>getPhaseShiftGate()</h2>
+<a id="a9d55192403ec598f7360168afefc5c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d55192403ec598f7360168afefc5c97">&#9670;&nbsp;</a></span>getPhaseShiftGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getPhaseShiftGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getPhaseShiftGate </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>angle</em></td><td>)</td>
@@ -345,14 +371,38 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a7383eec2026bcac3a5f6475cf51b11e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7383eec2026bcac3a5f6475cf51b11e5">&#9670;&nbsp;</a></span>getSqrtNotGate()</h2>
+<a id="a8b26e086edd7d217d91c2010d3a9df7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b26e086edd7d217d91c2010d3a9df7a">&#9670;&nbsp;</a></span>getPreparedContainerForQuantumGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getSqrtNotGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getPreparedContainerForQuantumGate </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dimension</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Used to generate and get quantum gate for declared dimensions </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dimension</td><td>int </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a338265be78e4473e1b7e991c48d3928a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a338265be78e4473e1b7e991c48d3928a">&#9670;&nbsp;</a></span>getSqrtNotGate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getSqrtNotGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -363,14 +413,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a748dcdd7178fbc5d3e8afefad8cedabd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a748dcdd7178fbc5d3e8afefad8cedabd">&#9670;&nbsp;</a></span>getSwapGate()</h2>
+<a id="a08bc2bf8ce5fe0939ba23e06f86d0aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08bc2bf8ce5fe0939ba23e06f86d0aae">&#9670;&nbsp;</a></span>getSwapGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getSwapGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getSwapGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -381,14 +431,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ac4f8a282dfb8db35b4dbdcfd8ba4ac22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4f8a282dfb8db35b4dbdcfd8ba4ac22">&#9670;&nbsp;</a></span>getToffoliGate()</h2>
+<a id="a964e48c98f3ff75bca2bb5feb10cd5de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a964e48c98f3ff75bca2bb5feb10cd5de">&#9670;&nbsp;</a></span>getToffoliGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** getToffoliGate </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> getToffoliGate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -399,16 +449,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9a4ebdcf8086a5a972f6f01c1ca92217"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a4ebdcf8086a5a972f6f01c1ca92217">&#9670;&nbsp;</a></span>makeCnotOnQubit()</h2>
+<a id="a529ee196682410e06224725346d3f589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a529ee196682410e06224725346d3f589">&#9670;&nbsp;</a></span>makeCnotOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makeCnotOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makeCnotOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -416,7 +466,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make CNOT quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -424,16 +474,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="acf2162ff846cb35a0ab27fb62e5f79b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf2162ff846cb35a0ab27fb62e5f79b8">&#9670;&nbsp;</a></span>makeFredkinOnQubit()</h2>
+<a id="a7e47adfb6177c2b80deaedb2294de97a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e47adfb6177c2b80deaedb2294de97a">&#9670;&nbsp;</a></span>makeFredkinOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makeFredkinOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makeFredkinOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -441,7 +491,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make FREDKIN quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -449,16 +499,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a75119c42c651828ea48ccdb2c91c4b8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75119c42c651828ea48ccdb2c91c4b8d">&#9670;&nbsp;</a></span>makeHadamardOnQubit()</h2>
+<a id="a50db4ad142fa40290031d69f6e1bfc56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50db4ad142fa40290031d69f6e1bfc56">&#9670;&nbsp;</a></span>makeHadamardOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makeHadamardOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makeHadamardOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -466,7 +516,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make HADAMARD quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -474,28 +524,22 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae5532f4c0ce7cf33c5ce8ca2eba85ddf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5532f4c0ce7cf33c5ce8ca2eba85ddf">&#9670;&nbsp;</a></span>makeMultidimensionalHadamardOnQubit()</h2>
+<a id="accbc57b4cd6b09ae476aee61ca286fb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accbc57b4cd6b09ae476aee61ca286fb1">&#9670;&nbsp;</a></span>makeMultidimensionalHadamardOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makeMultidimensionalHadamardOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makeMultidimensionalHadamardOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numberOfQubits</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>hadamardGate</em>, </td>
         </tr>
         <tr>
@@ -513,9 +557,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make multidimensional HADAMARD quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
-    <tr><td class="paramname">numberOfQubits</td><td>int </td></tr>
-    <tr><td class="paramname">hadamardGate</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
+    <tr><td class="paramname">hadamardGate</td><td>vector2d </td></tr>
     <tr><td class="paramname">indexNumber</td><td>int </td></tr>
   </table>
   </dd>
@@ -524,16 +567,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="abb766148b422ee5a0582591a56f97e00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb766148b422ee5a0582591a56f97e00">&#9670;&nbsp;</a></span>makeNotOnQubit()</h2>
+<a id="ae2b4590bf93d26fbae32d99a3545b790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b4590bf93d26fbae32d99a3545b790">&#9670;&nbsp;</a></span>makeNotOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makeNotOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makeNotOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -541,7 +584,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make NOT quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -549,16 +592,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a7012e2cb51dbff79ba29c63de3a22d78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7012e2cb51dbff79ba29c63de3a22d78">&#9670;&nbsp;</a></span>makePauliXOnQubit()</h2>
+<a id="a658c72b64784cb37af734dfca9244716"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a658c72b64784cb37af734dfca9244716">&#9670;&nbsp;</a></span>makePauliXOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makePauliXOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makePauliXOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -566,7 +609,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make PAULI X quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -574,16 +617,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a6728dfb1184c77f34b4ffa81618daadc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6728dfb1184c77f34b4ffa81618daadc">&#9670;&nbsp;</a></span>makePauliYOnQubit()</h2>
+<a id="aa809339c7563f4e822c4645bc1b5651a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa809339c7563f4e822c4645bc1b5651a">&#9670;&nbsp;</a></span>makePauliYOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makePauliYOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makePauliYOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -591,7 +634,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make PAULI Y quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -599,16 +642,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a0624a11d8c2386f85025ab286243402f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0624a11d8c2386f85025ab286243402f">&#9670;&nbsp;</a></span>makePauliZOnQubit()</h2>
+<a id="a434b5b3221def87e77e20f4f1e36787a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a434b5b3221def87e77e20f4f1e36787a">&#9670;&nbsp;</a></span>makePauliZOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makePauliZOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makePauliZOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -616,7 +659,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make PAULI Z quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -624,16 +667,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a4bdb894abffa024b9f7cdf709ccdb883"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bdb894abffa024b9f7cdf709ccdb883">&#9670;&nbsp;</a></span>makePhaseShiftOnQubit()</h2>
+<a id="a665366c832784e9f2790e1016fc28ec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a665366c832784e9f2790e1016fc28ec5">&#9670;&nbsp;</a></span>makePhaseShiftOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makePhaseShiftOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makePhaseShiftOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em>, </td>
         </tr>
         <tr>
@@ -651,7 +694,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make PHASE SHIFT quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
     <tr><td class="paramname">angle</td><td>double - angle as value eg. PI or -PI </td></tr>
   </table>
   </dd>
@@ -660,24 +703,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a0a1e51115f0b08e75c07bda475503ddf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a1e51115f0b08e75c07bda475503ddf">&#9670;&nbsp;</a></span>makeSqrtNotOnQubit()</h2>
+<a id="a730dec30049b33f125441127e1eee5f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a730dec30049b33f125441127e1eee5f5">&#9670;&nbsp;</a></span>makeSqrtNotOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makeSqrtNotOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makeSqrtNotOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
-          <td class="paramname"><em>qubit</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Used to make SQRT(NOT) quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -685,16 +728,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="af7165bd58b69a1f96d7f4fe576ef00f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7165bd58b69a1f96d7f4fe576ef00f8">&#9670;&nbsp;</a></span>makeSwapOnQubit()</h2>
+<a id="a0177eb19f4a4be1e17a8f12406486e0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0177eb19f4a4be1e17a8f12406486e0e">&#9670;&nbsp;</a></span>makeSwapOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makeSwapOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makeSwapOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -702,7 +745,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make SWAP quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -710,16 +753,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ac2f4b1f33bba97103f1d69ed8bd2610a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2f4b1f33bba97103f1d69ed8bd2610a">&#9670;&nbsp;</a></span>makeToffoliOnQubit()</h2>
+<a id="a5c31e941ca45d9b4d897edfea7af8b20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c31e941ca45d9b4d897edfea7af8b20">&#9670;&nbsp;</a></span>makeToffoliOnQubit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">complex&lt;double&gt;** makeToffoliOnQubit </td>
+          <td class="memname"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> makeToffoliOnQubit </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
           <td class="paramname"><em>qubit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -727,7 +770,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to make TOFFOLI quantum gate on qubit </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">qubit</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">qubit</td><td>vector2d </td></tr>
   </table>
   </dd>
 </dl>
@@ -735,43 +778,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a298daf61895c36fbf67bada05a4be140"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a298daf61895c36fbf67bada05a4be140">&#9670;&nbsp;</a></span>showMultidimensionalHadamardGate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void showMultidimensionalHadamardGate </td>
-          <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
-          <td class="paramname"><em>hadamardGate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>indexNumber</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Used to show all elements of multidimensional HADAMARD quantum gate </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">hadamardGate</td><td>complex&lt;double&gt; </td></tr>
-    <tr><td class="paramname">indexNumber</td><td>int </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="afac3cdafabeb79406459577fa508545b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afac3cdafabeb79406459577fa508545b">&#9670;&nbsp;</a></span>showPhaseShiftQuantumGate()</h2>
+<a id="ae2cd350fd4cdd74877d783f414882822"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2cd350fd4cdd74877d783f414882822">&#9670;&nbsp;</a></span>showPhaseShiftQuantumGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -779,25 +787,15 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void showPhaseShiftQuantumGate </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
-          <td class="paramname"><em>phaseShiftGate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
+          <td class="paramname"><em>phaseShiftGate</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>gateSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Used to show all elements of PHASE SHIFT quantum gate </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">phaseShiftGate</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">phaseShiftGate</td><td>vector2d </td></tr>
     <tr><td class="paramname">gateSize</td><td>const int </td></tr>
   </table>
   </dd>
@@ -805,8 +803,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ab0356fb51f588841d1c1e50d8d391edc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0356fb51f588841d1c1e50d8d391edc">&#9670;&nbsp;</a></span>showQuantumGate()</h2>
+<a id="a8f2a2222ddc904b38298356b8aaa3622"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f2a2222ddc904b38298356b8aaa3622">&#9670;&nbsp;</a></span>showQuantumGate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -814,25 +812,15 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void showQuantumGate </td>
           <td>(</td>
-          <td class="paramtype">complex&lt; double &gt; **&#160;</td>
-          <td class="paramname"><em>quantumGate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>&#160;</td>
+          <td class="paramname"><em>quantumGate</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>gateSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Used to show all elements of quantum gate </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">quantumGate</td><td>complex&lt;double&gt; </td></tr>
+    <tr><td class="paramname">quantumGate</td><td>vector2d </td></tr>
     <tr><td class="paramname">gateSize</td><td>const int </td></tr>
   </table>
   </dd>
@@ -902,11 +890,15 @@ Variables</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3c2d4af945300307a1a81eaabacd3270.html">quantum</a></li><li class="navelem"><a class="el" href="dir_c12f25bda4a3db0aea979374a8632039.html">headers</a></li><li class="navelem"><a class="el" href="quantumGate_8h.html">quantumGate.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

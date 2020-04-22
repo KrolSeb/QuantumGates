@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quantum_72',['quantum',['../namespacequantum.html',1,'']]]
+  ['quantum_71',['quantum',['../namespacequantum.html',1,'']]]
 ];

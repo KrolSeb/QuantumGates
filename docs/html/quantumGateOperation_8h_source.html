@@ -5,14 +5,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>QuantumGates: /home/sebastian/Projects/CLionProjects/QuantumGates/quantum/headers/quantumGateOperation.h Source File</title>
+<title>QuantumGates: quantumGateOperation.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,6 +34,21 @@
    <div id="projectname">QuantumGates
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +60,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('quantumGateOperation_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +91,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_3c2d4af945300307a1a81eaabacd3270.html">quantum</a></li><li class="navelem"><a class="el" href="dir_c12f25bda4a3db0aea979374a8632039.html">headers</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">quantumGateOperation.h</div>  </div>
@@ -72,31 +99,39 @@ $(function() {
 <a href="quantumGateOperation_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef QUANTUMGATES_QUANTUMGATEOPERATION_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define QUANTUMGATES_QUANTUMGATEOPERATION_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;complex&lt;double&gt; **<a class="code" href="quantumGateOperation_8h.html#a2fef6c674727fd02bff1ebaa69e48c03">composeQuantumGates</a>(complex&lt;double&gt; **firstGate, complex&lt;double&gt; **secondGate, <span class="keywordtype">int</span> gateSize);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;complex&lt;double&gt; **<a class="code" href="quantumGateOperation_8h.html#a51c8fce01787d7485ebb3c6c96b199f3">getIdentityMatrix</a>(<span class="keywordtype">int</span> gateSize);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="quantumGateOperation_8h.html#a8b3545f50df5c5e1f92d1980aab64bb2">isIdentityMatrixAndComposedGatesAreEqual</a>(complex&lt;double&gt; **identityMatrix, complex&lt;double&gt; **composedGates, <span class="keywordtype">int</span> gateSize);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="quantumGateOperation_8h.html#ac499a0fa5a654931d582b7291119ae4d">isComposeOfGatesGivesIdentityMatrix</a>(complex&lt;double&gt; **firstGate, complex&lt;double&gt; **secondGate, <span class="keywordtype">int</span> gateSize);</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="quantumGateOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">    8</a></span>&#160;<span class="keyword">typedef</span> vector&lt;vector&lt;complex&lt;double&gt;&gt;&gt; <a class="code" href="quantumGateOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> <a class="code" href="quantumGateOperation_8h.html#a4a3ab5e0818f5e2e889d1c5a684155de">composeQuantumGates</a>(<a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> firstGate, <a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> secondGate);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> <a class="code" href="quantumGateOperation_8h.html#aca9164f4d7abbba8718af892c67cf631">getIdentityMatrix</a>(<span class="keywordtype">int</span> gateSize);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="quantumGateOperation_8h.html#a9a2879bff76913d0ab0ac2895cf86475">isIdentityMatrixAndComposedGatesAreEqual</a>(<a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> identityMatrix, <a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> composedGates);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="quantumGateOperation_8h.html#a1269f883239c7ae7e9d4661a7860781c">isComposeOfGatesGivesIdentityMatrix</a>(<a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> firstGate, <a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> secondGate);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="quantumGateOperation_8h.html#a3aea282e5cc873218bfe43888545f79a">isMatrixUnitary</a>(complex&lt;double&gt; **quantumGate, complex&lt;double&gt; **conjugateTransposedQuantumGate, <span class="keywordtype">int</span> gateSize);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="quantumGateOperation_8h.html#ad5a1a06602548f64bd92c85f6586ef60">isMatrixUnitary</a>(<a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> quantumGate, <a class="code" href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a> conjugateTransposedQuantumGate);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aquantumGateOperation_8h_html_ac499a0fa5a654931d582b7291119ae4d"><div class="ttname"><a href="quantumGateOperation_8h.html#ac499a0fa5a654931d582b7291119ae4d">isComposeOfGatesGivesIdentityMatrix</a></div><div class="ttdeci">bool isComposeOfGatesGivesIdentityMatrix(complex&lt; double &gt; **firstGate, complex&lt; double &gt; **secondGate, int gateSize)</div></div>
-<div class="ttc" id="aquantumGateOperation_8h_html_a3aea282e5cc873218bfe43888545f79a"><div class="ttname"><a href="quantumGateOperation_8h.html#a3aea282e5cc873218bfe43888545f79a">isMatrixUnitary</a></div><div class="ttdeci">bool isMatrixUnitary(complex&lt; double &gt; **quantumGate, complex&lt; double &gt; **conjugateTransposedQuantumGate, int gateSize)</div></div>
-<div class="ttc" id="aquantumGateOperation_8h_html_a51c8fce01787d7485ebb3c6c96b199f3"><div class="ttname"><a href="quantumGateOperation_8h.html#a51c8fce01787d7485ebb3c6c96b199f3">getIdentityMatrix</a></div><div class="ttdeci">complex&lt; double &gt; ** getIdentityMatrix(int gateSize)</div></div>
-<div class="ttc" id="aquantumGateOperation_8h_html_a2fef6c674727fd02bff1ebaa69e48c03"><div class="ttname"><a href="quantumGateOperation_8h.html#a2fef6c674727fd02bff1ebaa69e48c03">composeQuantumGates</a></div><div class="ttdeci">complex&lt; double &gt; ** composeQuantumGates(complex&lt; double &gt; **firstGate, complex&lt; double &gt; **secondGate, int gateSize)</div></div>
-<div class="ttc" id="aquantumGateOperation_8h_html_a8b3545f50df5c5e1f92d1980aab64bb2"><div class="ttname"><a href="quantumGateOperation_8h.html#a8b3545f50df5c5e1f92d1980aab64bb2">isIdentityMatrixAndComposedGatesAreEqual</a></div><div class="ttdeci">bool isIdentityMatrixAndComposedGatesAreEqual(complex&lt; double &gt; **identityMatrix, complex&lt; double &gt; **composedGates, int gateSize)</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aquantumGateOperation_8h_html_ad5a1a06602548f64bd92c85f6586ef60"><div class="ttname"><a href="quantumGateOperation_8h.html#ad5a1a06602548f64bd92c85f6586ef60">isMatrixUnitary</a></div><div class="ttdeci">bool isMatrixUnitary(vector2d quantumGate, vector2d conjugateTransposedQuantumGate)</div></div>
+<div class="ttc" id="aquantumGateOperation_8h_html_a4a3ab5e0818f5e2e889d1c5a684155de"><div class="ttname"><a href="quantumGateOperation_8h.html#a4a3ab5e0818f5e2e889d1c5a684155de">composeQuantumGates</a></div><div class="ttdeci">vector2d composeQuantumGates(vector2d firstGate, vector2d secondGate)</div></div>
+<div class="ttc" id="aquantumGateOperation_8h_html_a9a2879bff76913d0ab0ac2895cf86475"><div class="ttname"><a href="quantumGateOperation_8h.html#a9a2879bff76913d0ab0ac2895cf86475">isIdentityMatrixAndComposedGatesAreEqual</a></div><div class="ttdeci">bool isIdentityMatrixAndComposedGatesAreEqual(vector2d identityMatrix, vector2d composedGates)</div></div>
+<div class="ttc" id="aquantumGateOperation_8h_html_abc4dbb6bf893b615d3c3e2dc477e52e1"><div class="ttname"><a href="quantumGateOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a></div><div class="ttdeci">vector&lt; vector&lt; complex&lt; double &gt; &gt; &gt; vector2d</div><div class="ttdoc">Used as alias for declaration of two dimensional vector.</div><div class="ttdef"><b>Definition:</b> quantumGateOperation.h:8</div></div>
+<div class="ttc" id="aquantumGateOperation_8h_html_aca9164f4d7abbba8718af892c67cf631"><div class="ttname"><a href="quantumGateOperation_8h.html#aca9164f4d7abbba8718af892c67cf631">getIdentityMatrix</a></div><div class="ttdeci">vector2d getIdentityMatrix(int gateSize)</div></div>
+<div class="ttc" id="aquantumGateOperation_8h_html_a1269f883239c7ae7e9d4661a7860781c"><div class="ttname"><a href="quantumGateOperation_8h.html#a1269f883239c7ae7e9d4661a7860781c">isComposeOfGatesGivesIdentityMatrix</a></div><div class="ttdeci">bool isComposeOfGatesGivesIdentityMatrix(vector2d firstGate, vector2d secondGate)</div></div>
+<div class="ttc" id="amatrixOperation_8h_html_abc4dbb6bf893b615d3c3e2dc477e52e1"><div class="ttname"><a href="matrixOperation_8h.html#abc4dbb6bf893b615d3c3e2dc477e52e1">vector2d</a></div><div class="ttdeci">vector&lt; vector&lt; complex&lt; double &gt; &gt; &gt; vector2d</div><div class="ttdoc">Used as alias for declaration of two dimensional vector.</div><div class="ttdef"><b>Definition:</b> matrixOperation.h:7</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3c2d4af945300307a1a81eaabacd3270.html">quantum</a></li><li class="navelem"><a class="el" href="dir_c12f25bda4a3db0aea979374a8632039.html">headers</a></li><li class="navelem"><a class="el" href="quantumGateOperation_8h.html">quantumGateOperation.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

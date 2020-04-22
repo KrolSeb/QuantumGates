@@ -9,10 +9,20 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,6 +34,21 @@
    <div id="projectname">QuantumGates
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,17 +60,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('globals_func.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -65,157 +96,154 @@ $(function() {
 
 <h3><a id="index_c"></a>- c -</h3><ul>
 <li>composeQuantumGates()
-: <a class="el" href="quantumGateOperation_8h.html#a2fef6c674727fd02bff1ebaa69e48c03">quantumGateOperation.h</a>
+: <a class="el" href="quantumGateOperation_8h.html#a4a3ab5e0818f5e2e889d1c5a684155de">quantumGateOperation.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
-<li>getAllocatedMatrix()
-: <a class="el" href="matrixOperation_8h.html#a8f3fcf18b2d2ff839577147f9214541f">matrixOperation.h</a>
-</li>
-<li>getAllocatedQuantumGate()
-: <a class="el" href="quantumGate_8h.html#a21359f25707b68827bbdf4b45e0ccece">quantumGate.h</a>
-</li>
-<li>getAllocatedQubit()
-: <a class="el" href="qubitOperation_8h.html#acf33be5e37ee911a64e1380d56f65bc1">qubitOperation.h</a>
-</li>
 <li>getCnotGate()
-: <a class="el" href="quantumGate_8h.html#ad2593548997bbbf1f0f4a870fb2d46d5">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a4d4ac9097b53193296c5acf2b2590331">quantumGate.h</a>
 </li>
 <li>getFredkinGate()
-: <a class="el" href="quantumGate_8h.html#aa1608f4061772aaca467025e396384c1">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a8f784f0f764a5f11381da80b04f6fb6c">quantumGate.h</a>
 </li>
 <li>getHadamardGate()
-: <a class="el" href="quantumGate_8h.html#ad80928ee2b2a6af6b67fd1e08116fb19">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a1474bcfb7891ddc835652dec9b32e857">quantumGate.h</a>
 </li>
 <li>getIdentityMatrix()
-: <a class="el" href="quantumGateOperation_8h.html#a51c8fce01787d7485ebb3c6c96b199f3">quantumGateOperation.h</a>
+: <a class="el" href="quantumGateOperation_8h.html#aca9164f4d7abbba8718af892c67cf631">quantumGateOperation.h</a>
 </li>
 <li>getMultidimensionalHadamardGate()
-: <a class="el" href="quantumGate_8h.html#a562a633240143031d03c3535f3fe2551">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a9ee552b4c3276960abbbcc2e734959d6">quantumGate.h</a>
 </li>
 <li>getNotGate()
-: <a class="el" href="quantumGate_8h.html#a71b6891e71aa79b8031105762577a6e6">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a8952f848f0325a998e230fd00c8dd1c1">quantumGate.h</a>
 </li>
 <li>getPauliXGate()
-: <a class="el" href="quantumGate_8h.html#a68fa435692e1be3152839ee4d10ff619">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#af06f4b139819f693a35e4ca2a0ae61cf">quantumGate.h</a>
 </li>
 <li>getPauliYGate()
-: <a class="el" href="quantumGate_8h.html#a1758d86cb8d73f77e2eb46701ca233a9">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#af73ccab9d85fbaf053ebc96231aefd66">quantumGate.h</a>
 </li>
 <li>getPauliZGate()
-: <a class="el" href="quantumGate_8h.html#a6e6d0d36e25ed60695cebfd9350935ee">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a3a7861f35b429d42141c7ec386edad84">quantumGate.h</a>
 </li>
 <li>getPhaseShiftGate()
-: <a class="el" href="quantumGate_8h.html#a10b6b4c55b10908d4a1273d5b5e6f63a">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a9d55192403ec598f7360168afefc5c97">quantumGate.h</a>
+</li>
+<li>getPreparedContainerForQuantumGate()
+: <a class="el" href="quantumGate_8h.html#a8b26e086edd7d217d91c2010d3a9df7a">quantumGate.h</a>
+</li>
+<li>getPreparedContainerForQubit()
+: <a class="el" href="qubitOperation_8h.html#a2e2a84b3c222bfc80ec0531a652a942b">qubitOperation.h</a>
+</li>
+<li>getPreparedVectorForHermitianMatrix()
+: <a class="el" href="matrixOperation_8h.html#adfcb7ecd16cb4072e1f4f440b7d1a416">matrixOperation.h</a>
 </li>
 <li>getQubitRepresentation()
-: <a class="el" href="qubitOperation_8h.html#add490c903a7fcad1d0fa8055b2a0ed46">qubitOperation.h</a>
+: <a class="el" href="qubitOperation_8h.html#a611446f35ba7a38e343fc050efa18788">qubitOperation.h</a>
 </li>
 <li>getRandomHermitianMatrix()
-: <a class="el" href="matrixOperation_8h.html#a76bc44b8ab4fb8e876c2d2fdb16952c8">matrixOperation.h</a>
+: <a class="el" href="matrixOperation_8h.html#ab2d6b097fc959b3bdb4e649c1884b9b4">matrixOperation.h</a>
 </li>
 <li>getSqrtNotGate()
-: <a class="el" href="quantumGate_8h.html#a7383eec2026bcac3a5f6475cf51b11e5">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a338265be78e4473e1b7e991c48d3928a">quantumGate.h</a>
 </li>
 <li>getSwapGate()
-: <a class="el" href="quantumGate_8h.html#a748dcdd7178fbc5d3e8afefad8cedabd">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a08bc2bf8ce5fe0939ba23e06f86d0aae">quantumGate.h</a>
 </li>
 <li>getToffoliGate()
-: <a class="el" href="quantumGate_8h.html#ac4f8a282dfb8db35b4dbdcfd8ba4ac22">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a964e48c98f3ff75bca2bb5feb10cd5de">quantumGate.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>isComposeOfGatesGivesIdentityMatrix()
-: <a class="el" href="quantumGateOperation_8h.html#ac499a0fa5a654931d582b7291119ae4d">quantumGateOperation.h</a>
+: <a class="el" href="quantumGateOperation_8h.html#a1269f883239c7ae7e9d4661a7860781c">quantumGateOperation.h</a>
 </li>
 <li>isIdentityMatrixAndComposedGatesAreEqual()
-: <a class="el" href="quantumGateOperation_8h.html#a8b3545f50df5c5e1f92d1980aab64bb2">quantumGateOperation.h</a>
+: <a class="el" href="quantumGateOperation_8h.html#a9a2879bff76913d0ab0ac2895cf86475">quantumGateOperation.h</a>
 </li>
 <li>isMatrixUnitary()
-: <a class="el" href="quantumGateOperation_8h.html#a3aea282e5cc873218bfe43888545f79a">quantumGateOperation.h</a>
+: <a class="el" href="quantumGateOperation_8h.html#ad5a1a06602548f64bd92c85f6586ef60">quantumGateOperation.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>makeCnotOnQubit()
-: <a class="el" href="quantumGate_8h.html#a9a4ebdcf8086a5a972f6f01c1ca92217">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a529ee196682410e06224725346d3f589">quantumGate.h</a>
 </li>
 <li>makeConjugateTranspose()
-: <a class="el" href="matrixOperation_8h.html#a710126a7c682028738ff0b25369ac7d1">matrixOperation.h</a>
+: <a class="el" href="matrixOperation_8h.html#a30f44d02600b3bda49b316303d0731df">matrixOperation.h</a>
 </li>
 <li>makeDotProductOfQubits()
-: <a class="el" href="qubitOperation_8h.html#ae3d2efcd7e7eab57b712f651b392a7a0">qubitOperation.h</a>
+: <a class="el" href="qubitOperation_8h.html#a8314fd2c328530d71cb60cc0acb3fbc1">qubitOperation.h</a>
 </li>
 <li>makeFredkinOnQubit()
-: <a class="el" href="quantumGate_8h.html#acf2162ff846cb35a0ab27fb62e5f79b8">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a7e47adfb6177c2b80deaedb2294de97a">quantumGate.h</a>
 </li>
 <li>makeHadamardOnQubit()
-: <a class="el" href="quantumGate_8h.html#a75119c42c651828ea48ccdb2c91c4b8d">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a50db4ad142fa40290031d69f6e1bfc56">quantumGate.h</a>
 </li>
 <li>makeMultidimensionalHadamardOnQubit()
-: <a class="el" href="quantumGate_8h.html#ae5532f4c0ce7cf33c5ce8ca2eba85ddf">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#accbc57b4cd6b09ae476aee61ca286fb1">quantumGate.h</a>
 </li>
 <li>makeNotOnQubit()
-: <a class="el" href="quantumGate_8h.html#abb766148b422ee5a0582591a56f97e00">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#ae2b4590bf93d26fbae32d99a3545b790">quantumGate.h</a>
 </li>
 <li>makePauliXOnQubit()
-: <a class="el" href="quantumGate_8h.html#a7012e2cb51dbff79ba29c63de3a22d78">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a658c72b64784cb37af734dfca9244716">quantumGate.h</a>
 </li>
 <li>makePauliYOnQubit()
-: <a class="el" href="quantumGate_8h.html#a6728dfb1184c77f34b4ffa81618daadc">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#aa809339c7563f4e822c4645bc1b5651a">quantumGate.h</a>
 </li>
 <li>makePauliZOnQubit()
-: <a class="el" href="quantumGate_8h.html#a0624a11d8c2386f85025ab286243402f">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a434b5b3221def87e77e20f4f1e36787a">quantumGate.h</a>
 </li>
 <li>makePhaseShiftOnQubit()
-: <a class="el" href="quantumGate_8h.html#a4bdb894abffa024b9f7cdf709ccdb883">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a665366c832784e9f2790e1016fc28ec5">quantumGate.h</a>
 </li>
 <li>makeSqrtNotOnQubit()
-: <a class="el" href="quantumGate_8h.html#a0a1e51115f0b08e75c07bda475503ddf">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a730dec30049b33f125441127e1eee5f5">quantumGate.h</a>
 </li>
 <li>makeSwapOnQubit()
-: <a class="el" href="quantumGate_8h.html#af7165bd58b69a1f96d7f4fe576ef00f8">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a0177eb19f4a4be1e17a8f12406486e0e">quantumGate.h</a>
 </li>
 <li>makeToffoliOnQubit()
-: <a class="el" href="quantumGate_8h.html#ac2f4b1f33bba97103f1d69ed8bd2610a">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a5c31e941ca45d9b4d897edfea7af8b20">quantumGate.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>showDotProduct()
-: <a class="el" href="qubitOperation_8h.html#a17e3e6e87aa8e8e28855a8cfd4dc9f5b">qubitOperation.h</a>
+: <a class="el" href="qubitOperation_8h.html#a8c4120ffa09ffceb6e097b4458ec44d6">qubitOperation.h</a>
 </li>
 <li>showMatrix()
-: <a class="el" href="matrixOperation_8h.html#a3a6358adfe6e55a98bee0a4e7abb9891">matrixOperation.h</a>
-</li>
-<li>showMultidimensionalHadamardGate()
-: <a class="el" href="quantumGate_8h.html#a298daf61895c36fbf67bada05a4be140">quantumGate.h</a>
+: <a class="el" href="matrixOperation_8h.html#aaebbfb7cc6b6fb67fb3dc1f20cc61f78">matrixOperation.h</a>
 </li>
 <li>showPhaseShiftQuantumGate()
-: <a class="el" href="quantumGate_8h.html#afac3cdafabeb79406459577fa508545b">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#ae2cd350fd4cdd74877d783f414882822">quantumGate.h</a>
 </li>
 <li>showQuantumGate()
-: <a class="el" href="quantumGate_8h.html#ab0356fb51f588841d1c1e50d8d391edc">quantumGate.h</a>
+: <a class="el" href="quantumGate_8h.html#a8f2a2222ddc904b38298356b8aaa3622">quantumGate.h</a>
 </li>
 <li>showQubit()
-: <a class="el" href="qubitOperation_8h.html#ae6b799a866d6176c49c4128870ff9c36">qubitOperation.h</a>
-</li>
-<li>showQubitAfterConjugateTranspose()
-: <a class="el" href="qubitOperation_8h.html#adc3b4af8e21743e187de162a689bab66">qubitOperation.h</a>
+: <a class="el" href="qubitOperation_8h.html#a4df928570024300857ba07369ae86026">qubitOperation.h</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>
