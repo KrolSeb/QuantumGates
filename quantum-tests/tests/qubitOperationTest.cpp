@@ -9,7 +9,7 @@ using namespace quantum;
 
 const int qubitColumns = 1;
 
-complex<double> **prepareQubit(int numberOfQubits, double *probabilities) {
+vector2d prepareQubit(int numberOfQubits, double *probabilities) {
     int arraySize = pow(2, numberOfQubits);
     struct QuantumComputer quantumComputer = QuantumComputer(numberOfQubits, probabilities, arraySize);
 
@@ -21,11 +21,11 @@ TEST(qubitOperation, testCalculatingDotProductOfSingleQubit) {
     int qubitRows = pow(2, numberOfQubits);
     double probabilitiesOfQubit0[] = {1, 0};
 
-    complex<double> **singleQubit = prepareQubit(numberOfQubits, probabilitiesOfQubit0);
-    complex<double> **transposedAndConjugatedQubit = makeConjugateTranspose(singleQubit, SINGLE_QUBIT_NUMBER_OF_ROWS, QUBIT_NUMBER_OF_COLUMNS);
+    vector2d singleQubit = prepareQubit(numberOfQubits, probabilitiesOfQubit0);
+    vector2d transposedAndConjugatedQubit = makeConjugateTranspose(singleQubit);
 
-    complex<double> **dotProduct = makeDotProductOfQubits(transposedAndConjugatedQubit, singleQubit, SINGLE_QUBIT_NUMBER_OF_ROWS, QUBIT_NUMBER_OF_COLUMNS);
-    complex<double> expectedQubit[1][1] = {{1}};
+    vector2d dotProduct = makeDotProductOfQubits(transposedAndConjugatedQubit, singleQubit);
+    vector2d expectedQubit = {{1}};
 
     ASSERT_EQ(expectedQubit[0][0], dotProduct[0][0]);
 }
@@ -35,11 +35,11 @@ TEST(qubitOperation, testCalculatingDotProductOfTwoQubits) {
     int qubitRows = pow(2, numberOfQubits);
     double probabilitiesOfQubit00[] = {1, 0, 0, 0};
 
-    complex<double> **twoQubits = prepareQubit(numberOfQubits, probabilitiesOfQubit00);
-    complex<double> **transposedAndConjugatedQubit = makeConjugateTranspose(twoQubits, TWO_QUBITS_NUMBER_OF_ROWS, TWO_QUBITS_NUMBER_OF_ROWS);
+    vector2d twoQubits = prepareQubit(numberOfQubits, probabilitiesOfQubit00);
+    vector2d transposedAndConjugatedQubit = makeConjugateTranspose(twoQubits);
 
-    complex<double> **dotProduct = makeDotProductOfQubits(transposedAndConjugatedQubit, twoQubits, TWO_QUBITS_NUMBER_OF_ROWS, QUBIT_NUMBER_OF_COLUMNS);
-    complex<double> expectedQubit[1][1] = {{1}};
+    vector2d dotProduct = makeDotProductOfQubits(transposedAndConjugatedQubit, twoQubits);
+    vector2d expectedQubit = {{1}};
 
     ASSERT_EQ(expectedQubit[0][0], dotProduct[0][0]);
 }
@@ -49,11 +49,11 @@ TEST(qubitOperation, testCalculatingDotProductOfThreeQubits) {
     int qubitRows = pow(2, numberOfQubits);
     double probabilitiesOfQubit111[] = {0, 0, 0, 0, 0, 0, 0, 1};
 
-    complex<double> **threeQubits = prepareQubit(numberOfQubits, probabilitiesOfQubit111);
-    complex<double> **transposedAndConjugatedQubit = makeConjugateTranspose(threeQubits, THREE_QUBITS_NUMBER_OF_ROWS, THREE_QUBITS_NUMBER_OF_ROWS);
+    vector2d threeQubits = prepareQubit(numberOfQubits, probabilitiesOfQubit111);
+    vector2d transposedAndConjugatedQubit = makeConjugateTranspose(threeQubits);
 
-    complex<double> **dotProduct = makeDotProductOfQubits(transposedAndConjugatedQubit, threeQubits, THREE_QUBITS_NUMBER_OF_ROWS, QUBIT_NUMBER_OF_COLUMNS);
-    complex<double> expectedQubit[1][1] = {{1}};
+    vector2d dotProduct = makeDotProductOfQubits(transposedAndConjugatedQubit, threeQubits);
+    vector2d expectedQubit = {{1}};
 
     ASSERT_EQ(expectedQubit[0][0], dotProduct[0][0]);
 }

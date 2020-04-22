@@ -13,7 +13,7 @@ TEST(quantumComputer, isSumOfProbabilitiesAfterNormalizationEqualOne) {
 
     /// Definition of structure
     /// Method validateProbability() is launched and when (sum of probabilities are != 1)
-    /// normalizeRegister and resetState methods are executed (correction of probabilities)
+    /// normalizeRegister and resetState methods should executed (correction of probabilities)
     struct QuantumComputer quantumComputer = QuantumComputer(numberOfQubits, probabilities, arraySize);
 
     /// Show probabilities after normalization
