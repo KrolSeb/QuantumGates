@@ -1,23 +1,21 @@
 #include <iostream>
 #include <iomanip>
+#include <vector>
 #include "headers/matrixOperation.h"
 
-complex<double> **getAllocatedMatrix(int firstDimension, int secondDimension) {
-    if (secondDimension > firstDimension) {
-        swap(firstDimension, secondDimension);
+vector2d getPreparedContainerForHermitianMatrix(int dimension) {
+    vector2d vector;
+    vector.resize(dimension);
+    for (int i = 0; i < dimension; i++) {
+        vector[i].resize(dimension);
     }
 
-    complex<double> **matrix = new complex<double>*[firstDimension];
-    for (int i = 0; i < firstDimension; i++) {
-        matrix[i] = new complex<double>[secondDimension];
-    }
-
-    return matrix;
+    return vector;
 }
 
-complex<double> **getRandomHermitianMatrix(int dimension) {
+vector2d getRandomHermitianMatrix(int dimension) {
     complex<double> number;
-    complex<double> **outputMatrix = getAllocatedMatrix(dimension, dimension);
+    vector2d outputMatrix = getPreparedContainerForHermitianMatrix(dimension);
 
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {
@@ -33,12 +31,12 @@ complex<double> **getRandomHermitianMatrix(int dimension) {
     return outputMatrix;
 }
 
-complex<double> **makeConjugateTranspose(complex<double> **matrix, int rows, int columns) {
-    complex<double> **outputMatrix = getAllocatedMatrix(columns, rows);
+vector2d makeConjugateTranspose(vector2d matrix) {
+    vector2d outputMatrix(matrix[0].size(), vector<complex<double>>(matrix.size()));
 
-    for (int i = 0; i < columns; i++) {
-        for (int j = 0; j < rows; j++) {
-            outputMatrix[i][j] = conj(matrix[j][i]);
+    for (int i = 0; i < matrix.size(); i++) {
+        for (int j = 0; j < matrix[0].size(); j++) {
+            outputMatrix[j][i] = conj(matrix[i][j]);
         }
     }
 
@@ -62,12 +60,11 @@ void showSingleMatrixElement(complex<double> element) {
             cout << setw(4) << real(element) << imag(element) << "i" << setw(6);
         }
     }
-
 }
 
-void showMatrix(complex<double> **matrix, int dimension) {
-    for (int i = 0; i < dimension; i++) {
-        for (int j = 0; j < dimension; j++) {
+void showMatrix(vector2d matrix) {
+    for (int i = 0; i < matrix.size(); i++) {
+        for (int j = 0; j < matrix.size(); j++) {
             showSingleMatrixElement(matrix[i][j]);
         }
         cout << endl;

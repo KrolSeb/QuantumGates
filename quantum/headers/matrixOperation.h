@@ -3,30 +3,28 @@
 #include <complex>
 
 using namespace std;
+typedef vector<vector<complex<double>>> vector2d;
 
-/// Used to generate and get matrix for declared dimensions
-/// \param firstDimension int
-/// \param secondDimension int
+/// Used to generate and get matrix for declared dimension
+/// \param dimension int
 /// \return allocated matrix
-complex<double> **getAllocatedMatrix(int firstDimension, int secondDimension);
+vector2d getPreparedContainerForHermitianMatrix(int dimension);
 
 /// Used to get random hermitian matrix.\n
 /// Hermitian matrix - https://pl.wikipedia.org/wiki/Macierz_hermitowska
 /// \param dimension int
 /// \return allocated matrix
-complex<double> **getRandomHermitianMatrix(int dimension);
+vector2d getRandomHermitianMatrix(int dimension);
 
 /// Used to make conjugate transpose of matrix.\n
 /// Conjugate transpose - https://en.wikipedia.org/wiki/Conjugate_transpose#Example
 /// \param matrix complex<double>
-/// \param rows int
-/// \param columns int
 /// \return conjugate transposed matrix
-complex<double> **makeConjugateTranspose(complex<double> **matrix, int rows, int columns);
+vector2d makeConjugateTranspose(vector2d matrix);
 
 /// Used to show all elements of matrix
 /// \param matrix complex<double>
 /// \param dimension int
-void showMatrix(complex<double> **matrix, int dimension);
+void showMatrix(vector2d matrix);
 
 #endif
