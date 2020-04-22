@@ -1,0 +1,139 @@
+.TH "quantumGateOperation.h" 3 "Wed Apr 22 2020" "QuantumGates" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+quantumGateOperation.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <complex>\fP
+.br
+\fC#include <vector>\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef vector< vector< complex< double > > > \fBvector2d\fP"
+.br
+.RI "Used as alias for declaration of two dimensional vector\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvector2d\fP \fBcomposeQuantumGates\fP (\fBvector2d\fP firstGate, \fBvector2d\fP secondGate)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetIdentityMatrix\fP (int gateSize)"
+.br
+.ti -1c
+.RI "bool \fBisIdentityMatrixAndComposedGatesAreEqual\fP (\fBvector2d\fP identityMatrix, \fBvector2d\fP composedGates)"
+.br
+.ti -1c
+.RI "bool \fBisComposeOfGatesGivesIdentityMatrix\fP (\fBvector2d\fP firstGate, \fBvector2d\fP secondGate)"
+.br
+.ti -1c
+.RI "bool \fBisMatrixUnitary\fP (\fBvector2d\fP quantumGate, \fBvector2d\fP conjugateTransposedQuantumGate)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef vector<vector<complex<double> > > \fBvector2d\fP"
+
+.PP
+Used as alias for declaration of two dimensional vector\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBvector2d\fP composeQuantumGates (\fBvector2d\fP firstGate, \fBvector2d\fP secondGate)"
+Used to compose two quantum gates\&.
+.br
+Compose - multiplication of values from two matrices, at the same indexes 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfirstGate\fP vector2d 
+.br
+\fIsecondGate\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+composed quantum gates 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getIdentityMatrix (int gateSize)"
+Used to get identity matrix for defined size\&.
+.br
+Identity matrix - https://en.wikipedia.org/wiki/Identity_matrix 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgateSize\fP int 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+identity matrix 
+.RE
+.PP
+
+.SS "bool isComposeOfGatesGivesIdentityMatrix (\fBvector2d\fP firstGate, \fBvector2d\fP secondGate)"
+Used to check
+.br
+if composed gates gives identity matrix\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfirstGate\fP vector2d 
+.br
+\fIsecondGate\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true or false 
+.RE
+.PP
+
+.SS "bool isIdentityMatrixAndComposedGatesAreEqual (\fBvector2d\fP identityMatrix, \fBvector2d\fP composedGates)"
+Used to check
+.br
+if identity matrix are the same as composed gates\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIidentityMatrix\fP vector2d 
+.br
+\fIcomposedGates\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true or false 
+.RE
+.PP
+
+.SS "bool isMatrixUnitary (\fBvector2d\fP quantumGate, \fBvector2d\fP conjugateTransposedQuantumGate)"
+Used to check if matrix is unitary\&.
+.br
+Unitary matrix - https://en.wikipedia.org/wiki/Unitary_matrix 
+.PP
+\fBParameters\fP
+.RS 4
+\fIquantumGate\fP vector2d 
+.br
+\fIconjugateTransposedQuantumGate\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true or false 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for QuantumGates from the source code\&.

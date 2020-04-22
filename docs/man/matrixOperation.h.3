@@ -1,0 +1,103 @@
+.TH "matrixOperation.h" 3 "Wed Apr 22 2020" "QuantumGates" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+matrixOperation.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <complex>\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef vector< vector< complex< double > > > \fBvector2d\fP"
+.br
+.RI "Used as alias for declaration of two dimensional vector\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvector2d\fP \fBgetPreparedVectorForHermitianMatrix\fP (int dimension)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetRandomHermitianMatrix\fP (int dimension)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeConjugateTranspose\fP (\fBvector2d\fP matrix)"
+.br
+.ti -1c
+.RI "void \fBshowMatrix\fP (\fBvector2d\fP matrix)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef vector<vector<complex<double> > > \fBvector2d\fP"
+
+.PP
+Used as alias for declaration of two dimensional vector\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBvector2d\fP getPreparedVectorForHermitianMatrix (int dimension)"
+Used to get defined vector for declared dimension 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdimension\fP int 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+defined matrix as two dimensional vector 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getRandomHermitianMatrix (int dimension)"
+Used to get random hermitian matrix\&.
+.br
+Hermitian matrix - https://pl.wikipedia.org/wiki/Macierz_hermitowska 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdimension\fP int 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+hermitian matrix as two dimensional vector 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeConjugateTranspose (\fBvector2d\fP matrix)"
+Used to make conjugate transpose of matrix\&.
+.br
+Conjugate transpose - https://en.wikipedia.org/wiki/Conjugate_transpose#Example 
+.PP
+\fBParameters\fP
+.RS 4
+\fImatrix\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+conjugate transposed matrix as two dimensional vector 
+.RE
+.PP
+
+.SS "void showMatrix (\fBvector2d\fP matrix)"
+Used to show all elements of matrix 
+.PP
+\fBParameters\fP
+.RS 4
+\fImatrix\fP vector2d 
+.br
+\fIdimension\fP int 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for QuantumGates from the source code\&.

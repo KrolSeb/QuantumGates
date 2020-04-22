@@ -1,0 +1,155 @@
+.TH "quantum::QuantumComputer" 3 "Wed Apr 22 2020" "QuantumGates" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+quantum::QuantumComputer \- \fBQuantumComputer\fP structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <quantumComputer\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQuantumComputer\fP (int regSize, double probability[], int arrSize)"
+.br
+.ti -1c
+.RI "void \fBcountNonZeroBaseVector\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetState\fP ()"
+.br
+.ti -1c
+.RI "void \fBviewProbability\fP ()"
+.br
+.RI "Used to show probabilities of base vector\&. "
+.ti -1c
+.RI "void \fBviewQubitsInMathExpression\fP ()"
+.br
+.ti -1c
+.RI "void \fBvalidateProbability\fP ()"
+.br
+.ti -1c
+.RI "void \fBnormalizeRegister\fP ()"
+.br
+.RI "Used to normalize probabilities of base vector (register) "
+.ti -1c
+.RI "void \fBmeasure\fP ()"
+.br
+.RI "Used to measure probabilities of base vector (not implemented yet) "
+.ti -1c
+.RI "vector< double > \fBgetBaseVector\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBvalidateArraySize\fP (int arrSize, int regSize)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBregisterSize\fP"
+.br
+.ti -1c
+.RI "int \fBbaseVectorsCount\fP"
+.br
+.ti -1c
+.RI "bool \fBisNormalize\fP"
+.br
+.ti -1c
+.RI "bool \fBisMeasured\fP"
+.br
+.ti -1c
+.RI "vector< double > \fBbaseVector\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBQuantumComputer\fP structure\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "quantum::QuantumComputer::QuantumComputer (int regSize, double probability[], int arrSize)"
+\fBQuantumComputer\fP constructor 
+.PP
+\fBParameters\fP
+.RS 4
+\fIregisterSize\fP int 
+.br
+\fIprobabilities\fP double[] 
+.br
+\fIarraysize\fP int 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void quantum::QuantumComputer::countNonZeroBaseVector ()"
+Used to count elements of vector
+.br
+where element not equal zero 
+.SS "vector<double> quantum::QuantumComputer::getBaseVector ()"
+Used to get created base vector 
+.PP
+\fBReturns\fP
+.RS 4
+base vector 
+.RE
+.PP
+
+.SS "void quantum::QuantumComputer::measure ()"
+
+.PP
+Used to measure probabilities of base vector (not implemented yet) 
+.SS "void quantum::QuantumComputer::normalizeRegister ()"
+
+.PP
+Used to normalize probabilities of base vector (register) 
+.SS "void quantum::QuantumComputer::resetState ()"
+Used to reset state of base vector\&.
+.br
+First element of vector is set to one, other elements are set to 0\&. 
+.SS "static void quantum::QuantumComputer::validateArraySize (int arrSize, int regSize)\fC [static]\fP"
+Used to check register size and array size from input 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarraySize\fP int 
+.br
+\fIregisterSize\fP int 
+.RE
+.PP
+
+.SS "void quantum::QuantumComputer::validateProbability ()"
+Used to check probabilities of base vector\&.
+.br
+If sum of square probabilities is not equal one, \fBnormalizeRegister()\fP and \fBresetState()\fP is executed\&. 
+.SS "void quantum::QuantumComputer::viewProbability ()"
+
+.PP
+Used to show probabilities of base vector\&. 
+.SS "void quantum::QuantumComputer::viewQubitsInMathExpression ()"
+Used to show qubit as math expression
+.br
+eg\&. for qubit 0 - |0> 
+.SH "Member Data Documentation"
+.PP 
+.SS "vector<double> quantum::QuantumComputer::baseVector"
+
+.SS "int quantum::QuantumComputer::baseVectorsCount"
+
+.SS "bool quantum::QuantumComputer::isMeasured"
+
+.SS "bool quantum::QuantumComputer::isNormalize"
+
+.SS "int quantum::QuantumComputer::registerSize"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for QuantumGates from the source code\&.

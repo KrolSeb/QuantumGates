@@ -1,0 +1,169 @@
+.TH "qubitOperation.h" 3 "Wed Apr 22 2020" "QuantumGates" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+qubitOperation.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <complex>\fP
+.br
+\fC#include <vector>\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef vector< vector< complex< double > > > \fBvector2d\fP"
+.br
+.RI "Used as alias for declaration of two dimensional vector\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvector2d\fP \fBgetPreparedContainerForQubit\fP (int qubitRows)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeDotProductOfQubits\fP (\fBvector2d\fP firstQubit, \fBvector2d\fP secondQubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetQubitRepresentation\fP (vector< double > baseVector)"
+.br
+.ti -1c
+.RI "void \fBshowQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "void \fBshowDotProduct\fP (\fBvector2d\fP dotProduct)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const int \fBSINGLE_QUBIT_NUMBER_OF_ROWS\fP = 2"
+.br
+.ti -1c
+.RI "const int \fBTWO_QUBITS_NUMBER_OF_ROWS\fP = 4"
+.br
+.ti -1c
+.RI "const int \fBTHREE_QUBITS_NUMBER_OF_ROWS\fP = 8"
+.br
+.ti -1c
+.RI "const int \fBQUBIT_NUMBER_OF_COLUMNS\fP = 1"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef vector<vector<complex<double> > > \fBvector2d\fP"
+
+.PP
+Used as alias for declaration of two dimensional vector\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBvector2d\fP getPreparedContainerForQubit (int qubitRows)"
+Used to get defined qubit for declared dimension 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubitRows\fP int 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+allocated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getQubitRepresentation (vector< double > baseVector)"
+Used to get qubit as complex type 2D array 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbaseVector\fP vector<double> 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeDotProductOfQubits (\fBvector2d\fP firstQubit, \fBvector2d\fP secondQubit)"
+Used to make dot product of two qubits\&.
+.br
+Dot product - https://en.wikipedia.org/wiki/Dot_product#Algebraic_definition 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfirstQubit\fP vector2d 
+.br
+\fIsecondQubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+dot product of qubits 
+.RE
+.PP
+
+.SS "void showDotProduct (\fBvector2d\fP dotProduct)"
+Used to show dot product 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdotProduct\fP vector2d 
+.RE
+.PP
+
+.SS "void showQubit (\fBvector2d\fP qubit)"
+Used to show all elements of qubit (2D array) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "const int QUBIT_NUMBER_OF_COLUMNS = 1"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP constant qubit column 
+.RE
+.PP
+
+.SS "const int SINGLE_QUBIT_NUMBER_OF_ROWS = 2"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP constant single qubit rows 
+.RE
+.PP
+
+.SS "const int THREE_QUBITS_NUMBER_OF_ROWS = 8"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP constant three qubits rows 
+.RE
+.PP
+
+.SS "const int TWO_QUBITS_NUMBER_OF_ROWS = 4"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP constant two qubits rows 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for QuantumGates from the source code\&.

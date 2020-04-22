@@ -1,0 +1,482 @@
+.TH "quantumGate.h" 3 "Wed Apr 22 2020" "QuantumGates" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+quantumGate.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <complex>\fP
+.br
+\fC#include <vector>\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef vector< vector< complex< double > > > \fBvector2d\fP"
+.br
+.RI "Used as alias for declaration of two dimensional vector\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvector2d\fP \fBgetPreparedContainerForQuantumGate\fP (int dimension)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeNotOnQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeSqrtNotOnQubit\fP (\fBvector2d\fP)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeCnotOnQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeSwapOnQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeFredkinOnQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeToffoliOnQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeHadamardOnQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakeMultidimensionalHadamardOnQubit\fP (\fBvector2d\fP qubit, \fBvector2d\fP hadamardGate, int indexNumber)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakePhaseShiftOnQubit\fP (\fBvector2d\fP qubit, double angle)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakePauliXOnQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakePauliYOnQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBmakePauliZOnQubit\fP (\fBvector2d\fP qubit)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetNotGate\fP ()"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetSqrtNotGate\fP ()"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetCnotGate\fP ()"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetSwapGate\fP ()"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetFredkinGate\fP ()"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetToffoliGate\fP ()"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetHadamardGate\fP ()"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetMultidimensionalHadamardGate\fP (int indexNumber)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetPhaseShiftGate\fP (double angle)"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetPauliXGate\fP ()"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetPauliYGate\fP ()"
+.br
+.ti -1c
+.RI "\fBvector2d\fP \fBgetPauliZGate\fP ()"
+.br
+.ti -1c
+.RI "void \fBshowQuantumGate\fP (\fBvector2d\fP quantumGate)"
+.br
+.ti -1c
+.RI "void \fBshowPhaseShiftQuantumGate\fP (\fBvector2d\fP phaseShiftGate)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const int \fBONE_ARGUMENT_GATE_SIZE\fP = 2"
+.br
+.ti -1c
+.RI "const int \fBTWO_ARGUMENTS_GATE_SIZE\fP = 4"
+.br
+.ti -1c
+.RI "const int \fBTHREE_ARGUMENTS_GATE_SIZE\fP = 8"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef vector<vector<complex<double> > > \fBvector2d\fP"
+
+.PP
+Used as alias for declaration of two dimensional vector\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBvector2d\fP getCnotGate ()"
+Used to get CNOT quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+CNOT quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getFredkinGate ()"
+Used to get FREDKIN quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+FREDKIN quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getHadamardGate ()"
+Used to get HADAMARD quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+HADAMARD quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getMultidimensionalHadamardGate (int indexNumber)"
+Used to get multidimensional HADAMARD quantum gate 
+.PP
+\fBParameters\fP
+.RS 4
+\fIindexNumber\fP int 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+multidimensional HADAMARD quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getNotGate ()"
+Used to get NOT quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+NOT quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getPauliXGate ()"
+Used to get PAULI X quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+PAULI X quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getPauliYGate ()"
+Used to get PAULI Y quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+PAULI Y quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getPauliZGate ()"
+Used to get PAULI Z quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+PAULI Z quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getPhaseShiftGate (double angle)"
+Used to get PHASE SHIFT quantum gate 
+.PP
+\fBParameters\fP
+.RS 4
+\fIangle\fP double - angle as value eg\&. PI or -PI 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PHASE SHIFT quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getPreparedContainerForQuantumGate (int dimension)"
+Used to generate and get quantum gate for declared dimensions 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdimension\fP int 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getSqrtNotGate ()"
+Used to get SQRT(NOT) quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+SQRT(NOT) quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getSwapGate ()"
+Used to get SWAP quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+SWAP quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP getToffoliGate ()"
+Used to get TOFFOLI quantum gate 
+.PP
+\fBReturns\fP
+.RS 4
+TOFFOLI quantum gate 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeCnotOnQubit (\fBvector2d\fP qubit)"
+Used to make CNOT quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeFredkinOnQubit (\fBvector2d\fP qubit)"
+Used to make FREDKIN quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeHadamardOnQubit (\fBvector2d\fP qubit)"
+Used to make HADAMARD quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeMultidimensionalHadamardOnQubit (\fBvector2d\fP qubit, \fBvector2d\fP hadamardGate, int indexNumber)"
+Used to make multidimensional HADAMARD quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.br
+\fIhadamardGate\fP vector2d 
+.br
+\fIindexNumber\fP int 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeNotOnQubit (\fBvector2d\fP qubit)"
+Used to make NOT quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makePauliXOnQubit (\fBvector2d\fP qubit)"
+Used to make PAULI X quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makePauliYOnQubit (\fBvector2d\fP qubit)"
+Used to make PAULI Y quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makePauliZOnQubit (\fBvector2d\fP qubit)"
+Used to make PAULI Z quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makePhaseShiftOnQubit (\fBvector2d\fP qubit, double angle)"
+Used to make PHASE SHIFT quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.br
+\fIangle\fP double - angle as value eg\&. PI or -PI 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeSqrtNotOnQubit (\fBvector2d\fP)"
+Used to make SQRT(NOT) quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeSwapOnQubit (\fBvector2d\fP qubit)"
+Used to make SWAP quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "\fBvector2d\fP makeToffoliOnQubit (\fBvector2d\fP qubit)"
+Used to make TOFFOLI quantum gate on qubit 
+.PP
+\fBParameters\fP
+.RS 4
+\fIqubit\fP vector2d 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+updated qubit 
+.RE
+.PP
+
+.SS "void showPhaseShiftQuantumGate (\fBvector2d\fP phaseShiftGate)"
+Used to show all elements of PHASE SHIFT quantum gate 
+.PP
+\fBParameters\fP
+.RS 4
+\fIphaseShiftGate\fP vector2d 
+.br
+\fIgateSize\fP const int 
+.RE
+.PP
+
+.SS "void showQuantumGate (\fBvector2d\fP quantumGate)"
+Used to show all elements of quantum gate 
+.PP
+\fBParameters\fP
+.RS 4
+\fIquantumGate\fP vector2d 
+.br
+\fIgateSize\fP const int 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "const int ONE_ARGUMENT_GATE_SIZE = 2"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP size of one argument quantum gates 
+.RE
+.PP
+
+.SS "const int THREE_ARGUMENTS_GATE_SIZE = 8"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP size of three argument quantum gates 
+.RE
+.PP
+
+.SS "const int TWO_ARGUMENTS_GATE_SIZE = 4"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP size of two argument quantum gates 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for QuantumGates from the source code\&.
