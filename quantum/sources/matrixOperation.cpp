@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include "headers/matrixOperation.h"
+#include "../headers/matrixOperation.h"
 
 vector2d getPreparedVectorForHermitianMatrix(int dimension) {
     vector2d vector;

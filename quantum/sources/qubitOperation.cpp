@@ -1,6 +1,6 @@
 #include <iostream>
-#include "headers/qubitOperation.h"
-#include "headers/matrixOperation.h"
+#include "../headers/qubitOperation.h"
+#include "../headers/matrixOperation.h"
 
 vector2d getPreparedContainerForQubit(int qubitRows) {
     vector2d vector;

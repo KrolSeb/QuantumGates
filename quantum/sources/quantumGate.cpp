@@ -1,6 +1,6 @@
 #include <iostream>
-#include "headers/quantumGate.h"
-#include "headers/qubitOperation.h"
+#include "../headers/quantumGate.h"
+#include "../headers/qubitOperation.h"
 
 /// @param - NOT quantum gate matrix representation
 const vector2d NOT_QUANTUM_GATE = {{0, 1},

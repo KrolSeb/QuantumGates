@@ -1,0 +1,22 @@
+Wymaganie: w systemie musi być zainstalowane gcc bądź inny kompilator c++
+Uwaga dla Windows - jeśli zainstalowany jest kompilator np. MinGW, to dodatkowo należy
+dodać ścieżkę dla niego w zmiennych środowiskowych - aby móc korzystać z kompilatora w konsoli.
+Jak dodać kompilator do zmiennych środowiskowych?: https://stackoverflow.com/questions/35833343/compiling-c-in-cmd-using-mingw-on-windows-8
+
+Wchodzimy z konsoli do katalogu QuantumGates
+cd QuantumGates
+
+Program można uruchomić i skompilować na dwa sposoby.
+Pierwsze polecenie dotyczy linuxa, drugie (w nawiasie) Windowsa
+
+Sposób 1:
+Kompilacja
+	g++ -o main quantum/sources/*.cpp main.cpp
+Uruchomimenie
+	./main (main lub main.exe)
+
+Sposób 2
+Kompilacja
+	g++ quantum/sources/*.cpp main.cpp
+Uruchomienie
+	./a.out (pod Windowsem a.out nie zadziałał, trzeba wpisać a.exe)

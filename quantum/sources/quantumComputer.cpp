@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
-#include "headers/quantumComputer.h"
+#include "../headers/quantumComputer.h"
 
 quantum::QuantumComputer::QuantumComputer(int regSize, double probability[], int arrSize) {
     this->registerSize = regSize;

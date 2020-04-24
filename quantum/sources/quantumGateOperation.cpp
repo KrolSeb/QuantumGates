@@ -1,5 +1,5 @@
 #include <complex>
-#include "headers/quantumGate.h"
+#include "../headers/quantumGate.h"
 
 vector2d composeQuantumGates(vector2d firstGate, vector2d secondGate) {
     vector2d outputGate = getPreparedContainerForQuantumGate(firstGate.size());
