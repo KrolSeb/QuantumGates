@@ -26,8 +26,8 @@ void generateHermitianMatrix(int dimension) {
 vector2d generateQubit(int numberOfQubits, double *probabilities) {
     int arraySize = pow(2, numberOfQubits);
     struct QuantumComputer quantumComputer = QuantumComputer(numberOfQubits, probabilities, arraySize);
-    quantumComputer.viewProbability();
-    quantumComputer.viewQubitsInMathExpression();
+    quantumComputer.viewProbabilityForBaseVector();
+    quantumComputer.viewQubitsInDiracNotation();
 
     return getQubitRepresentation(quantumComputer.getBaseVector());
 }

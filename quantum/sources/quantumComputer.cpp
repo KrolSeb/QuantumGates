@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <string>
 #include "headers/quantumComputer.h"
 
-quantum::QuantumComputer::QuantumComputer(int regSize, double probability[], int arrSize) {
+quantum::QuantumComputer::QuantumComputer(int regSize, double probabilities[], int arrSize) {
     this->registerSize = regSize;
     this->baseVectorsCount = 0;
     this->isNormalize = false;
@@ -12,7 +13,7 @@ quantum::QuantumComputer::QuantumComputer(int regSize, double probability[], int
     validateArraySize(arrSize, regSize);
 
     for (int i = 0; i < arrSize; i++) {
-        baseVector.push_back(probability[i]);
+        baseVector.push_back(probabilities[i]);
     }
 
     validateProbability();
@@ -35,12 +36,20 @@ void quantum::QuantumComputer::resetState() {
     this->baseVector.at(0) = 1;
 }
 
-void quantum::QuantumComputer::viewProbability() {
+void quantum::QuantumComputer::viewProbabilityForBaseVector() {
     std::cout << "Vector with probabilities {";
+    for (auto x: this->baseVector) {
+        printf("[%.4f]", pow(fabs(x), 2));
+    }
+    std::cout << "}\n";
+}
+
+void quantum::QuantumComputer::viewValuesInBaseVector() {
+    std::cout << "\nVector with values {";
     for (auto x: this->baseVector) {
         printf("[%.4f]", x);
     }
-    std::cout << "}";
+    std::cout << "}\n";
 }
 
 /// Helper function used to convert integer to binary
@@ -55,7 +64,7 @@ int integerToBinary(int num) {
     return (num % 2) + 10 * integerToBinary(num / 2);
 }
 
-void quantum::QuantumComputer::viewQubitsInMathExpression() {
+void quantum::QuantumComputer::viewQubitsInDiracNotation() {
     if (!this->isNormalize) {
         std::cout << "Base Vector is not in normalize state. To view qubit you should normalize it before.  Use .normalize() function for that" << std::endl;
     }
@@ -100,12 +109,13 @@ void quantum::QuantumComputer::viewQubitsInMathExpression() {
 
 void quantum::QuantumComputer::validateArraySize(int arrSize, int regSize) {
     if (regSize < 1) {
-        printf("\n[ERROR] Register size cannot be less than 1");
+        printf("\n[ERROR] Register size cannot be less than 1\n");
         exit(1);
     }
 
     if (arrSize != pow(2, regSize)) {
-        printf("\n[ERROR] Invalid Register arr with []Probability");
+        printf("[ERROR]\n");
+        printf("Failed to initialize the register of qubits, check the size of the base vector and the number of elements in the array\n");
         exit(1);
     }
 }
@@ -118,7 +128,7 @@ void quantum::QuantumComputer::validateProbability() {
 
     if (result != 1.0) {
         printf("\n[ERROR] Probability should be equal 1, normalize register function is executed...\n");
-        viewProbability();
+        viewProbabilityForBaseVector();
         normalizeRegister();
         resetState();
     }
@@ -154,6 +164,72 @@ void quantum::QuantumComputer::QuantumComputer::measure() {
     std::cout << "[Here will be function to measure register!]" << std::endl;
 
     this->isMeasured = true;
+}
+
+void quantum::QuantumComputer::extendRegister(int resizeAmount) {
+    if (this->registerSize >= resizeAmount) {
+        std::cout << "You can only resize your register, not decrease" << std::endl;
+        return;
+    }
+
+    int sizeOfBaseVector = (int) this->baseVector.size();
+
+    int elementsToAdd = resizeAmount - this->registerSize;
+    if (elementsToAdd < 0) {
+        std::cout << "Number of Qubits to add must be positive" << std::endl;
+        return;
+    }
+
+    for (int i = pow(2, this->registerSize); i < pow(2, resizeAmount); i++) {
+        this->baseVector.push_back(0);
+    }
+
+    this->registerSize = resizeAmount;
+
+    std::cout << "Register resized correctly" << std::endl;
+    std::cout << "Number of qubits in register: " << resizeAmount << std::endl;
+}
+
+void quantum::QuantumComputer::setValueInRegister(int arrayIndex, double value) {
+    if (arrayIndex < 0) {
+        std::cout << "Index of value must be positive" << std::endl;
+    }
+
+    int sizeOfBaseVector = (int) this->baseVector.size();
+
+    if (arrayIndex >= sizeOfBaseVector) {
+        std::cout << "Index of value must be the number between " << 0 << sizeOfBaseVector - 1 << std::endl;
+    }
+
+    double oldValue = this->baseVector[arrayIndex];
+    double &element = this->baseVector[arrayIndex];
+
+    element = value;
+    std::cout << "Value from index \"" << arrayIndex << "\" changed from \"" << oldValue << "\" to \"" << element
+              << "\"" << std::endl;
+
+    this->validateProbability();
+}
+
+inline const char *boolToString(bool b) {
+    return b ? "true" : "false";
+}
+
+void quantum::QuantumComputer::displayInfo() {
+    std::cout << "*****" << std::endl;
+    std::cout << "Information about state" << std::endl;
+    std::cout << "Current register size(qubits): " << this->registerSize << std::endl;
+    std::cout << "Register is normalized: " << boolToString(this->isNormalize) << std::endl;
+    std::cout << "Register is measured: " << boolToString(this->isMeasured) << std::endl;
+    std::cout << "Size of baseVector: " << this->baseVector.size() << std::endl;
+    std::cout << "Values in baseVector array: " << std::endl;
+
+    int i = 0;
+    for (auto x: this->baseVector) {
+        printf("  index [%d] value [%.4f] \n",i, x);
+        i++;
+    }
+    std::cout << "*****" << std::endl;
 }
 
 std::vector<double> quantum::QuantumComputer::QuantumComputer::getBaseVector() {

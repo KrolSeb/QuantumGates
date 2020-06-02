@@ -17,7 +17,7 @@ TEST(quantumComputer, isSumOfProbabilitiesAfterNormalizationEqualOne) {
     struct QuantumComputer quantumComputer = QuantumComputer(numberOfQubits, probabilities, arraySize);
 
     /// Show probabilities after normalization
-    quantumComputer.viewProbability();
+    quantumComputer.viewProbabilityForBaseVector();
 
     /// Sum of probabilities after correction (it should be 1)
     double result = 0.0;
