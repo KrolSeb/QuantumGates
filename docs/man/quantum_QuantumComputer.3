@@ -1,4 +1,4 @@
-.TH "quantum::QuantumComputer" 3 "Wed Apr 22 2020" "QuantumGates" \" -*- nroff -*-
+.TH "quantum::QuantumComputer" 3 "Tue Jun 2 2020" "QuantumGates" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,7 +13,7 @@ quantum::QuantumComputer \- \fBQuantumComputer\fP structure\&.
 
 .in +1c
 .ti -1c
-.RI "\fBQuantumComputer\fP (int regSize, double probability[], int arrSize)"
+.RI "\fBQuantumComputer\fP (int regSize, double probabilities[], int arrSize)"
 .br
 .ti -1c
 .RI "void \fBcountNonZeroBaseVector\fP ()"
@@ -22,11 +22,15 @@ quantum::QuantumComputer \- \fBQuantumComputer\fP structure\&.
 .RI "void \fBresetState\fP ()"
 .br
 .ti -1c
-.RI "void \fBviewProbability\fP ()"
+.RI "void \fBviewProbabilityForBaseVector\fP ()"
 .br
 .RI "Used to show probabilities of base vector\&. "
 .ti -1c
-.RI "void \fBviewQubitsInMathExpression\fP ()"
+.RI "void \fBviewValuesInBaseVector\fP ()"
+.br
+.RI "Used to show values in base vector\&. "
+.ti -1c
+.RI "void \fBviewQubitsInDiracNotation\fP ()"
 .br
 .ti -1c
 .RI "void \fBvalidateProbability\fP ()"
@@ -39,6 +43,18 @@ quantum::QuantumComputer \- \fBQuantumComputer\fP structure\&.
 .RI "void \fBmeasure\fP ()"
 .br
 .RI "Used to measure probabilities of base vector (not implemented yet) "
+.ti -1c
+.RI "void \fBextendRegister\fP (int size)"
+.br
+.RI "Used to extend register by defined number of qubits(size) "
+.ti -1c
+.RI "void \fBsetValueInRegister\fP (int arrayIndex, double value)"
+.br
+.RI "Used to replace value in existing register\&. "
+.ti -1c
+.RI "void \fBdisplayInfo\fP ()"
+.br
+.RI "Used to display all information about qubit\&. "
 .ti -1c
 .RI "vector< double > \fBgetBaseVector\fP ()"
 .br
@@ -74,7 +90,7 @@ quantum::QuantumComputer \- \fBQuantumComputer\fP structure\&.
 \fBQuantumComputer\fP structure\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "quantum::QuantumComputer::QuantumComputer (int regSize, double probability[], int arrSize)"
+.SS "quantum::QuantumComputer::QuantumComputer (int regSize, double probabilities[], int arrSize)"
 \fBQuantumComputer\fP constructor 
 .PP
 \fBParameters\fP
@@ -93,6 +109,14 @@ quantum::QuantumComputer \- \fBQuantumComputer\fP structure\&.
 Used to count elements of vector
 .br
 where element not equal zero 
+.SS "void quantum::QuantumComputer::displayInfo ()"
+
+.PP
+Used to display all information about qubit\&. 
+.SS "void quantum::QuantumComputer::extendRegister (int size)"
+
+.PP
+Used to extend register by defined number of qubits(size) 
 .SS "vector<double> quantum::QuantumComputer::getBaseVector ()"
 Used to get created base vector 
 .PP
@@ -111,9 +135,13 @@ Used to measure probabilities of base vector (not implemented yet)
 .PP
 Used to normalize probabilities of base vector (register) 
 .SS "void quantum::QuantumComputer::resetState ()"
-Used to reset state of base vector\&.
+Used to reset state of base vector
 .br
-First element of vector is set to one, other elements are set to 0\&. 
+First element of vector is set to one, other elements are set to 0 
+.SS "void quantum::QuantumComputer::setValueInRegister (int arrayIndex, double value)"
+
+.PP
+Used to replace value in existing register\&. 
 .SS "static void quantum::QuantumComputer::validateArraySize (int arrSize, int regSize)\fC [static]\fP"
 Used to check register size and array size from input 
 .PP
@@ -126,17 +154,21 @@ Used to check register size and array size from input
 .PP
 
 .SS "void quantum::QuantumComputer::validateProbability ()"
-Used to check probabilities of base vector\&.
+Used to check probabilities of base vector
 .br
-If sum of square probabilities is not equal one, \fBnormalizeRegister()\fP and \fBresetState()\fP is executed\&. 
-.SS "void quantum::QuantumComputer::viewProbability ()"
+If sum of square probabilities is not equal one, \fBnormalizeRegister()\fP and \fBresetState()\fP is executed 
+.SS "void quantum::QuantumComputer::viewProbabilityForBaseVector ()"
 
 .PP
 Used to show probabilities of base vector\&. 
-.SS "void quantum::QuantumComputer::viewQubitsInMathExpression ()"
-Used to show qubit as math expression
+.SS "void quantum::QuantumComputer::viewQubitsInDiracNotation ()"
+Used to show qubit/s in Dirac notation
 .br
 eg\&. for qubit 0 - |0> 
+.SS "void quantum::QuantumComputer::viewValuesInBaseVector ()"
+
+.PP
+Used to show values in base vector\&. 
 .SH "Member Data Documentation"
 .PP 
 .SS "vector<double> quantum::QuantumComputer::baseVector"
