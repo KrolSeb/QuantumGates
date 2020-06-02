@@ -1,22 +1,4 @@
 var searchData=
 [
-  ['getbasevector_4',['getBaseVector',['../structquantum_1_1QuantumComputer.html#adda7447ef3bb8751acaa12098a7e8fec',1,'quantum::QuantumComputer']]],
-  ['getcnotgate_5',['getCnotGate',['../quantumGate_8h.html#a4d4ac9097b53193296c5acf2b2590331',1,'quantumGate.h']]],
-  ['getfredkingate_6',['getFredkinGate',['../quantumGate_8h.html#a8f784f0f764a5f11381da80b04f6fb6c',1,'quantumGate.h']]],
-  ['gethadamardgate_7',['getHadamardGate',['../quantumGate_8h.html#a1474bcfb7891ddc835652dec9b32e857',1,'quantumGate.h']]],
-  ['getidentitymatrix_8',['getIdentityMatrix',['../quantumGateOperation_8h.html#aca9164f4d7abbba8718af892c67cf631',1,'quantumGateOperation.h']]],
-  ['getmultidimensionalhadamardgate_9',['getMultidimensionalHadamardGate',['../quantumGate_8h.html#a9ee552b4c3276960abbbcc2e734959d6',1,'quantumGate.h']]],
-  ['getnotgate_10',['getNotGate',['../quantumGate_8h.html#a8952f848f0325a998e230fd00c8dd1c1',1,'quantumGate.h']]],
-  ['getpaulixgate_11',['getPauliXGate',['../quantumGate_8h.html#af06f4b139819f693a35e4ca2a0ae61cf',1,'quantumGate.h']]],
-  ['getpauliygate_12',['getPauliYGate',['../quantumGate_8h.html#af73ccab9d85fbaf053ebc96231aefd66',1,'quantumGate.h']]],
-  ['getpaulizgate_13',['getPauliZGate',['../quantumGate_8h.html#a3a7861f35b429d42141c7ec386edad84',1,'quantumGate.h']]],
-  ['getphaseshiftgate_14',['getPhaseShiftGate',['../quantumGate_8h.html#a9d55192403ec598f7360168afefc5c97',1,'quantumGate.h']]],
-  ['getpreparedcontainerforquantumgate_15',['getPreparedContainerForQuantumGate',['../quantumGate_8h.html#a8b26e086edd7d217d91c2010d3a9df7a',1,'quantumGate.h']]],
-  ['getpreparedcontainerforqubit_16',['getPreparedContainerForQubit',['../qubitOperation_8h.html#a2e2a84b3c222bfc80ec0531a652a942b',1,'qubitOperation.h']]],
-  ['getpreparedvectorforhermitianmatrix_17',['getPreparedVectorForHermitianMatrix',['../matrixOperation_8h.html#adfcb7ecd16cb4072e1f4f440b7d1a416',1,'matrixOperation.h']]],
-  ['getqubitrepresentation_18',['getQubitRepresentation',['../qubitOperation_8h.html#a611446f35ba7a38e343fc050efa18788',1,'qubitOperation.h']]],
-  ['getrandomhermitianmatrix_19',['getRandomHermitianMatrix',['../matrixOperation_8h.html#ab2d6b097fc959b3bdb4e649c1884b9b4',1,'matrixOperation.h']]],
-  ['getsqrtnotgate_20',['getSqrtNotGate',['../quantumGate_8h.html#a338265be78e4473e1b7e991c48d3928a',1,'quantumGate.h']]],
-  ['getswapgate_21',['getSwapGate',['../quantumGate_8h.html#a08bc2bf8ce5fe0939ba23e06f86d0aae',1,'quantumGate.h']]],
-  ['gettoffoligate_22',['getToffoliGate',['../quantumGate_8h.html#a964e48c98f3ff75bca2bb5feb10cd5de',1,'quantumGate.h']]]
+  ['displayinfo_4',['displayInfo',['../structquantum_1_1QuantumComputer.html#a78d8fd5270b21bf41913cfed12d46f21',1,'quantum::QuantumComputer']]]
 ];

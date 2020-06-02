@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['registersize_53',['registerSize',['../structquantum_1_1QuantumComputer.html#aaad932e9c8b4e8629acc58846129ab72',1,'quantum::QuantumComputer']]],
-  ['resetstate_54',['resetState',['../structquantum_1_1QuantumComputer.html#a7e80b5cff850971341146d1dc0aba9f5',1,'quantum::QuantumComputer']]]
+  ['one_5fargument_5fgate_5fsize_47',['ONE_ARGUMENT_GATE_SIZE',['../quantumGate_8h.html#a815a3b7cd0b199be435182e80cd0b3d8',1,'quantumGate.h']]]
 ];
