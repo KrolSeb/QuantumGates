@@ -28,7 +28,7 @@ vector2d makeDotProductOfQubits(vector2d transposedAndConjugatedQubit, vector2d 
     complex<double> sum = complex<double>(0, 0);
     for (int i = 0; i < qubit.size(); i++) {
         for (int j = 0; j < qubit[i].size(); j++) {
-            sum += qubit.at(i).at(j) * transposedAndConjugatedQubit.at(j).at(i);
+            sum += transposedAndConjugatedQubit.at(j).at(i) * qubit.at(i).at(j);
         }
     }
     dotProduct[0][0] = sum;
