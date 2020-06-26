@@ -22,13 +22,13 @@ vector2d getPreparedContainerForDotProduct() {
     return vector;
 }
 
-vector2d makeDotProductOfQubits(vector2d firstQubit, vector2d secondQubit) {
+vector2d makeDotProductOfQubits(vector2d transposedAndConjugatedQubit, vector2d qubit) {
     vector2d dotProduct = getPreparedContainerForDotProduct();
 
     complex<double> sum = complex<double>(0, 0);
-    for (int i = 0; i < firstQubit.size(); i++) {
-        for (int j = 0; j < firstQubit[i].size(); j++) {
-           sum += firstQubit[i][j] * secondQubit[j][i];
+    for (int i = 0; i < qubit.size(); i++) {
+        for (int j = 0; j < qubit[i].size(); j++) {
+            sum += qubit.at(i).at(j) * transposedAndConjugatedQubit.at(j).at(i);
         }
     }
     dotProduct[0][0] = sum;
@@ -84,8 +84,8 @@ void showSingleQubitElement(complex<double> element) {
 }
 
 void showQubit(vector2d qubit) {
-    for(int i = 0; i < qubit.size(); i++) {
-        for(int j = 0; j < qubit[i].size(); j++) {
+    for (int i = 0; i < qubit.size(); i++) {
+        for (int j = 0; j < qubit[i].size(); j++) {
             showSingleQubitElement(qubit[i][j]);
         }
         cout << endl;

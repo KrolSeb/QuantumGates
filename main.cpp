@@ -231,6 +231,23 @@ void performDotProductOfQubits(int numberOfQubits, double *probabilities) {
     showDotProduct(dotProduct);
 }
 
+void performDotProductOfQubitsAfterHadamardGate(int numberOfQubits, double *probabilities) {
+    vector2d qubit = generateQubit(numberOfQubits, probabilities);
+    cout << "Original qubit: " << endl;
+    showQubit(qubit);
+
+    vector2d qubitAfterHadamard = makeHadamardOnQubit(qubit);
+    showQubit(qubitAfterHadamard);
+
+    cout << "Qubit after transposition and conjugation: " << endl;
+    vector2d transposedAndConjugatedQubit = makeConjugateTranspose(qubitAfterHadamard);
+    showQubit(transposedAndConjugatedQubit);
+
+    cout << "Dot product of two qubits: " << endl;
+    vector2d dotProduct = makeDotProductOfQubits(transposedAndConjugatedQubit, qubitAfterHadamard);
+    showDotProduct(dotProduct);
+}
+
 void performCheckIsMatrixUnitary(vector2d firstGate, vector2d secondGate) {
     if (isMatrixUnitary(firstGate, secondGate)) {
         cout << "Matrix is UNITARY" << endl;
@@ -325,6 +342,10 @@ int main() {
     /// Performing dot product of qubits
     numberOfQubits = 2;
     performDotProductOfQubits(numberOfQubits, probabilitiesOfQubits00);
+
+    /// Performing dot product of qubits after Hadamard gate
+    numberOfQubits = 1;
+    performDotProductOfQubitsAfterHadamardGate(numberOfQubits, probabilitiesOfQubit0);
 
     /// Performing matrix unitary state check
     vector2d notGate = getNotGate();
